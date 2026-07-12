@@ -1,0 +1,655 @@
+<title>Reason Check — a 10-minute reasoning check-up</title>
+<style>
+  :root {
+    --bg: #f4f6f1;
+    --surface: #ffffff;
+    --surface2: #eef1ea;
+    --ink: #22302a;
+    --muted: #5d6a61;
+    --line: #d9dfd5;
+    --accent: #2e6b4f;
+    --accent-soft: #e2ede6;
+    --good: #2e6b4f;
+    --good-bg: #e2ede6;
+    --bad: #a3512e;
+    --bad-bg: #f3e4dc;
+    --part: #8a6d1d;
+    --part-bg: #f1ead3;
+    --shadow: 0 1px 2px rgba(34, 48, 42, 0.06), 0 8px 24px rgba(34, 48, 42, 0.07);
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #161c18;
+      --surface: #1e2620;
+      --surface2: #232c26;
+      --ink: #e6ece6;
+      --muted: #9cab9f;
+      --line: #35403779;
+      --accent: #82c4a1;
+      --accent-soft: #24352c;
+      --good: #82c4a1;
+      --good-bg: #24352c;
+      --bad: #e09a72;
+      --bad-bg: #3a2b21;
+      --part: #d3b268;
+      --part-bg: #37301d;
+      --shadow: 0 1px 2px rgba(0, 0, 0, 0.3), 0 8px 24px rgba(0, 0, 0, 0.35);
+    }
+  }
+  :root[data-theme="dark"] {
+    --bg: #161c18;
+    --surface: #1e2620;
+    --surface2: #232c26;
+    --ink: #e6ece6;
+    --muted: #9cab9f;
+    --line: #35403779;
+    --accent: #82c4a1;
+    --accent-soft: #24352c;
+    --good: #82c4a1;
+    --good-bg: #24352c;
+    --bad: #e09a72;
+    --bad-bg: #3a2b21;
+    --part: #d3b268;
+    --part-bg: #37301d;
+    --shadow: 0 1px 2px rgba(0, 0, 0, 0.3), 0 8px 24px rgba(0, 0, 0, 0.35);
+  }
+  :root[data-theme="light"] {
+    --bg: #f4f6f1;
+    --surface: #ffffff;
+    --surface2: #eef1ea;
+    --ink: #22302a;
+    --muted: #5d6a61;
+    --line: #d9dfd5;
+    --accent: #2e6b4f;
+    --accent-soft: #e2ede6;
+    --good: #2e6b4f;
+    --good-bg: #e2ede6;
+    --bad: #a3512e;
+    --bad-bg: #f3e4dc;
+    --part: #8a6d1d;
+    --part-bg: #f1ead3;
+    --shadow: 0 1px 2px rgba(34, 48, 42, 0.06), 0 8px 24px rgba(34, 48, 42, 0.07);
+  }
+
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; }
+  body {
+    background: var(--bg);
+    color: var(--ink);
+    font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    line-height: 1.55;
+    -webkit-font-smoothing: antialiased;
+  }
+  .serif { font-family: "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, "Times New Roman", serif; }
+  .mono {
+    font-family: ui-monospace, "Cascadia Mono", Consolas, "SF Mono", Menlo, monospace;
+    font-size: 0.78rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+
+  .wrap { max-width: 44rem; margin: 0 auto; padding: 1.25rem 1.25rem 5rem; }
+
+  header.site {
+    display: flex; align-items: baseline; justify-content: space-between;
+    padding: 1rem 0 0.75rem; border-bottom: 1px solid var(--line); margin-bottom: 2rem;
+  }
+  .brand { font-weight: 700; font-size: 1.02rem; letter-spacing: -0.01em; }
+  .brand em {
+    font-style: normal; color: var(--accent);
+  }
+  .site .mono { color: var(--muted); }
+
+  h1, h2, h3 { text-wrap: balance; line-height: 1.15; margin: 0; }
+
+  /* ---------- Landing ---------- */
+  .eyebrow { color: var(--accent); margin-bottom: 0.9rem; }
+  .landing h1 {
+    font-size: clamp(2.1rem, 6vw, 3.1rem);
+    font-weight: 500;
+    letter-spacing: -0.015em;
+    margin-bottom: 1.1rem;
+  }
+  .lede { font-size: 1.12rem; color: var(--ink); max-width: 38rem; margin: 0 0 2rem; }
+  .lede .q { color: var(--muted); }
+
+  .isnt { display: grid; gap: 0.65rem; margin: 0 0 2.2rem; padding: 0; list-style: none; }
+  .isnt li { display: flex; gap: 0.7rem; align-items: baseline; color: var(--muted); max-width: 38rem; }
+  .isnt li strong { color: var(--ink); font-weight: 600; }
+  .isnt li::before { content: "—"; color: var(--accent); flex: none; }
+
+  .start-row { display: flex; align-items: center; gap: 1.1rem; flex-wrap: wrap; }
+  .meta { color: var(--muted); font-size: 0.92rem; }
+
+  button {
+    font: inherit; cursor: pointer; border: none; color: inherit; background: none;
+  }
+  button:focus-visible, a:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; border-radius: 4px; }
+
+  .btn-primary {
+    background: var(--accent);
+    color: var(--bg);
+    font-weight: 650;
+    font-size: 1.02rem;
+    padding: 0.8rem 1.6rem;
+    border-radius: 999px;
+    transition: transform 0.12s ease, filter 0.12s ease;
+  }
+  .btn-primary:hover { filter: brightness(1.08); }
+  .btn-primary:active { transform: scale(0.98); }
+
+  .btn-ghost {
+    color: var(--accent); font-weight: 600; padding: 0.7rem 1.2rem;
+    border: 1px solid var(--line); border-radius: 999px;
+  }
+  .btn-ghost:hover { background: var(--surface2); }
+
+  /* ---------- Quiz ---------- */
+  .progress-row {
+    display: flex; justify-content: space-between; align-items: baseline;
+    color: var(--muted); margin-bottom: 0.5rem;
+  }
+  .bar { height: 3px; background: var(--line); border-radius: 2px; overflow: hidden; margin-bottom: 2rem; }
+  .bar > div { height: 100%; background: var(--accent); width: 0%; transition: width 0.35s ease; }
+
+  .vignette {
+    background: var(--surface);
+    border: 1px solid var(--line);
+    border-radius: 10px;
+    padding: 1.3rem 1.4rem 1.35rem;
+    box-shadow: var(--shadow);
+    margin-bottom: 1.6rem;
+  }
+  .vignette .context { color: var(--accent); display: block; margin-bottom: 0.75rem; }
+  .vignette p { margin: 0 0 0.75rem; }
+  .vignette p:last-child { margin-bottom: 0; }
+  .vignette .said {
+    font-family: "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, serif;
+    font-size: 1.13rem; font-style: italic;
+  }
+
+  .question { font-weight: 650; font-size: 1.08rem; margin: 0 0 1rem; }
+
+  .options { display: grid; gap: 0.6rem; margin-bottom: 1.5rem; }
+  .opt {
+    text-align: left;
+    background: var(--surface);
+    border: 1px solid var(--line);
+    border-radius: 10px;
+    padding: 0.85rem 1.05rem;
+    line-height: 1.45;
+    transition: border-color 0.12s ease, background 0.12s ease;
+  }
+  .opt:hover:not(:disabled) { border-color: var(--accent); background: var(--accent-soft); }
+  .opt:disabled { cursor: default; }
+  .opt.dim:disabled { opacity: 0.55; }
+  .opt.is-best { border-color: var(--good); background: var(--good-bg); }
+  .opt.picked-bad { border-color: var(--bad); background: var(--bad-bg); }
+  .opt.picked-part { border-color: var(--part); background: var(--part-bg); }
+  .opt .tag { display: block; margin-top: 0.4rem; font-weight: 700; font-size: 0.78rem; letter-spacing: 0.06em; text-transform: uppercase; }
+  .opt.is-best .tag { color: var(--good); }
+  .opt.picked-bad .tag { color: var(--bad); }
+  .opt.picked-part .tag { color: var(--part); }
+
+  .rate-hint { color: var(--muted); font-size: 0.92rem; margin: -0.4rem 0 1rem; }
+  .stmt {
+    background: var(--surface); border: 1px solid var(--line); border-radius: 10px;
+    padding: 0.95rem 1.1rem 1rem;
+  }
+  .stmt > p { margin: 0 0 0.75rem; line-height: 1.45; }
+  .scale-row { display: flex; align-items: center; gap: 0.65rem; flex-wrap: wrap; }
+  .scale-row .end { font-size: 0.76rem; color: var(--muted); letter-spacing: 0.03em; }
+  .scale { display: flex; gap: 0.45rem; }
+  .scale button {
+    width: 2rem; height: 2rem; border-radius: 50%;
+    border: 1.5px solid var(--line); background: var(--surface2);
+    transition: border-color 0.12s ease, background 0.12s ease, transform 0.12s ease;
+  }
+  .scale button:hover:not(:disabled) { border-color: var(--accent); transform: scale(1.08); }
+  .scale button[aria-pressed="true"] { background: var(--accent); border-color: var(--accent); }
+  .scale button:disabled { cursor: default; }
+  .stmt .chip {
+    display: inline-block; margin-top: 0.7rem; font-weight: 700; font-size: 0.72rem;
+    letter-spacing: 0.07em; text-transform: uppercase; padding: 0.2rem 0.6rem; border-radius: 999px;
+  }
+  .chip.good { color: var(--good); background: var(--good-bg); }
+  .chip.bad { color: var(--bad); background: var(--bad-bg); }
+  .chip.part { color: var(--part); background: var(--part-bg); }
+  .stmt.locked-ok { border-color: var(--good); }
+  .stmt.locked-miss { border-color: var(--bad); }
+  .stmt.locked-meh { border-color: var(--part); }
+  .lock-row { display: flex; justify-content: flex-end; margin: 1.1rem 0 1.6rem; }
+
+  .explain {
+    border-top: 2px solid var(--accent);
+    background: var(--surface);
+    border-radius: 0 0 10px 10px;
+    box-shadow: var(--shadow);
+    padding: 1.3rem 1.4rem 1.4rem;
+    animation: rise 0.3s ease;
+  }
+  @keyframes rise { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: none; } }
+  @media (prefers-reduced-motion: reduce) {
+    .explain { animation: none; }
+    .bar > div { transition: none; }
+  }
+  .verdict { font-weight: 750; font-size: 1.05rem; margin: 0 0 1rem; }
+  .verdict.v2 { color: var(--good); }
+  .verdict.v1 { color: var(--part); }
+  .verdict.v0 { color: var(--bad); }
+  .explain h4 { margin: 1.05rem 0 0.3rem; font-size: 0.82rem; letter-spacing: 0.07em; text-transform: uppercase; color: var(--muted); font-weight: 700; }
+  .explain h4:first-of-type { margin-top: 0; }
+  .explain p { margin: 0 0 0.4rem; }
+  .rule {
+    font-family: ui-monospace, "Cascadia Mono", Consolas, "SF Mono", Menlo, monospace;
+    font-size: 0.88rem;
+    background: var(--surface2);
+    border: 1px dashed var(--line);
+    border-radius: 8px;
+    padding: 0.75rem 0.9rem;
+    margin-top: 0.35rem;
+  }
+  .explain .next-row { display: flex; justify-content: flex-end; margin-top: 1.3rem; }
+
+  /* ---------- Results ---------- */
+  .results .eyebrow { margin-bottom: 0.6rem; }
+  .score-line { display: flex; align-items: baseline; gap: 1rem; flex-wrap: wrap; margin-bottom: 0.5rem; }
+  .results h1 { font-size: clamp(1.8rem, 5vw, 2.6rem); font-weight: 500; letter-spacing: -0.01em; }
+  .big-score {
+    font-family: ui-monospace, "Cascadia Mono", Consolas, Menlo, monospace;
+    font-variant-numeric: tabular-nums;
+    font-size: 1.3rem; color: var(--muted);
+  }
+  .overall-copy { font-size: 1.08rem; max-width: 38rem; margin: 0.6rem 0 2.4rem; }
+
+  .fam-grid { display: grid; gap: 1rem; margin-bottom: 2.4rem; }
+  .fam {
+    background: var(--surface); border: 1px solid var(--line); border-radius: 10px;
+    padding: 1.15rem 1.3rem 1.25rem; box-shadow: var(--shadow);
+  }
+  .fam-head { display: flex; justify-content: space-between; align-items: baseline; gap: 1rem; flex-wrap: wrap; margin-bottom: 0.55rem; }
+  .fam-head h3 { font-size: 1.12rem; font-weight: 650; }
+  .pill {
+    font-size: 0.74rem; font-weight: 700; letter-spacing: 0.07em; text-transform: uppercase;
+    padding: 0.22rem 0.6rem; border-radius: 999px; white-space: nowrap;
+  }
+  .pill.hi { color: var(--good); background: var(--good-bg); }
+  .pill.mid { color: var(--part); background: var(--part-bg); }
+  .pill.lo { color: var(--bad); background: var(--bad-bg); }
+  .meter { height: 5px; border-radius: 3px; background: var(--surface2); overflow: hidden; margin: 0.5rem 0 0.9rem; }
+  .meter > div { height: 100%; border-radius: 3px; }
+  .meter.hi > div { background: var(--good); }
+  .meter.mid > div { background: var(--part); }
+  .meter.lo > div { background: var(--bad); }
+  .fam p { margin: 0 0 0.55rem; color: var(--ink); }
+  .fam .study { color: var(--muted); font-size: 0.94rem; margin-bottom: 0.75rem; }
+  .fam .study strong { color: var(--ink); font-weight: 600; }
+  .fam .rule { margin-top: 0.2rem; }
+
+  .fairness, .fineprint {
+    max-width: 38rem; color: var(--muted); font-size: 0.95rem; margin: 0 0 1.1rem;
+  }
+  .fairness strong, .fineprint strong { color: var(--ink); }
+  .end-row { display: flex; gap: 0.9rem; margin-top: 1.8rem; flex-wrap: wrap; }
+
+  .hidden { display: none; }
+</style>
+
+<div class="wrap">
+  <header class="site">
+    <div class="brand serif">Reason<em>&#8202;Check</em></div>
+    <div class="mono">a check-up for everyday reasoning</div>
+  </header>
+
+  <!-- ============ LANDING ============ -->
+  <main id="screen-landing" class="landing">
+    <div class="eyebrow mono">A ten-minute check-up</div>
+    <h1 class="serif">Twelve everyday scenarios. What would you conclude?</h1>
+    <p class="lede">
+      A chart at a family dinner. A headline in your group chat. A pile of five-star testimonials.
+      Each scenario asks the same quiet question: <span class="q">what does this evidence actually
+      support?</span> You&rsquo;ll see a few possible readings of each situation &mdash; rate how much you
+      agree with each one, then see how your reasoning holds up, one scenario at a time.
+    </p>
+    <ul class="isnt">
+      <li><span><strong>Not an IQ test.</strong> It looks at reasoning habits, not intelligence &mdash; and habits, unlike IQ, are very learnable.</span></li>
+      <li><span><strong>Not about your politics.</strong> The scenarios draw from all directions. Careful reasoning isn&rsquo;t a team.</span></li>
+      <li><span><strong>Nothing stored.</strong> Everything runs in your browser. No sign-up, no tracking, and your answers vanish when you close the tab.</span></li>
+    </ul>
+    <div class="start-row">
+      <button class="btn-primary" id="btn-start">Start the check-up</button>
+      <span class="meta">12 scenarios &middot; ~10 minutes &middot; you learn as you go</span>
+    </div>
+  </main>
+
+  <!-- ============ QUIZ ============ -->
+  <main id="screen-quiz" class="hidden">
+    <div class="progress-row">
+      <span class="mono" id="progress-label">Scenario 1 of 12</span>
+      <span class="mono" id="family-hint"></span>
+    </div>
+    <div class="bar"><div id="progress-fill"></div></div>
+
+    <div class="vignette">
+      <span class="context mono" id="v-context"></span>
+      <div id="v-body"></div>
+    </div>
+
+    <p class="question" id="v-question"></p>
+    <p class="rate-hint">Rate how much you agree with each reading. They&rsquo;re independent &mdash; more than one can have something to it.</p>
+    <div class="options" id="options"></div>
+    <div class="lock-row"><button class="btn-primary" id="btn-lock" disabled>Lock in my ratings</button></div>
+
+    <div class="explain hidden" id="explain" role="status">
+      <p class="verdict" id="ex-verdict"></p>
+      <h4>Why it&rsquo;s tempting</h4>
+      <p id="ex-trap"></p>
+      <h4>The clean read</h4>
+      <p id="ex-clean"></p>
+      <h4>Rule of thumb</h4>
+      <p class="rule" id="ex-rule"></p>
+      <div class="next-row"><button class="btn-primary" id="btn-next">Next scenario</button></div>
+    </div>
+  </main>
+
+  <!-- ============ RESULTS ============ -->
+  <main id="screen-results" class="results hidden">
+    <div class="eyebrow mono">Your reasoning profile</div>
+    <div class="score-line">
+      <h1 class="serif" id="r-title"></h1>
+      <span class="big-score" id="r-score"></span>
+    </div>
+    <p class="overall-copy" id="r-copy"></p>
+
+    <div class="fam-grid" id="fam-grid"></div>
+
+    <p class="fairness"><strong>A note on fairness.</strong> These scenarios deliberately include claims that
+      flatter different worldviews &mdash; natural-living ones and institution-distrusting ones alike. The reasoning
+      patterns are the same underneath; only the packaging changes. The habits that serve you here serve you everywhere.</p>
+    <p class="fineprint"><strong>A snapshot, not a diagnosis.</strong> Twelve scenarios can point at your blind
+      spots, not measure them precisely. The concepts above are all learnable in an afternoon each &mdash; and once
+      a pattern has a name, it&rsquo;s far easier to catch. Come back in a month and see.</p>
+
+    <div class="end-row">
+      <button class="btn-primary" id="btn-retake">Take it again</button>
+      <button class="btn-ghost" id="btn-copy">Copy my results</button>
+    </div>
+  </main>
+</div>
+
+<script>
+"use strict";
+
+/* ================= DATA ================= */
+
+const FAMILIES = {
+  causation: {
+    name: "Correlation & Causation",
+    concepts: "confounding (the hidden third factor) · reverse causation · why controlled comparisons exist",
+    rule: "When two things rise together, ask what else rose too — and whether the arrow points the other way.",
+    hi: "You kept correlation and causation cleanly apart — the single most protective reasoning habit tested here.",
+    mid: "You spotted the pattern sometimes, but a well-timed chart can still sell you a cause that isn't there.",
+    lo: "Two rising lines on a chart are currently persuasive to you. This is the most exploited pattern on the internet — and the most learnable."
+  },
+  posthoc: {
+    name: "Before & After",
+    concepts: "post hoc reasoning · regression to the mean · coincidence at scale",
+    rule: "Before crediting the remedy, ask how many people saw the same “after” without the “because.”",
+    hi: "“I did X, then Y happened” didn't move you without a comparison. That habit alone defeats most miracle cures.",
+    mid: "Personal before-and-after stories still pull you in sometimes — especially when the timing is tight.",
+    lo: "Before-and-after stories are landing as proof for you. This is the oldest persuasion machine there is, and it has a simple antidote."
+  },
+  baserates: {
+    name: "Base Rates & Denominators",
+    concepts: "base rates · denominator neglect · comparing rates, not counts",
+    rule: "Always ask: out of how many? Compare rates per group, never raw counts or vivid events.",
+    hi: "You asked “out of how many?” before reacting to counts and percentages. Most viral statistics dissolve under exactly that question.",
+    mid: "Sometimes a striking count or percentage got past you before you found its denominator.",
+    lo: "Numbers without denominators are currently convincing to you — and they're the favorite raw material of misleading posts."
+  },
+  anecdotes: {
+    name: "Anecdotes & Samples",
+    concepts: "survivorship bias · selection effects · sample size",
+    rule: "Ask what happened to everyone you're not hearing from.",
+    hi: "You noticed that stories arrive pre-filtered: survivors talk, the disappointed stay silent. That instinct protects you from testimonial floods.",
+    mid: "Vivid stories and testimonials sometimes outweighed the invisible people who had a different experience.",
+    lo: "Stories are beating statistics for you right now. Stories are how humans think — but they're also the cheapest thing to fake at scale."
+  },
+  numbers: {
+    name: "Misleading Numbers",
+    concepts: "relative vs. absolute risk · cherry-picked timeframes · reading axes and windows",
+    rule: "“X% more” — of what? Get the absolute numbers, and zoom out past the chosen window.",
+    hi: "You translated scary relative numbers into absolute ones and zoomed out of convenient windows. Headlines have little power over you.",
+    mid: "A big percentage or a well-cropped chart sometimes set your sense of scale before you checked it.",
+    lo: "Right now, whoever picks the percentage or the chart window picks your conclusion. Two questions will fix that."
+  },
+  echo: {
+    name: "Echo Chambers & Chosen Experts",
+    concepts: "availability cascades · cherry-picked experts vs. field consensus · how feeds select for alarm",
+    rule: "Seeing it everywhere means it spreads well — not that it's true. Ask what the whole field, or the actual data, says.",
+    hi: "You treated repetition and camera-ready credentials as what they are: manufactured signals. That's the core defense against echo chambers.",
+    mid: "When a claim came repeated, or wearing a lab coat, it sometimes got extra credit it hadn't earned.",
+    lo: "Repetition and credentials are currently working on you as evidence. They're the two easiest things to manufacture online."
+  }
+};
+
+const SCENARIOS = __SCENARIOS__;
+
+const OVERALL = [
+  { min: 85, title: "Clear-eyed", copy: "You consistently drew the conclusions the evidence actually supports — including in scenarios built to flatter what you might already believe. The profile below shows the few places your reasoning wobbled. Worth knowing: people who reason this cleanly are most often caught by overconfidence, on claims from their own side. That's the frontier." },
+  { min: 65, title: "Sharp, with catchable blind spots", copy: "You reason more cleanly than most of the internet on most days — and a few specific patterns still slip through, which is exactly what this check-up is for. The profile below names them. Each one is learnable in an afternoon, and once a pattern has a name, it rarely fools the same person twice." },
+  { min: 45, title: "Solidly human", copy: "These scenarios read differently to you than the evidence supports about as often as they do for everyone — they lean on shortcuts wired into all human minds, which is precisely why misleading claims built on them spread so well. The good news is disproportionate: the handful of habits named below (ask “out of how many?”, ask “what else rose too?”, ask “who am I not hearing from?”) block most of what the internet will throw at you." },
+  { min: 0,  title: "A fresh starting point", copy: "Most scenarios read differently to you than the evidence supports — which mostly means you answered honestly instead of hunting for the “test answer.” Here's the encouraging part: every pattern below now has a name, and named patterns are far easier to catch. Pick the two habits that come up most, practice them for a month, and retake this." }
+];
+
+/* ================= STATE & LOGIC ================= */
+
+const $ = (id) => document.getElementById(id);
+const screens = { landing: $("screen-landing"), quiz: $("screen-quiz"), results: $("screen-results") };
+
+let order = [];      // scenarios with shuffled statements
+let idx = 0;
+let answers = [];    // { family, clean, flawed, over } — each a rating 0–4
+let ratings = [];    // current scenario's ratings, parallel to its statements
+
+function shuffle(arr) {
+  const a = arr.slice();
+  for (let i = a.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [a[i], a[j]] = [a[j], a[i]];
+  }
+  return a;
+}
+
+function show(name) {
+  Object.values(screens).forEach((s) => s.classList.add("hidden"));
+  screens[name].classList.remove("hidden");
+  window.scrollTo({ top: 0 });
+}
+
+function start() {
+  // Draw 2 scenarios per family at random, so retakes get fresh material.
+  const byFam = {};
+  shuffle(SCENARIOS).forEach((s) => { (byFam[s.family] = byFam[s.family] || []).push(s); });
+  const picked = Object.keys(byFam).reduce((acc, k) => acc.concat(byFam[k].slice(0, 2)), []);
+  order = shuffle(picked).map((s) => ({ ...s, stmts: shuffle(s.statements) }));
+  idx = 0;
+  answers = [];
+  show("quiz");
+  render();
+}
+
+function render() {
+  const s = order[idx];
+  ratings = s.stmts.map(() => null);
+  $("progress-label").textContent = "Scenario " + (idx + 1) + " of " + order.length;
+  $("family-hint").textContent = "";
+  $("progress-fill").style.width = ((idx) / order.length * 100) + "%";
+  $("v-context").textContent = s.context;
+  $("v-body").innerHTML = s.body.map((p) =>
+    '<p class="' + (p.startsWith("“") ? "said" : "") + '">' + p + "</p>"
+  ).join("");
+  $("v-question").textContent = s.question;
+  $("explain").classList.add("hidden");
+  $("btn-lock").disabled = true;
+  $("btn-lock").parentElement.classList.remove("hidden");
+
+  const box = $("options");
+  box.innerHTML = "";
+  s.stmts.forEach((stmt, si) => {
+    const card = document.createElement("div");
+    card.className = "stmt";
+    card.innerHTML = "<p>" + stmt.t + "</p>";
+    const row = document.createElement("div");
+    row.className = "scale-row";
+    row.insertAdjacentHTML("beforeend", '<span class="end">Disagree</span>');
+    const scale = document.createElement("div");
+    scale.className = "scale";
+    for (let v = 0; v <= 4; v++) {
+      const b = document.createElement("button");
+      b.type = "button";
+      b.setAttribute("aria-pressed", "false");
+      b.setAttribute("aria-label", "Agreement " + (v + 1) + " of 5");
+      b.addEventListener("click", () => {
+        if (b.disabled) return;
+        ratings[si] = v;
+        Array.from(scale.children).forEach((x, xi) => x.setAttribute("aria-pressed", xi === v ? "true" : "false"));
+        $("btn-lock").disabled = ratings.some((r) => r === null);
+      });
+      scale.appendChild(b);
+    }
+    row.appendChild(scale);
+    row.insertAdjacentHTML("beforeend", '<span class="end">Agree</span>');
+    card.appendChild(row);
+    box.appendChild(card);
+  });
+}
+
+function lockIn() {
+  const s = order[idx];
+  const byRole = {};
+  s.stmts.forEach((stmt, si) => { byRole[stmt.role] = ratings[si]; });
+  answers.push({ family: s.family, clean: byRole.clean, flawed: byRole.flawed, over: byRole.over });
+
+  const cards = Array.from($("options").children);
+  s.stmts.forEach((stmt, si) => {
+    const role = stmt.role;
+    const r = ratings[si];
+    // Alignment: did their rating point the right way for this statement?
+    const align = role === "clean" ? (r >= 3 ? "ok" : r <= 1 ? "miss" : "meh")
+                                   : (r <= 1 ? "ok" : r >= 3 ? "miss" : "meh");
+    const texts = {
+      clean:  { ok: "Holds up — and you agreed", miss: "Holds up — but you rejected it", meh: "Holds up — you sat on the fence" },
+      flawed: { ok: "Doesn&rsquo;t hold up — you spotted it", miss: "Doesn&rsquo;t hold up — but it convinced you", meh: "Doesn&rsquo;t hold up — you sat on the fence" },
+      over:   { ok: "Overshoots — you didn&rsquo;t follow it", miss: "Overshoots — and it pulled you along", meh: "Overshoots — you sat on the fence" }
+    };
+    const cls = align === "ok" ? "good" : align === "miss" ? "bad" : "part";
+    cards[si].classList.add("locked-" + align);
+    cards[si].insertAdjacentHTML("beforeend", '<span class="chip ' + cls + '">' + texts[role][align] + "</span>");
+    cards[si].querySelectorAll(".scale button").forEach((b) => { b.disabled = true; });
+  });
+  $("btn-lock").parentElement.classList.add("hidden");
+
+  const lean = byRole.clean - byRole.flawed;
+  const v = $("ex-verdict");
+  if (lean >= 3) { v.textContent = "Clean read — you clearly favored the reading the evidence supports."; v.className = "verdict v2"; }
+  else if (lean > 0) { v.textContent = "Right lean — you favored the sound reading, though the flawed one kept some pull."; v.className = "verdict v2"; }
+  else if (lean === 0) { v.textContent = "Torn — you gave the sound reading and the flawed one equal weight."; v.className = "verdict v1"; }
+  else { v.textContent = "The intuitive reading won this one — the statement you agreed with more doesn't hold up."; v.className = "verdict v0"; }
+
+  $("ex-trap").innerHTML = s.explain.tempting;
+  $("ex-clean").innerHTML = s.explain.clean;
+  $("ex-rule").textContent = s.explain.rule;
+  $("btn-next").textContent = idx === order.length - 1 ? "See my profile" : "Next scenario";
+  $("explain").classList.remove("hidden");
+  $("progress-fill").style.width = ((idx + 1) / order.length * 100) + "%";
+  $("explain").scrollIntoView({ behavior: "smooth", block: "nearest" });
+}
+
+/* Discernment per scenario: how far agreement with the sound reading
+   exceeded agreement with the flawed one, scaled to 0–1. */
+function discernment(a) { return (a.clean - a.flawed + 4) / 8; }
+
+function famScores() {
+  const sums = {}, counts = {}, pct = {};
+  Object.keys(FAMILIES).forEach((k) => { sums[k] = 0; counts[k] = 0; });
+  answers.forEach((a) => { sums[a.family] += discernment(a); counts[a.family]++; });
+  Object.keys(FAMILIES).forEach((k) => { pct[k] = counts[k] ? Math.round(sums[k] / counts[k] * 100) : 0; });
+  return pct;
+}
+
+function overallScore() {
+  return Math.round(answers.reduce((s, a) => s + discernment(a), 0) / answers.length * 100);
+}
+
+function next() {
+  if (idx < order.length - 1) { idx++; render(); }
+  else results();
+}
+
+function results() {
+  const pct = famScores();
+  const score = overallScore();
+
+  const band = OVERALL.find((b) => score >= b.min);
+  $("r-title").textContent = band.title;
+  $("r-score").textContent = score + " / 100";
+
+  // Miss pattern: over-believing flawed readings vs. blanket-doubting sound ones.
+  const mean = (f) => answers.reduce((s, a) => s + a[f], 0) / answers.length;
+  const credulity = mean("flawed") / 4;
+  const cynicism = (mean("over") + (4 - mean("clean"))) / 8;
+  let style;
+  if (score >= 90) style = "Too few misses to show a pattern — your calibration is doing fine.";
+  else if (credulity > 0.55 && cynicism > 0.55) style = "You swing between over-believing and over-doubting depending on the topic — which usually means the deciding factor is how a claim feels, not what supports it. The habits below give you something steadier.";
+  else if (credulity > 0.55) style = "Your misses lean toward giving flawed readings the benefit of the doubt. One habit fixes most of it: before agreeing, ask what the claim's strongest competing explanation would be.";
+  else if (cynicism > 0.55) style = "Your misses lean toward doubting too broadly — rejecting sound readings along with flawed ones. Blanket doubt feels rigorous, but it filters out true things too. The skill to practice is doubting selectively.";
+  else style = "Your misses don't come from a general habit of over-believing or blanket doubt — they're specific to the areas below, which makes them easy to target.";
+  $("r-copy").innerHTML = band.copy + "<br><br><strong>Your miss pattern:</strong> " + style;
+
+  const grid = $("fam-grid");
+  grid.innerHTML = "";
+  // Weakest families first — that's what the reader needs to see.
+  const famKeys = Object.keys(FAMILIES).sort((a, b) => pct[a] - pct[b]);
+  famKeys.forEach((k) => {
+    const f = FAMILIES[k];
+    const p = pct[k];
+    const level = p >= 75 ? "hi" : p >= 50 ? "mid" : "lo";
+    const pillText = level === "hi" ? "Sharp here" : level === "mid" ? "Mostly solid" : "Blind spot";
+    const blurb = level === "hi" ? f.hi : level === "mid" ? f.mid : f.lo;
+    const div = document.createElement("div");
+    div.className = "fam";
+    div.innerHTML =
+      '<div class="fam-head"><h3>' + f.name + '</h3><span class="pill ' + level + '">' + pillText + " · " + p + "%</span></div>" +
+      '<div class="meter ' + level + '"><div style="width:' + p + '%"></div></div>' +
+      "<p>" + blurb + "</p>" +
+      '<p class="study"><strong>Study:</strong> ' + f.concepts + "</p>" +
+      '<p class="rule">' + f.rule + "</p>";
+    grid.appendChild(div);
+  });
+
+  show("results");
+}
+
+function copyResults() {
+  const pct = famScores();
+  const lines = ["Reason Check — my reasoning profile: " + overallScore() + "/100"];
+  Object.keys(FAMILIES).forEach((k) => {
+    lines.push("• " + FAMILIES[k].name + ": " + pct[k] + "%");
+  });
+  lines.push("What would you have concluded?");
+  navigator.clipboard.writeText(lines.join("\n")).then(() => {
+    $("btn-copy").textContent = "Copied!";
+    setTimeout(() => ($("btn-copy").textContent = "Copy my results"), 1600);
+  }).catch(() => {
+    $("btn-copy").textContent = "Couldn't copy";
+    setTimeout(() => ($("btn-copy").textContent = "Copy my results"), 1600);
+  });
+}
+
+$("btn-start").addEventListener("click", start);
+$("btn-lock").addEventListener("click", lockIn);
+$("btn-next").addEventListener("click", next);
+$("btn-retake").addEventListener("click", start);
+$("btn-copy").addEventListener("click", copyResults);
+</script>
