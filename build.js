@@ -73,11 +73,29 @@ const fonts =
   '<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>\n' +
   '<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,500..800;1,9..144,500..800&family=Libre+Franklin:wght@400;600;700;800&display=swap" rel="stylesheet">\n';
 
+const SITE_URL = "https://markusostarek.github.io/Reasoning/";
+
+// Hoist the template's <title> into <head> for the deployed page.
+const titleMatch = body.match(/^<title>.*?<\/title>\s*/);
+const title = titleMatch ? titleMatch[0].trim() : "<title>Reason Check</title>";
+const pageBody = titleMatch ? body.slice(titleMatch[0].length) : body;
+
+const meta =
+  title + "\n" +
+  '<meta name="description" content="Twelve everyday scenarios — a chart at a family dinner, a viral post, a pile of reviews. Rate what the evidence supports and get a profile of your reasoning blind spots. Free, private, ten minutes.">\n' +
+  '<link rel="canonical" href="' + SITE_URL + '">\n' +
+  '<meta property="og:title" content="Reason Check — what would you conclude?">\n' +
+  '<meta property="og:description" content="Twelve everyday scenarios. Rate what the evidence supports, find your reasoning blind spots. Plus a scenario of the day.">\n' +
+  '<meta property="og:url" content="' + SITE_URL + '">\n' +
+  '<meta property="og:type" content="website">\n' +
+  '<meta name="theme-color" content="#1b2440">\n' +
+  '<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🧭</text></svg>">\n';
+
 const page =
   '<!doctype html>\n<html lang="en">\n<head>\n<meta charset="utf-8">\n' +
   '<meta name="viewport" content="width=device-width, initial-scale=1">\n' +
-  fonts +
-  "</head>\n<body>\n" + body + "\n</body>\n</html>\n";
+  meta + fonts +
+  "</head>\n<body>\n" + pageBody + "\n</body>\n</html>\n";
 
 fs.writeFileSync(path.join(ROOT, "index.html"), page, "utf8");
 fs.writeFileSync(path.join(ROOT, "preview.html"), body, "utf8");

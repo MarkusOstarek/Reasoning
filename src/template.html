@@ -292,7 +292,19 @@
     background: transparent;
   }
   .rule::before { content: "☞ "; color: var(--accent); }
-  .explain .next-row { display: flex; justify-content: flex-end; margin-top: 1.4rem; }
+  .explain .next-row { display: flex; justify-content: space-between; align-items: center; gap: 1rem; flex-wrap: wrap; margin-top: 1.4rem; }
+  .report {
+    color: var(--muted); font-size: 0.85rem; text-decoration: none;
+    border-bottom: 1px dashed var(--muted);
+  }
+  .report:hover { color: var(--accent); border-bottom-color: var(--accent); }
+
+  .foot {
+    margin-top: 4rem; padding-top: 1.1rem;
+    border-top: 1.5px solid var(--line);
+    color: var(--muted); font-size: 0.9rem; max-width: 38rem;
+  }
+  .foot a { color: var(--accent); }
 
   /* ---------- Results ---------- */
   .results .eyebrow { margin-bottom: 1rem; }
@@ -396,7 +408,10 @@
       <p id="ex-clean"></p>
       <h4>Rule of thumb</h4>
       <p class="rule" id="ex-rule"></p>
-      <div class="next-row"><button class="btn-primary" id="btn-next">Next scenario</button></div>
+      <div class="next-row">
+        <a class="report" id="ex-report" href="#" target="_blank" rel="noopener">Dispute this scenario</a>
+        <button class="btn-primary" id="btn-next">Next scenario</button>
+      </div>
     </div>
   </main>
 
@@ -430,6 +445,13 @@
       <button class="btn-ghost" id="btn-copy">Copy my results</button>
     </div>
   </main>
+
+  <footer class="foot">
+    Open notebook: the full scenario bank, the scoring, and the topic-balance audit are
+    <a href="https://github.com/MarkusOstarek/Reasoning" target="_blank" rel="noopener">public on GitHub</a>.
+    Think a verdict is wrong? Good &mdash; that&rsquo;s the spirit.
+    <a href="https://github.com/MarkusOstarek/Reasoning/issues" target="_blank" rel="noopener">Dispute it</a>.
+  </footer>
 </div>
 
 <script>
@@ -532,8 +554,12 @@ function bumpStreak() {
 }
 
 function dailyScenario() {
-  const day = Math.floor(Date.now() / 86400000); // UTC day number: same scenario for everyone
-  return SCENARIOS[day % SCENARIOS.length];
+  // Deterministic shuffled cycle: everyone gets the same scenario on a given
+  // UTC day, in an order that mixes families instead of following the file.
+  const rank = (id) => { let h = 0; for (let i = 0; i < id.length; i++) h = (h * 31 + id.charCodeAt(i)) % 9973; return h; };
+  const sorted = SCENARIOS.slice().sort((a, b) => rank(a.id) - rank(b.id) || (a.id < b.id ? -1 : 1));
+  const day = Math.floor(Date.now() / 86400000); // UTC day number
+  return sorted[day % sorted.length];
 }
 
 function startDaily() {
@@ -689,6 +715,9 @@ function lockIn() {
   $("ex-trap").innerHTML = s.explain.tempting;
   $("ex-clean").innerHTML = s.explain.clean;
   $("ex-rule").textContent = s.explain.rule;
+  $("ex-report").href = "https://github.com/MarkusOstarek/Reasoning/issues/new?title="
+    + encodeURIComponent("Scenario dispute: " + s.id)
+    + "&body=" + encodeURIComponent("Scenario: " + s.id + "\n\nWhat's wrong or ambiguous about it:\n");
   $("btn-next").textContent = idx === order.length - 1 ? "See my profile" : "Next scenario";
   $("explain").classList.remove("hidden");
   $("progress-fill").style.width = ((idx + 1) / order.length * 100) + "%";
