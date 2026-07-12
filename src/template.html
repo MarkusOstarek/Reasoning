@@ -1,216 +1,251 @@
 <title>Reason Check — a 10-minute reasoning check-up</title>
 <style>
   :root {
-    --bg: #f4f6f1;
-    --surface: #ffffff;
-    --surface2: #eef1ea;
-    --ink: #22302a;
-    --muted: #5d6a61;
-    --line: #d9dfd5;
-    --accent: #2e6b4f;
-    --accent-soft: #e2ede6;
-    --good: #2e6b4f;
-    --good-bg: #e2ede6;
-    --bad: #a3512e;
-    --bad-bg: #f3e4dc;
-    --part: #8a6d1d;
-    --part-bg: #f1ead3;
-    --shadow: 0 1px 2px rgba(34, 48, 42, 0.06), 0 8px 24px rgba(34, 48, 42, 0.07);
+    --bg: #f2f1ea;
+    --surface: #fbfaf6;
+    --surface2: #e9e7dc;
+    --ink: #1b2440;
+    --muted: #5b6273;
+    --line: rgba(27, 36, 64, 0.22);
+    --edge: #1b2440;
+    --gridline: rgba(27, 36, 64, 0.05);
+    --accent: #2f45c4;
+    --accent-ink: #fbfaf6;
+    --accent-soft: #e4e8fb;
+    --good: #1e7a5a;
+    --good-bg: #ddf0e5;
+    --bad: #c03a22;
+    --bad-bg: #f8e3dd;
+    --part: #9c6d0e;
+    --part-bg: #f4e9ce;
+    --shadow: 5px 5px 0 rgba(27, 36, 64, 0.14);
   }
   @media (prefers-color-scheme: dark) {
     :root {
-      --bg: #161c18;
-      --surface: #1e2620;
-      --surface2: #232c26;
-      --ink: #e6ece6;
-      --muted: #9cab9f;
-      --line: #35403779;
-      --accent: #82c4a1;
-      --accent-soft: #24352c;
-      --good: #82c4a1;
-      --good-bg: #24352c;
-      --bad: #e09a72;
-      --bad-bg: #3a2b21;
-      --part: #d3b268;
-      --part-bg: #37301d;
-      --shadow: 0 1px 2px rgba(0, 0, 0, 0.3), 0 8px 24px rgba(0, 0, 0, 0.35);
+      --bg: #111a33;
+      --surface: #18234a;
+      --surface2: #1d2a56;
+      --ink: #e7eaf5;
+      --muted: #98a2c0;
+      --line: rgba(231, 234, 245, 0.22);
+      --edge: #e7eaf5;
+      --gridline: rgba(231, 234, 245, 0.05);
+      --accent: #93a7ff;
+      --accent-ink: #111a33;
+      --accent-soft: #232f5c;
+      --good: #57c296;
+      --good-bg: #163b2e;
+      --bad: #ff8e70;
+      --bad-bg: #43241c;
+      --part: #e0b858;
+      --part-bg: #3b3118;
+      --shadow: 5px 5px 0 rgba(0, 0, 0, 0.4);
     }
   }
   :root[data-theme="dark"] {
-    --bg: #161c18;
-    --surface: #1e2620;
-    --surface2: #232c26;
-    --ink: #e6ece6;
-    --muted: #9cab9f;
-    --line: #35403779;
-    --accent: #82c4a1;
-    --accent-soft: #24352c;
-    --good: #82c4a1;
-    --good-bg: #24352c;
-    --bad: #e09a72;
-    --bad-bg: #3a2b21;
-    --part: #d3b268;
-    --part-bg: #37301d;
-    --shadow: 0 1px 2px rgba(0, 0, 0, 0.3), 0 8px 24px rgba(0, 0, 0, 0.35);
+    --bg: #111a33;
+    --surface: #18234a;
+    --surface2: #1d2a56;
+    --ink: #e7eaf5;
+    --muted: #98a2c0;
+    --line: rgba(231, 234, 245, 0.22);
+    --edge: #e7eaf5;
+    --gridline: rgba(231, 234, 245, 0.05);
+    --accent: #93a7ff;
+    --accent-ink: #111a33;
+    --accent-soft: #232f5c;
+    --good: #57c296;
+    --good-bg: #163b2e;
+    --bad: #ff8e70;
+    --bad-bg: #43241c;
+    --part: #e0b858;
+    --part-bg: #3b3118;
+    --shadow: 5px 5px 0 rgba(0, 0, 0, 0.4);
   }
   :root[data-theme="light"] {
-    --bg: #f4f6f1;
-    --surface: #ffffff;
-    --surface2: #eef1ea;
-    --ink: #22302a;
-    --muted: #5d6a61;
-    --line: #d9dfd5;
-    --accent: #2e6b4f;
-    --accent-soft: #e2ede6;
-    --good: #2e6b4f;
-    --good-bg: #e2ede6;
-    --bad: #a3512e;
-    --bad-bg: #f3e4dc;
-    --part: #8a6d1d;
-    --part-bg: #f1ead3;
-    --shadow: 0 1px 2px rgba(34, 48, 42, 0.06), 0 8px 24px rgba(34, 48, 42, 0.07);
+    --bg: #f2f1ea;
+    --surface: #fbfaf6;
+    --surface2: #e9e7dc;
+    --ink: #1b2440;
+    --muted: #5b6273;
+    --line: rgba(27, 36, 64, 0.22);
+    --edge: #1b2440;
+    --gridline: rgba(27, 36, 64, 0.05);
+    --accent: #2f45c4;
+    --accent-ink: #fbfaf6;
+    --accent-soft: #e4e8fb;
+    --good: #1e7a5a;
+    --good-bg: #ddf0e5;
+    --bad: #c03a22;
+    --bad-bg: #f8e3dd;
+    --part: #9c6d0e;
+    --part-bg: #f4e9ce;
+    --shadow: 5px 5px 0 rgba(27, 36, 64, 0.14);
   }
 
   * { box-sizing: border-box; }
   html, body { margin: 0; padding: 0; }
   body {
-    background: var(--bg);
+    background-color: var(--bg);
+    background-image:
+      linear-gradient(var(--gridline) 1px, transparent 1px),
+      linear-gradient(90deg, var(--gridline) 1px, transparent 1px);
+    background-size: 28px 28px;
     color: var(--ink);
-    font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    font-family: "Libre Franklin", "Segoe UI", system-ui, -apple-system, sans-serif;
+    font-size: 16.5px;
     line-height: 1.55;
     -webkit-font-smoothing: antialiased;
   }
-  .serif { font-family: "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, "Times New Roman", serif; }
+  ::selection { background: var(--accent); color: var(--accent-ink); }
+
+  .serif {
+    font-family: "Fraunces", "Iowan Old Style", Georgia, "Times New Roman", serif;
+    font-weight: 600;
+  }
   .mono {
     font-family: ui-monospace, "Cascadia Mono", Consolas, "SF Mono", Menlo, monospace;
-    font-size: 0.78rem;
-    letter-spacing: 0.08em;
+    font-size: 0.76rem;
+    letter-spacing: 0.09em;
     text-transform: uppercase;
   }
 
-  .wrap { max-width: 44rem; margin: 0 auto; padding: 1.25rem 1.25rem 5rem; }
+  .wrap { max-width: 46rem; margin: 0 auto; padding: 1.25rem 1.25rem 5rem; }
 
   header.site {
-    display: flex; align-items: baseline; justify-content: space-between;
-    padding: 1rem 0 0.75rem; border-bottom: 1px solid var(--line); margin-bottom: 2rem;
+    display: flex; align-items: baseline; justify-content: space-between; gap: 1rem;
+    padding: 1.1rem 0 0.8rem;
+    border-bottom: 5px double var(--edge);
+    margin-bottom: 2.4rem;
   }
-  .brand { font-weight: 700; font-size: 1.02rem; letter-spacing: -0.01em; }
-  .brand em {
-    font-style: normal; color: var(--accent);
+  .brand {
+    font-family: "Fraunces", "Iowan Old Style", Georgia, serif;
+    font-weight: 700; font-size: 1.3rem; letter-spacing: -0.01em;
   }
+  .brand em { font-style: italic; color: var(--accent); }
   .site .mono { color: var(--muted); }
 
-  h1, h2, h3 { text-wrap: balance; line-height: 1.15; margin: 0; }
+  h1, h2, h3 { text-wrap: balance; line-height: 1.1; margin: 0; }
 
   /* ---------- Landing ---------- */
-  .eyebrow { color: var(--accent); margin-bottom: 0.9rem; }
+  .eyebrow {
+    display: inline-block;
+    color: var(--accent);
+    border: 1.5px solid var(--accent);
+    border-radius: 2px;
+    padding: 0.28rem 0.6rem 0.22rem;
+    margin-bottom: 1.2rem;
+  }
   .landing h1 {
-    font-size: clamp(2.1rem, 6vw, 3.1rem);
-    font-weight: 500;
-    letter-spacing: -0.015em;
-    margin-bottom: 1.1rem;
+    font-size: clamp(2.2rem, 6.5vw, 3.4rem);
+    font-weight: 600;
+    letter-spacing: -0.01em;
+    margin-bottom: 1.2rem;
   }
-  .lede { font-size: 1.12rem; color: var(--ink); max-width: 38rem; margin: 0 0 2rem; }
-  .lede .q { color: var(--muted); }
+  .lede { font-size: 1.13rem; color: var(--ink); max-width: 38rem; margin: 0 0 2.1rem; }
+  .lede .q { color: var(--accent); font-weight: 600; }
 
-  .isnt { display: grid; gap: 0.65rem; margin: 0 0 2.2rem; padding: 0; list-style: none; }
+  .isnt { display: grid; gap: 0.7rem; margin: 0 0 2.4rem; padding: 0; list-style: none; }
   .isnt li { display: flex; gap: 0.7rem; align-items: baseline; color: var(--muted); max-width: 38rem; }
-  .isnt li strong { color: var(--ink); font-weight: 600; }
-  .isnt li::before { content: "—"; color: var(--accent); flex: none; }
+  .isnt li strong { color: var(--ink); font-weight: 700; }
+  .isnt li::before { content: "→"; color: var(--accent); flex: none; font-weight: 700; }
 
-  .start-row { display: flex; align-items: center; gap: 1.1rem; flex-wrap: wrap; }
+  .start-row { display: flex; align-items: center; gap: 0.9rem; flex-wrap: wrap; }
   .meta { color: var(--muted); font-size: 0.92rem; }
+  .start-note { margin: 1rem 0 0; }
 
-  button {
-    font: inherit; cursor: pointer; border: none; color: inherit; background: none;
-  }
-  button:focus-visible, a:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; border-radius: 4px; }
+  button { font: inherit; cursor: pointer; border: none; color: inherit; background: none; }
+  button:focus-visible, a:focus-visible { outline: 2.5px solid var(--accent); outline-offset: 2px; }
 
   .btn-primary {
     background: var(--accent);
-    color: var(--bg);
-    font-weight: 650;
-    font-size: 1.02rem;
-    padding: 0.8rem 1.6rem;
-    border-radius: 999px;
-    transition: transform 0.12s ease, filter 0.12s ease;
+    color: var(--accent-ink);
+    font-weight: 700;
+    font-size: 1rem;
+    padding: 0.75rem 1.5rem;
+    border-radius: 2px;
+    box-shadow: 3px 3px 0 var(--edge);
+    transition: transform 0.1s ease, box-shadow 0.1s ease;
   }
-  .btn-primary:hover { filter: brightness(1.08); }
-  .btn-primary:active { transform: scale(0.98); }
+  .btn-primary:hover { transform: translate(-1px, -1px); box-shadow: 4px 4px 0 var(--edge); }
+  .btn-primary:active { transform: translate(2px, 2px); box-shadow: 1px 1px 0 var(--edge); }
+  .btn-primary:disabled { opacity: 0.45; cursor: default; box-shadow: 3px 3px 0 var(--line); transform: none; }
 
   .btn-ghost {
-    color: var(--accent); font-weight: 600; padding: 0.7rem 1.2rem;
-    border: 1px solid var(--line); border-radius: 999px;
+    color: var(--ink); font-weight: 600; padding: 0.7rem 1.3rem;
+    border: 1.5px solid var(--edge); border-radius: 2px; background: var(--surface);
   }
-  .btn-ghost:hover { background: var(--surface2); }
+  .btn-ghost:hover { background: var(--accent-soft); }
 
   /* ---------- Quiz ---------- */
   .progress-row {
     display: flex; justify-content: space-between; align-items: baseline;
     color: var(--muted); margin-bottom: 0.5rem;
   }
-  .bar { height: 3px; background: var(--line); border-radius: 2px; overflow: hidden; margin-bottom: 2rem; }
-  .bar > div { height: 100%; background: var(--accent); width: 0%; transition: width 0.35s ease; }
+  .bar {
+    height: 9px; border: 1.5px solid var(--edge); border-radius: 2px;
+    background: var(--surface); overflow: hidden; margin-bottom: 2.2rem;
+  }
+  .bar > div {
+    height: 100%; width: 0%;
+    background: repeating-linear-gradient(-45deg, var(--accent) 0, var(--accent) 5px, transparent 5px, transparent 9px);
+    transition: width 0.35s ease;
+  }
 
   .vignette {
     background: var(--surface);
-    border: 1px solid var(--line);
-    border-radius: 10px;
+    border: 1.5px solid var(--edge);
+    border-radius: 2px;
     padding: 1.3rem 1.4rem 1.35rem;
     box-shadow: var(--shadow);
-    margin-bottom: 1.6rem;
+    margin-bottom: 1.7rem;
   }
-  .vignette .context { color: var(--accent); display: block; margin-bottom: 0.75rem; }
+  .vignette .context { color: var(--accent); display: block; margin-bottom: 0.8rem; }
   .vignette p { margin: 0 0 0.75rem; }
   .vignette p:last-child { margin-bottom: 0; }
   .vignette .said {
-    font-family: "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, serif;
-    font-size: 1.13rem; font-style: italic;
+    font-family: "Fraunces", "Iowan Old Style", Georgia, serif;
+    font-size: 1.16rem; font-style: italic; font-weight: 500;
   }
 
-  .question { font-weight: 650; font-size: 1.08rem; margin: 0 0 1rem; }
+  .question { font-weight: 700; font-size: 1.1rem; margin: 0 0 0.6rem; }
+  .rate-hint { color: var(--muted); font-size: 0.92rem; margin: 0 0 1.1rem; }
 
-  .options { display: grid; gap: 0.6rem; margin-bottom: 1.5rem; }
-  .opt {
-    text-align: left;
-    background: var(--surface);
-    border: 1px solid var(--line);
-    border-radius: 10px;
-    padding: 0.85rem 1.05rem;
-    line-height: 1.45;
-    transition: border-color 0.12s ease, background 0.12s ease;
-  }
-  .opt:hover:not(:disabled) { border-color: var(--accent); background: var(--accent-soft); }
-  .opt:disabled { cursor: default; }
-  .opt.dim:disabled { opacity: 0.55; }
-  .opt.is-best { border-color: var(--good); background: var(--good-bg); }
-  .opt.picked-bad { border-color: var(--bad); background: var(--bad-bg); }
-  .opt.picked-part { border-color: var(--part); background: var(--part-bg); }
-  .opt .tag { display: block; margin-top: 0.4rem; font-weight: 700; font-size: 0.78rem; letter-spacing: 0.06em; text-transform: uppercase; }
-  .opt.is-best .tag { color: var(--good); }
-  .opt.picked-bad .tag { color: var(--bad); }
-  .opt.picked-part .tag { color: var(--part); }
-
-  .rate-hint { color: var(--muted); font-size: 0.92rem; margin: -0.4rem 0 1rem; }
+  .options { display: grid; gap: 0.7rem; margin-bottom: 0; }
   .stmt {
-    background: var(--surface); border: 1px solid var(--line); border-radius: 10px;
-    padding: 0.95rem 1.1rem 1rem;
+    background: var(--surface);
+    border: 1.5px solid var(--line);
+    border-radius: 2px;
+    padding: 1rem 1.1rem;
+    position: relative;
   }
-  .stmt > p { margin: 0 0 0.75rem; line-height: 1.45; }
-  .scale-row { display: flex; align-items: center; gap: 0.65rem; flex-wrap: wrap; }
-  .scale-row .end { font-size: 0.76rem; color: var(--muted); letter-spacing: 0.03em; }
-  .scale { display: flex; gap: 0.45rem; }
+  .stmt > p { margin: 0 0 0.8rem; line-height: 1.5; }
+  .scale-row { display: flex; align-items: center; gap: 0.7rem; flex-wrap: wrap; }
+  .scale-row .end {
+    font-family: ui-monospace, "Cascadia Mono", Consolas, Menlo, monospace;
+    font-size: 0.68rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted);
+  }
+  .scale { display: flex; gap: 0; }
   .scale button {
-    width: 2rem; height: 2rem; border-radius: 50%;
-    border: 1.5px solid var(--line); background: var(--surface2);
-    transition: border-color 0.12s ease, background 0.12s ease, transform 0.12s ease;
+    width: 2.3rem; height: 2.1rem;
+    border: 1.5px solid var(--line); border-left-width: 0;
+    background: var(--surface);
+    font-family: ui-monospace, "Cascadia Mono", Consolas, Menlo, monospace;
+    font-size: 0.8rem; color: var(--muted);
+    transition: background 0.1s ease, color 0.1s ease;
   }
-  .scale button:hover:not(:disabled) { border-color: var(--accent); transform: scale(1.08); }
-  .scale button[aria-pressed="true"] { background: var(--accent); border-color: var(--accent); }
+  .scale button:first-child { border-left-width: 1.5px; border-radius: 2px 0 0 2px; }
+  .scale button:last-child { border-radius: 0 2px 2px 0; }
+  .scale button:hover:not(:disabled) { background: var(--accent-soft); color: var(--ink); }
+  .scale button[aria-pressed="true"] { background: var(--accent); border-color: var(--accent); color: var(--accent-ink); font-weight: 700; }
   .scale button:disabled { cursor: default; }
+
   .stmt .chip {
-    display: inline-block; margin-top: 0.7rem; font-weight: 700; font-size: 0.72rem;
-    letter-spacing: 0.07em; text-transform: uppercase; padding: 0.2rem 0.6rem; border-radius: 999px;
+    display: inline-block; margin-top: 0.8rem;
+    font-weight: 800; font-size: 0.7rem; letter-spacing: 0.11em; text-transform: uppercase;
+    padding: 0.24rem 0.6rem 0.2rem;
+    border: 2px solid currentColor; border-radius: 2px;
+    transform: rotate(-1.4deg);
   }
   .chip.good { color: var(--good); background: var(--good-bg); }
   .chip.bad { color: var(--bad); background: var(--bad-bg); }
@@ -218,12 +253,13 @@
   .stmt.locked-ok { border-color: var(--good); }
   .stmt.locked-miss { border-color: var(--bad); }
   .stmt.locked-meh { border-color: var(--part); }
-  .lock-row { display: flex; justify-content: flex-end; margin: 1.1rem 0 1.6rem; }
+  .lock-row { display: flex; justify-content: flex-end; margin: 1.2rem 0 1.7rem; }
 
   .explain {
-    border-top: 2px solid var(--accent);
     background: var(--surface);
-    border-radius: 0 0 10px 10px;
+    border: 1.5px solid var(--edge);
+    border-top: 5px solid var(--accent);
+    border-radius: 2px;
     box-shadow: var(--shadow);
     padding: 1.3rem 1.4rem 1.4rem;
     animation: rise 0.3s ease;
@@ -232,65 +268,76 @@
   @media (prefers-reduced-motion: reduce) {
     .explain { animation: none; }
     .bar > div { transition: none; }
+    .btn-primary, .btn-primary:hover, .btn-primary:active { transform: none; transition: none; }
   }
-  .verdict { font-weight: 750; font-size: 1.05rem; margin: 0 0 1rem; }
+  .verdict { font-weight: 800; font-size: 1.05rem; margin: 0 0 1.1rem; }
   .verdict.v2 { color: var(--good); }
   .verdict.v1 { color: var(--part); }
   .verdict.v0 { color: var(--bad); }
-  .explain h4 { margin: 1.05rem 0 0.3rem; font-size: 0.82rem; letter-spacing: 0.07em; text-transform: uppercase; color: var(--muted); font-weight: 700; }
+  .explain h4 {
+    margin: 1.1rem 0 0.3rem;
+    font-family: ui-monospace, "Cascadia Mono", Consolas, Menlo, monospace;
+    font-size: 0.72rem; letter-spacing: 0.11em; text-transform: uppercase;
+    color: var(--muted); font-weight: 700;
+  }
   .explain h4:first-of-type { margin-top: 0; }
   .explain p { margin: 0 0 0.4rem; }
   .rule {
     font-family: ui-monospace, "Cascadia Mono", Consolas, "SF Mono", Menlo, monospace;
-    font-size: 0.88rem;
-    background: var(--surface2);
-    border: 1px dashed var(--line);
-    border-radius: 8px;
-    padding: 0.75rem 0.9rem;
+    font-size: 0.86rem; line-height: 1.6;
+    border: 1.5px dashed var(--edge);
+    border-radius: 2px;
+    padding: 0.75rem 0.95rem;
     margin-top: 0.35rem;
+    background: transparent;
   }
-  .explain .next-row { display: flex; justify-content: flex-end; margin-top: 1.3rem; }
+  .rule::before { content: "☞ "; color: var(--accent); }
+  .explain .next-row { display: flex; justify-content: flex-end; margin-top: 1.4rem; }
 
   /* ---------- Results ---------- */
-  .results .eyebrow { margin-bottom: 0.6rem; }
-  .score-line { display: flex; align-items: baseline; gap: 1rem; flex-wrap: wrap; margin-bottom: 0.5rem; }
-  .results h1 { font-size: clamp(1.8rem, 5vw, 2.6rem); font-weight: 500; letter-spacing: -0.01em; }
+  .results .eyebrow { margin-bottom: 1rem; }
+  .score-line { display: flex; align-items: baseline; gap: 1.1rem; flex-wrap: wrap; margin-bottom: 0.6rem; }
+  .results h1 { font-size: clamp(1.9rem, 5vw, 2.7rem); font-weight: 600; letter-spacing: -0.01em; }
   .big-score {
     font-family: ui-monospace, "Cascadia Mono", Consolas, Menlo, monospace;
     font-variant-numeric: tabular-nums;
-    font-size: 1.3rem; color: var(--muted);
+    font-size: 1.25rem; color: var(--muted);
   }
-  .overall-copy { font-size: 1.08rem; max-width: 38rem; margin: 0.6rem 0 2.4rem; }
+  .overall-copy { font-size: 1.07rem; max-width: 38rem; margin: 0.6rem 0 2.4rem; }
 
-  .fam-grid { display: grid; gap: 1rem; margin-bottom: 2.4rem; }
+  .fam-grid { display: grid; gap: 1.1rem; margin-bottom: 2.4rem; }
   .fam {
-    background: var(--surface); border: 1px solid var(--line); border-radius: 10px;
+    background: var(--surface); border: 1.5px solid var(--edge); border-radius: 2px;
     padding: 1.15rem 1.3rem 1.25rem; box-shadow: var(--shadow);
   }
-  .fam-head { display: flex; justify-content: space-between; align-items: baseline; gap: 1rem; flex-wrap: wrap; margin-bottom: 0.55rem; }
-  .fam-head h3 { font-size: 1.12rem; font-weight: 650; }
+  .fam-head { display: flex; justify-content: space-between; align-items: baseline; gap: 1rem; flex-wrap: wrap; margin-bottom: 0.6rem; }
+  .fam-head h3 {
+    font-family: "Fraunces", "Iowan Old Style", Georgia, serif;
+    font-size: 1.18rem; font-weight: 600;
+  }
   .pill {
-    font-size: 0.74rem; font-weight: 700; letter-spacing: 0.07em; text-transform: uppercase;
-    padding: 0.22rem 0.6rem; border-radius: 999px; white-space: nowrap;
+    font-size: 0.7rem; font-weight: 800; letter-spacing: 0.1em; text-transform: uppercase;
+    padding: 0.22rem 0.55rem 0.18rem; border: 2px solid currentColor; border-radius: 2px; white-space: nowrap;
   }
   .pill.hi { color: var(--good); background: var(--good-bg); }
   .pill.mid { color: var(--part); background: var(--part-bg); }
   .pill.lo { color: var(--bad); background: var(--bad-bg); }
-  .meter { height: 5px; border-radius: 3px; background: var(--surface2); overflow: hidden; margin: 0.5rem 0 0.9rem; }
-  .meter > div { height: 100%; border-radius: 3px; }
-  .meter.hi > div { background: var(--good); }
-  .meter.mid > div { background: var(--part); }
-  .meter.lo > div { background: var(--bad); }
+  .meter {
+    height: 10px; border: 1px solid var(--line); border-radius: 2px;
+    background: var(--surface2); overflow: hidden; margin: 0.55rem 0 0.95rem;
+  }
+  .meter > div { height: 100%; }
+  .meter.hi > div { background: repeating-linear-gradient(-45deg, var(--good) 0, var(--good) 5px, transparent 5px, transparent 9px); }
+  .meter.mid > div { background: repeating-linear-gradient(-45deg, var(--part) 0, var(--part) 5px, transparent 5px, transparent 9px); }
+  .meter.lo > div { background: repeating-linear-gradient(-45deg, var(--bad) 0, var(--bad) 5px, transparent 5px, transparent 9px); }
   .fam p { margin: 0 0 0.55rem; color: var(--ink); }
-  .fam .study { color: var(--muted); font-size: 0.94rem; margin-bottom: 0.75rem; }
-  .fam .study strong { color: var(--ink); font-weight: 600; }
+  .fam .study { color: var(--muted); font-size: 0.94rem; margin-bottom: 0.8rem; }
+  .fam .study strong { color: var(--ink); font-weight: 700; }
   .fam .rule { margin-top: 0.2rem; }
 
-  .fairness, .fineprint {
-    max-width: 38rem; color: var(--muted); font-size: 0.95rem; margin: 0 0 1.1rem;
-  }
+  .fairness, .fineprint { max-width: 38rem; color: var(--muted); font-size: 0.95rem; margin: 0 0 1.1rem; }
   .fairness strong, .fineprint strong { color: var(--ink); }
-  .end-row { display: flex; gap: 0.9rem; margin-top: 1.8rem; flex-wrap: wrap; }
+  .end-row { display: flex; gap: 0.9rem; margin-top: 1.9rem; flex-wrap: wrap; }
 
   .hidden { display: none; }
 </style>
@@ -314,12 +361,13 @@
     <ul class="isnt">
       <li><span><strong>Not an IQ test.</strong> It looks at reasoning habits, not intelligence &mdash; and habits, unlike IQ, are very learnable.</span></li>
       <li><span><strong>Not about your politics.</strong> The scenarios draw from all directions. Careful reasoning isn&rsquo;t a team.</span></li>
-      <li><span><strong>Nothing stored.</strong> Everything runs in your browser. No sign-up, no tracking, and your answers vanish when you close the tab.</span></li>
+      <li><span><strong>Nothing stored.</strong> Everything runs in your browser. No sign-up, no tracking; your answers vanish when you close the tab, and your daily streak lives only on your device.</span></li>
     </ul>
     <div class="start-row">
       <button class="btn-primary" id="btn-start">Start the check-up</button>
-      <span class="meta" id="start-meta">12 scenarios &middot; ~10 minutes &middot; you learn as you go</span>
+      <button class="btn-ghost" id="btn-daily">Scenario of the day</button>
     </div>
+    <p class="meta start-note" id="start-meta">12 scenarios &middot; ~10 minutes &middot; you learn as you go</p>
   </main>
 
   <!-- ============ QUIZ ============ -->
@@ -361,16 +409,23 @@
     </div>
     <p class="overall-copy" id="r-copy"></p>
 
+    <div id="daily-result" class="hidden">
+      <div class="end-row">
+        <button class="btn-primary" id="btn-share-daily">Copy today&rsquo;s result</button>
+        <button class="btn-ghost" id="btn-full">Take the full check-up</button>
+      </div>
+    </div>
+
     <div class="fam-grid" id="fam-grid"></div>
 
-    <p class="fairness"><strong>A note on fairness.</strong> These scenarios deliberately include claims that
+    <p class="fairness" id="r-fairness"><strong>A note on fairness.</strong> These scenarios deliberately include claims that
       flatter different worldviews &mdash; natural-living ones and institution-distrusting ones alike. The reasoning
       patterns are the same underneath; only the packaging changes. The habits that serve you here serve you everywhere.</p>
-    <p class="fineprint"><strong>A snapshot, not a diagnosis.</strong> Twelve scenarios can point at your blind
+    <p class="fineprint" id="r-fineprint"><strong>A snapshot, not a diagnosis.</strong> Twelve scenarios can point at your blind
       spots, not measure them precisely. The concepts above are all learnable in an afternoon each &mdash; and once
       a pattern has a name, it&rsquo;s far easier to catch. Come back in a month and see.</p>
 
-    <div class="end-row">
+    <div class="end-row" id="r-actions">
       <button class="btn-primary" id="btn-retake">Take it again</button>
       <button class="btn-ghost" id="btn-copy">Copy my results</button>
     </div>
@@ -451,6 +506,78 @@ let order = [];      // scenarios with shuffled statements
 let idx = 0;
 let answers = [];    // { family, clean, flawed, over } — each a rating 0–4
 let ratings = [];    // current scenario's ratings, parallel to its statements
+let mode = "checkup"; // "checkup" | "daily"
+
+/* ---------- Daily mode: one date-picked scenario, streak on this device ---------- */
+
+function dateStr(d) { return d.getFullYear() + "-" + String(d.getMonth() + 1).padStart(2, "0") + "-" + String(d.getDate()).padStart(2, "0"); }
+function todayStr() { return dateStr(new Date()); }
+
+function loadStreak() {
+  try { return JSON.parse(localStorage.getItem("rc_daily")) || { last: "", streak: 0, best: 0 }; }
+  catch (e) { return { last: "", streak: 0, best: 0 }; }
+}
+
+function bumpStreak() {
+  const st = loadStreak();
+  const today = todayStr();
+  if (st.last !== today) {
+    const y = new Date(); y.setDate(y.getDate() - 1);
+    st.streak = st.last === dateStr(y) ? st.streak + 1 : 1;
+    st.last = today;
+    st.best = Math.max(st.best, st.streak);
+    try { localStorage.setItem("rc_daily", JSON.stringify(st)); } catch (e) {}
+  }
+  return st;
+}
+
+function dailyScenario() {
+  const day = Math.floor(Date.now() / 86400000); // UTC day number: same scenario for everyone
+  return SCENARIOS[day % SCENARIOS.length];
+}
+
+function startDaily() {
+  mode = "daily";
+  const s = dailyScenario();
+  order = [{ ...s, stmts: shuffle(s.statements) }];
+  idx = 0;
+  answers = [];
+  show("quiz");
+  render();
+}
+
+function dailyResults() {
+  const a = answers[0];
+  const lean = a.clean - a.flawed;
+  const sq = lean > 0 ? "🟩" : lean === 0 ? "🟨" : "🟥";
+  const st = bumpStreak();
+  $("r-title").textContent = lean > 0 ? "Got it." : lean === 0 ? "Torn." : "It got you today.";
+  $("r-score").textContent = sq + " streak " + st.streak;
+  $("r-copy").innerHTML = (lean > 0
+    ? "You favored the reading the evidence supports. Come back tomorrow — a different pattern will be waiting."
+    : lean === 0
+      ? "You gave the sound and the flawed reading equal weight. Today's explanation is the whole lesson — tomorrow's scenario is a fresh start."
+      : "Today's scenario read differently than the evidence supports. That's what the daily habit is for: with names and repetition, the patterns start jumping out. Tomorrow's is a fresh start.")
+    + (st.best > st.streak ? " <strong>Best streak: " + st.best + ".</strong>" : "");
+  $("fam-grid").classList.add("hidden");
+  $("r-fairness").classList.add("hidden");
+  $("r-fineprint").classList.add("hidden");
+  $("r-actions").classList.add("hidden");
+  $("daily-result").classList.remove("hidden");
+  show("results");
+}
+
+function shareDaily() {
+  const a = answers[0];
+  const lean = a.clean - a.flawed;
+  const sq = lean > 0 ? "🟩" : lean === 0 ? "🟨" : "🟥";
+  const st = loadStreak();
+  const text = "Reason Check — scenario of the day (" + todayStr() + "): " + sq + " streak " + st.streak + "\nWhat would you have concluded?";
+  navigator.clipboard.writeText(text).then(() => {
+    $("btn-share-daily").textContent = "Copied!";
+    setTimeout(() => ($("btn-share-daily").textContent = "Copy today’s result"), 1600);
+  }).catch(() => {});
+}
 
 function shuffle(arr) {
   const a = arr.slice();
@@ -468,6 +595,7 @@ function show(name) {
 }
 
 function start() {
+  mode = "checkup";
   // Draw 2 scenarios per family at random, so retakes get fresh material.
   const byFam = {};
   shuffle(SCENARIOS).forEach((s) => { (byFam[s.family] = byFam[s.family] || []).push(s); });
@@ -482,7 +610,7 @@ function start() {
 function render() {
   const s = order[idx];
   ratings = s.stmts.map(() => null);
-  $("progress-label").textContent = "Scenario " + (idx + 1) + " of " + order.length;
+  $("progress-label").textContent = mode === "daily" ? "Scenario of the day" : "Scenario " + (idx + 1) + " of " + order.length;
   $("family-hint").textContent = "";
   $("progress-fill").style.width = ((idx) / order.length * 100) + "%";
   $("v-context").textContent = s.context;
@@ -508,6 +636,7 @@ function render() {
     for (let v = 0; v <= 4; v++) {
       const b = document.createElement("button");
       b.type = "button";
+      b.textContent = String(v + 1);
       b.setAttribute("aria-pressed", "false");
       b.setAttribute("aria-label", "Agreement " + (v + 1) + " of 5");
       b.addEventListener("click", () => {
@@ -588,6 +717,13 @@ function next() {
 }
 
 function results() {
+  if (mode === "daily") return dailyResults();
+  $("fam-grid").classList.remove("hidden");
+  $("r-fairness").classList.remove("hidden");
+  $("r-fineprint").classList.remove("hidden");
+  $("r-actions").classList.remove("hidden");
+  $("daily-result").classList.add("hidden");
+
   const pct = famScores();
   const score = overallScore();
 
@@ -635,7 +771,8 @@ function copyResults() {
   const pct = famScores();
   const lines = ["Reason Check — my reasoning profile: " + overallScore() + "/100"];
   Object.keys(FAMILIES).forEach((k) => {
-    lines.push("• " + FAMILIES[k].name + ": " + pct[k] + "%");
+    const sq = pct[k] >= 75 ? "🟩" : pct[k] >= 50 ? "🟨" : "🟥";
+    lines.push(sq + " " + FAMILIES[k].name + ": " + pct[k] + "%");
   });
   lines.push("What would you have concluded?");
   navigator.clipboard.writeText(lines.join("\n")).then(() => {
@@ -649,9 +786,21 @@ function copyResults() {
 
 $("start-meta").innerHTML = "12 scenarios, drawn fresh from a bank of " + SCENARIOS.length + " &middot; ~10 minutes &middot; you learn as you go";
 
+(function initDailyButton() {
+  const st = loadStreak();
+  if (st.streak > 0) {
+    $("btn-daily").textContent = st.last === todayStr()
+      ? "Daily done — streak " + st.streak
+      : "Scenario of the day — streak " + st.streak;
+  }
+})();
+
 $("btn-start").addEventListener("click", start);
+$("btn-daily").addEventListener("click", startDaily);
 $("btn-lock").addEventListener("click", lockIn);
 $("btn-next").addEventListener("click", next);
 $("btn-retake").addEventListener("click", start);
 $("btn-copy").addEventListener("click", copyResults);
+$("btn-share-daily").addEventListener("click", shareDaily);
+$("btn-full").addEventListener("click", start);
 </script>

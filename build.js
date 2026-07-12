@@ -66,9 +66,17 @@ const template = fs.readFileSync(path.join(ROOT, "src", "template.html"), "utf8"
 if (!template.includes("__SCENARIOS__")) fail("template.html is missing the __SCENARIOS__ placeholder");
 const body = template.replace("__SCENARIOS__", JSON.stringify(scenarios, null, 0));
 
+// Webfonts only in the deployed page; preview.html (artifact) has a strict CSP
+// and falls back to the designed system stacks.
+const fonts =
+  '<link rel="preconnect" href="https://fonts.googleapis.com">\n' +
+  '<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>\n' +
+  '<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,500..800;1,9..144,500..800&family=Libre+Franklin:wght@400;600;700;800&display=swap" rel="stylesheet">\n';
+
 const page =
   '<!doctype html>\n<html lang="en">\n<head>\n<meta charset="utf-8">\n' +
   '<meta name="viewport" content="width=device-width, initial-scale=1">\n' +
+  fonts +
   "</head>\n<body>\n" + body + "\n</body>\n</html>\n";
 
 fs.writeFileSync(path.join(ROOT, "index.html"), page, "utf8");

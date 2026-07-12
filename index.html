@@ -3,221 +3,259 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,500..800;1,9..144,500..800&family=Libre+Franklin:wght@400;600;700;800&display=swap" rel="stylesheet">
 </head>
 <body>
 <title>Reason Check — a 10-minute reasoning check-up</title>
 <style>
   :root {
-    --bg: #f4f6f1;
-    --surface: #ffffff;
-    --surface2: #eef1ea;
-    --ink: #22302a;
-    --muted: #5d6a61;
-    --line: #d9dfd5;
-    --accent: #2e6b4f;
-    --accent-soft: #e2ede6;
-    --good: #2e6b4f;
-    --good-bg: #e2ede6;
-    --bad: #a3512e;
-    --bad-bg: #f3e4dc;
-    --part: #8a6d1d;
-    --part-bg: #f1ead3;
-    --shadow: 0 1px 2px rgba(34, 48, 42, 0.06), 0 8px 24px rgba(34, 48, 42, 0.07);
+    --bg: #f2f1ea;
+    --surface: #fbfaf6;
+    --surface2: #e9e7dc;
+    --ink: #1b2440;
+    --muted: #5b6273;
+    --line: rgba(27, 36, 64, 0.22);
+    --edge: #1b2440;
+    --gridline: rgba(27, 36, 64, 0.05);
+    --accent: #2f45c4;
+    --accent-ink: #fbfaf6;
+    --accent-soft: #e4e8fb;
+    --good: #1e7a5a;
+    --good-bg: #ddf0e5;
+    --bad: #c03a22;
+    --bad-bg: #f8e3dd;
+    --part: #9c6d0e;
+    --part-bg: #f4e9ce;
+    --shadow: 5px 5px 0 rgba(27, 36, 64, 0.14);
   }
   @media (prefers-color-scheme: dark) {
     :root {
-      --bg: #161c18;
-      --surface: #1e2620;
-      --surface2: #232c26;
-      --ink: #e6ece6;
-      --muted: #9cab9f;
-      --line: #35403779;
-      --accent: #82c4a1;
-      --accent-soft: #24352c;
-      --good: #82c4a1;
-      --good-bg: #24352c;
-      --bad: #e09a72;
-      --bad-bg: #3a2b21;
-      --part: #d3b268;
-      --part-bg: #37301d;
-      --shadow: 0 1px 2px rgba(0, 0, 0, 0.3), 0 8px 24px rgba(0, 0, 0, 0.35);
+      --bg: #111a33;
+      --surface: #18234a;
+      --surface2: #1d2a56;
+      --ink: #e7eaf5;
+      --muted: #98a2c0;
+      --line: rgba(231, 234, 245, 0.22);
+      --edge: #e7eaf5;
+      --gridline: rgba(231, 234, 245, 0.05);
+      --accent: #93a7ff;
+      --accent-ink: #111a33;
+      --accent-soft: #232f5c;
+      --good: #57c296;
+      --good-bg: #163b2e;
+      --bad: #ff8e70;
+      --bad-bg: #43241c;
+      --part: #e0b858;
+      --part-bg: #3b3118;
+      --shadow: 5px 5px 0 rgba(0, 0, 0, 0.4);
     }
   }
   :root[data-theme="dark"] {
-    --bg: #161c18;
-    --surface: #1e2620;
-    --surface2: #232c26;
-    --ink: #e6ece6;
-    --muted: #9cab9f;
-    --line: #35403779;
-    --accent: #82c4a1;
-    --accent-soft: #24352c;
-    --good: #82c4a1;
-    --good-bg: #24352c;
-    --bad: #e09a72;
-    --bad-bg: #3a2b21;
-    --part: #d3b268;
-    --part-bg: #37301d;
-    --shadow: 0 1px 2px rgba(0, 0, 0, 0.3), 0 8px 24px rgba(0, 0, 0, 0.35);
+    --bg: #111a33;
+    --surface: #18234a;
+    --surface2: #1d2a56;
+    --ink: #e7eaf5;
+    --muted: #98a2c0;
+    --line: rgba(231, 234, 245, 0.22);
+    --edge: #e7eaf5;
+    --gridline: rgba(231, 234, 245, 0.05);
+    --accent: #93a7ff;
+    --accent-ink: #111a33;
+    --accent-soft: #232f5c;
+    --good: #57c296;
+    --good-bg: #163b2e;
+    --bad: #ff8e70;
+    --bad-bg: #43241c;
+    --part: #e0b858;
+    --part-bg: #3b3118;
+    --shadow: 5px 5px 0 rgba(0, 0, 0, 0.4);
   }
   :root[data-theme="light"] {
-    --bg: #f4f6f1;
-    --surface: #ffffff;
-    --surface2: #eef1ea;
-    --ink: #22302a;
-    --muted: #5d6a61;
-    --line: #d9dfd5;
-    --accent: #2e6b4f;
-    --accent-soft: #e2ede6;
-    --good: #2e6b4f;
-    --good-bg: #e2ede6;
-    --bad: #a3512e;
-    --bad-bg: #f3e4dc;
-    --part: #8a6d1d;
-    --part-bg: #f1ead3;
-    --shadow: 0 1px 2px rgba(34, 48, 42, 0.06), 0 8px 24px rgba(34, 48, 42, 0.07);
+    --bg: #f2f1ea;
+    --surface: #fbfaf6;
+    --surface2: #e9e7dc;
+    --ink: #1b2440;
+    --muted: #5b6273;
+    --line: rgba(27, 36, 64, 0.22);
+    --edge: #1b2440;
+    --gridline: rgba(27, 36, 64, 0.05);
+    --accent: #2f45c4;
+    --accent-ink: #fbfaf6;
+    --accent-soft: #e4e8fb;
+    --good: #1e7a5a;
+    --good-bg: #ddf0e5;
+    --bad: #c03a22;
+    --bad-bg: #f8e3dd;
+    --part: #9c6d0e;
+    --part-bg: #f4e9ce;
+    --shadow: 5px 5px 0 rgba(27, 36, 64, 0.14);
   }
 
   * { box-sizing: border-box; }
   html, body { margin: 0; padding: 0; }
   body {
-    background: var(--bg);
+    background-color: var(--bg);
+    background-image:
+      linear-gradient(var(--gridline) 1px, transparent 1px),
+      linear-gradient(90deg, var(--gridline) 1px, transparent 1px);
+    background-size: 28px 28px;
     color: var(--ink);
-    font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    font-family: "Libre Franklin", "Segoe UI", system-ui, -apple-system, sans-serif;
+    font-size: 16.5px;
     line-height: 1.55;
     -webkit-font-smoothing: antialiased;
   }
-  .serif { font-family: "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, "Times New Roman", serif; }
+  ::selection { background: var(--accent); color: var(--accent-ink); }
+
+  .serif {
+    font-family: "Fraunces", "Iowan Old Style", Georgia, "Times New Roman", serif;
+    font-weight: 600;
+  }
   .mono {
     font-family: ui-monospace, "Cascadia Mono", Consolas, "SF Mono", Menlo, monospace;
-    font-size: 0.78rem;
-    letter-spacing: 0.08em;
+    font-size: 0.76rem;
+    letter-spacing: 0.09em;
     text-transform: uppercase;
   }
 
-  .wrap { max-width: 44rem; margin: 0 auto; padding: 1.25rem 1.25rem 5rem; }
+  .wrap { max-width: 46rem; margin: 0 auto; padding: 1.25rem 1.25rem 5rem; }
 
   header.site {
-    display: flex; align-items: baseline; justify-content: space-between;
-    padding: 1rem 0 0.75rem; border-bottom: 1px solid var(--line); margin-bottom: 2rem;
+    display: flex; align-items: baseline; justify-content: space-between; gap: 1rem;
+    padding: 1.1rem 0 0.8rem;
+    border-bottom: 5px double var(--edge);
+    margin-bottom: 2.4rem;
   }
-  .brand { font-weight: 700; font-size: 1.02rem; letter-spacing: -0.01em; }
-  .brand em {
-    font-style: normal; color: var(--accent);
+  .brand {
+    font-family: "Fraunces", "Iowan Old Style", Georgia, serif;
+    font-weight: 700; font-size: 1.3rem; letter-spacing: -0.01em;
   }
+  .brand em { font-style: italic; color: var(--accent); }
   .site .mono { color: var(--muted); }
 
-  h1, h2, h3 { text-wrap: balance; line-height: 1.15; margin: 0; }
+  h1, h2, h3 { text-wrap: balance; line-height: 1.1; margin: 0; }
 
   /* ---------- Landing ---------- */
-  .eyebrow { color: var(--accent); margin-bottom: 0.9rem; }
+  .eyebrow {
+    display: inline-block;
+    color: var(--accent);
+    border: 1.5px solid var(--accent);
+    border-radius: 2px;
+    padding: 0.28rem 0.6rem 0.22rem;
+    margin-bottom: 1.2rem;
+  }
   .landing h1 {
-    font-size: clamp(2.1rem, 6vw, 3.1rem);
-    font-weight: 500;
-    letter-spacing: -0.015em;
-    margin-bottom: 1.1rem;
+    font-size: clamp(2.2rem, 6.5vw, 3.4rem);
+    font-weight: 600;
+    letter-spacing: -0.01em;
+    margin-bottom: 1.2rem;
   }
-  .lede { font-size: 1.12rem; color: var(--ink); max-width: 38rem; margin: 0 0 2rem; }
-  .lede .q { color: var(--muted); }
+  .lede { font-size: 1.13rem; color: var(--ink); max-width: 38rem; margin: 0 0 2.1rem; }
+  .lede .q { color: var(--accent); font-weight: 600; }
 
-  .isnt { display: grid; gap: 0.65rem; margin: 0 0 2.2rem; padding: 0; list-style: none; }
+  .isnt { display: grid; gap: 0.7rem; margin: 0 0 2.4rem; padding: 0; list-style: none; }
   .isnt li { display: flex; gap: 0.7rem; align-items: baseline; color: var(--muted); max-width: 38rem; }
-  .isnt li strong { color: var(--ink); font-weight: 600; }
-  .isnt li::before { content: "—"; color: var(--accent); flex: none; }
+  .isnt li strong { color: var(--ink); font-weight: 700; }
+  .isnt li::before { content: "→"; color: var(--accent); flex: none; font-weight: 700; }
 
-  .start-row { display: flex; align-items: center; gap: 1.1rem; flex-wrap: wrap; }
+  .start-row { display: flex; align-items: center; gap: 0.9rem; flex-wrap: wrap; }
   .meta { color: var(--muted); font-size: 0.92rem; }
+  .start-note { margin: 1rem 0 0; }
 
-  button {
-    font: inherit; cursor: pointer; border: none; color: inherit; background: none;
-  }
-  button:focus-visible, a:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; border-radius: 4px; }
+  button { font: inherit; cursor: pointer; border: none; color: inherit; background: none; }
+  button:focus-visible, a:focus-visible { outline: 2.5px solid var(--accent); outline-offset: 2px; }
 
   .btn-primary {
     background: var(--accent);
-    color: var(--bg);
-    font-weight: 650;
-    font-size: 1.02rem;
-    padding: 0.8rem 1.6rem;
-    border-radius: 999px;
-    transition: transform 0.12s ease, filter 0.12s ease;
+    color: var(--accent-ink);
+    font-weight: 700;
+    font-size: 1rem;
+    padding: 0.75rem 1.5rem;
+    border-radius: 2px;
+    box-shadow: 3px 3px 0 var(--edge);
+    transition: transform 0.1s ease, box-shadow 0.1s ease;
   }
-  .btn-primary:hover { filter: brightness(1.08); }
-  .btn-primary:active { transform: scale(0.98); }
+  .btn-primary:hover { transform: translate(-1px, -1px); box-shadow: 4px 4px 0 var(--edge); }
+  .btn-primary:active { transform: translate(2px, 2px); box-shadow: 1px 1px 0 var(--edge); }
+  .btn-primary:disabled { opacity: 0.45; cursor: default; box-shadow: 3px 3px 0 var(--line); transform: none; }
 
   .btn-ghost {
-    color: var(--accent); font-weight: 600; padding: 0.7rem 1.2rem;
-    border: 1px solid var(--line); border-radius: 999px;
+    color: var(--ink); font-weight: 600; padding: 0.7rem 1.3rem;
+    border: 1.5px solid var(--edge); border-radius: 2px; background: var(--surface);
   }
-  .btn-ghost:hover { background: var(--surface2); }
+  .btn-ghost:hover { background: var(--accent-soft); }
 
   /* ---------- Quiz ---------- */
   .progress-row {
     display: flex; justify-content: space-between; align-items: baseline;
     color: var(--muted); margin-bottom: 0.5rem;
   }
-  .bar { height: 3px; background: var(--line); border-radius: 2px; overflow: hidden; margin-bottom: 2rem; }
-  .bar > div { height: 100%; background: var(--accent); width: 0%; transition: width 0.35s ease; }
+  .bar {
+    height: 9px; border: 1.5px solid var(--edge); border-radius: 2px;
+    background: var(--surface); overflow: hidden; margin-bottom: 2.2rem;
+  }
+  .bar > div {
+    height: 100%; width: 0%;
+    background: repeating-linear-gradient(-45deg, var(--accent) 0, var(--accent) 5px, transparent 5px, transparent 9px);
+    transition: width 0.35s ease;
+  }
 
   .vignette {
     background: var(--surface);
-    border: 1px solid var(--line);
-    border-radius: 10px;
+    border: 1.5px solid var(--edge);
+    border-radius: 2px;
     padding: 1.3rem 1.4rem 1.35rem;
     box-shadow: var(--shadow);
-    margin-bottom: 1.6rem;
+    margin-bottom: 1.7rem;
   }
-  .vignette .context { color: var(--accent); display: block; margin-bottom: 0.75rem; }
+  .vignette .context { color: var(--accent); display: block; margin-bottom: 0.8rem; }
   .vignette p { margin: 0 0 0.75rem; }
   .vignette p:last-child { margin-bottom: 0; }
   .vignette .said {
-    font-family: "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, serif;
-    font-size: 1.13rem; font-style: italic;
+    font-family: "Fraunces", "Iowan Old Style", Georgia, serif;
+    font-size: 1.16rem; font-style: italic; font-weight: 500;
   }
 
-  .question { font-weight: 650; font-size: 1.08rem; margin: 0 0 1rem; }
+  .question { font-weight: 700; font-size: 1.1rem; margin: 0 0 0.6rem; }
+  .rate-hint { color: var(--muted); font-size: 0.92rem; margin: 0 0 1.1rem; }
 
-  .options { display: grid; gap: 0.6rem; margin-bottom: 1.5rem; }
-  .opt {
-    text-align: left;
-    background: var(--surface);
-    border: 1px solid var(--line);
-    border-radius: 10px;
-    padding: 0.85rem 1.05rem;
-    line-height: 1.45;
-    transition: border-color 0.12s ease, background 0.12s ease;
-  }
-  .opt:hover:not(:disabled) { border-color: var(--accent); background: var(--accent-soft); }
-  .opt:disabled { cursor: default; }
-  .opt.dim:disabled { opacity: 0.55; }
-  .opt.is-best { border-color: var(--good); background: var(--good-bg); }
-  .opt.picked-bad { border-color: var(--bad); background: var(--bad-bg); }
-  .opt.picked-part { border-color: var(--part); background: var(--part-bg); }
-  .opt .tag { display: block; margin-top: 0.4rem; font-weight: 700; font-size: 0.78rem; letter-spacing: 0.06em; text-transform: uppercase; }
-  .opt.is-best .tag { color: var(--good); }
-  .opt.picked-bad .tag { color: var(--bad); }
-  .opt.picked-part .tag { color: var(--part); }
-
-  .rate-hint { color: var(--muted); font-size: 0.92rem; margin: -0.4rem 0 1rem; }
+  .options { display: grid; gap: 0.7rem; margin-bottom: 0; }
   .stmt {
-    background: var(--surface); border: 1px solid var(--line); border-radius: 10px;
-    padding: 0.95rem 1.1rem 1rem;
+    background: var(--surface);
+    border: 1.5px solid var(--line);
+    border-radius: 2px;
+    padding: 1rem 1.1rem;
+    position: relative;
   }
-  .stmt > p { margin: 0 0 0.75rem; line-height: 1.45; }
-  .scale-row { display: flex; align-items: center; gap: 0.65rem; flex-wrap: wrap; }
-  .scale-row .end { font-size: 0.76rem; color: var(--muted); letter-spacing: 0.03em; }
-  .scale { display: flex; gap: 0.45rem; }
+  .stmt > p { margin: 0 0 0.8rem; line-height: 1.5; }
+  .scale-row { display: flex; align-items: center; gap: 0.7rem; flex-wrap: wrap; }
+  .scale-row .end {
+    font-family: ui-monospace, "Cascadia Mono", Consolas, Menlo, monospace;
+    font-size: 0.68rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted);
+  }
+  .scale { display: flex; gap: 0; }
   .scale button {
-    width: 2rem; height: 2rem; border-radius: 50%;
-    border: 1.5px solid var(--line); background: var(--surface2);
-    transition: border-color 0.12s ease, background 0.12s ease, transform 0.12s ease;
+    width: 2.3rem; height: 2.1rem;
+    border: 1.5px solid var(--line); border-left-width: 0;
+    background: var(--surface);
+    font-family: ui-monospace, "Cascadia Mono", Consolas, Menlo, monospace;
+    font-size: 0.8rem; color: var(--muted);
+    transition: background 0.1s ease, color 0.1s ease;
   }
-  .scale button:hover:not(:disabled) { border-color: var(--accent); transform: scale(1.08); }
-  .scale button[aria-pressed="true"] { background: var(--accent); border-color: var(--accent); }
+  .scale button:first-child { border-left-width: 1.5px; border-radius: 2px 0 0 2px; }
+  .scale button:last-child { border-radius: 0 2px 2px 0; }
+  .scale button:hover:not(:disabled) { background: var(--accent-soft); color: var(--ink); }
+  .scale button[aria-pressed="true"] { background: var(--accent); border-color: var(--accent); color: var(--accent-ink); font-weight: 700; }
   .scale button:disabled { cursor: default; }
+
   .stmt .chip {
-    display: inline-block; margin-top: 0.7rem; font-weight: 700; font-size: 0.72rem;
-    letter-spacing: 0.07em; text-transform: uppercase; padding: 0.2rem 0.6rem; border-radius: 999px;
+    display: inline-block; margin-top: 0.8rem;
+    font-weight: 800; font-size: 0.7rem; letter-spacing: 0.11em; text-transform: uppercase;
+    padding: 0.24rem 0.6rem 0.2rem;
+    border: 2px solid currentColor; border-radius: 2px;
+    transform: rotate(-1.4deg);
   }
   .chip.good { color: var(--good); background: var(--good-bg); }
   .chip.bad { color: var(--bad); background: var(--bad-bg); }
@@ -225,12 +263,13 @@
   .stmt.locked-ok { border-color: var(--good); }
   .stmt.locked-miss { border-color: var(--bad); }
   .stmt.locked-meh { border-color: var(--part); }
-  .lock-row { display: flex; justify-content: flex-end; margin: 1.1rem 0 1.6rem; }
+  .lock-row { display: flex; justify-content: flex-end; margin: 1.2rem 0 1.7rem; }
 
   .explain {
-    border-top: 2px solid var(--accent);
     background: var(--surface);
-    border-radius: 0 0 10px 10px;
+    border: 1.5px solid var(--edge);
+    border-top: 5px solid var(--accent);
+    border-radius: 2px;
     box-shadow: var(--shadow);
     padding: 1.3rem 1.4rem 1.4rem;
     animation: rise 0.3s ease;
@@ -239,65 +278,76 @@
   @media (prefers-reduced-motion: reduce) {
     .explain { animation: none; }
     .bar > div { transition: none; }
+    .btn-primary, .btn-primary:hover, .btn-primary:active { transform: none; transition: none; }
   }
-  .verdict { font-weight: 750; font-size: 1.05rem; margin: 0 0 1rem; }
+  .verdict { font-weight: 800; font-size: 1.05rem; margin: 0 0 1.1rem; }
   .verdict.v2 { color: var(--good); }
   .verdict.v1 { color: var(--part); }
   .verdict.v0 { color: var(--bad); }
-  .explain h4 { margin: 1.05rem 0 0.3rem; font-size: 0.82rem; letter-spacing: 0.07em; text-transform: uppercase; color: var(--muted); font-weight: 700; }
+  .explain h4 {
+    margin: 1.1rem 0 0.3rem;
+    font-family: ui-monospace, "Cascadia Mono", Consolas, Menlo, monospace;
+    font-size: 0.72rem; letter-spacing: 0.11em; text-transform: uppercase;
+    color: var(--muted); font-weight: 700;
+  }
   .explain h4:first-of-type { margin-top: 0; }
   .explain p { margin: 0 0 0.4rem; }
   .rule {
     font-family: ui-monospace, "Cascadia Mono", Consolas, "SF Mono", Menlo, monospace;
-    font-size: 0.88rem;
-    background: var(--surface2);
-    border: 1px dashed var(--line);
-    border-radius: 8px;
-    padding: 0.75rem 0.9rem;
+    font-size: 0.86rem; line-height: 1.6;
+    border: 1.5px dashed var(--edge);
+    border-radius: 2px;
+    padding: 0.75rem 0.95rem;
     margin-top: 0.35rem;
+    background: transparent;
   }
-  .explain .next-row { display: flex; justify-content: flex-end; margin-top: 1.3rem; }
+  .rule::before { content: "☞ "; color: var(--accent); }
+  .explain .next-row { display: flex; justify-content: flex-end; margin-top: 1.4rem; }
 
   /* ---------- Results ---------- */
-  .results .eyebrow { margin-bottom: 0.6rem; }
-  .score-line { display: flex; align-items: baseline; gap: 1rem; flex-wrap: wrap; margin-bottom: 0.5rem; }
-  .results h1 { font-size: clamp(1.8rem, 5vw, 2.6rem); font-weight: 500; letter-spacing: -0.01em; }
+  .results .eyebrow { margin-bottom: 1rem; }
+  .score-line { display: flex; align-items: baseline; gap: 1.1rem; flex-wrap: wrap; margin-bottom: 0.6rem; }
+  .results h1 { font-size: clamp(1.9rem, 5vw, 2.7rem); font-weight: 600; letter-spacing: -0.01em; }
   .big-score {
     font-family: ui-monospace, "Cascadia Mono", Consolas, Menlo, monospace;
     font-variant-numeric: tabular-nums;
-    font-size: 1.3rem; color: var(--muted);
+    font-size: 1.25rem; color: var(--muted);
   }
-  .overall-copy { font-size: 1.08rem; max-width: 38rem; margin: 0.6rem 0 2.4rem; }
+  .overall-copy { font-size: 1.07rem; max-width: 38rem; margin: 0.6rem 0 2.4rem; }
 
-  .fam-grid { display: grid; gap: 1rem; margin-bottom: 2.4rem; }
+  .fam-grid { display: grid; gap: 1.1rem; margin-bottom: 2.4rem; }
   .fam {
-    background: var(--surface); border: 1px solid var(--line); border-radius: 10px;
+    background: var(--surface); border: 1.5px solid var(--edge); border-radius: 2px;
     padding: 1.15rem 1.3rem 1.25rem; box-shadow: var(--shadow);
   }
-  .fam-head { display: flex; justify-content: space-between; align-items: baseline; gap: 1rem; flex-wrap: wrap; margin-bottom: 0.55rem; }
-  .fam-head h3 { font-size: 1.12rem; font-weight: 650; }
+  .fam-head { display: flex; justify-content: space-between; align-items: baseline; gap: 1rem; flex-wrap: wrap; margin-bottom: 0.6rem; }
+  .fam-head h3 {
+    font-family: "Fraunces", "Iowan Old Style", Georgia, serif;
+    font-size: 1.18rem; font-weight: 600;
+  }
   .pill {
-    font-size: 0.74rem; font-weight: 700; letter-spacing: 0.07em; text-transform: uppercase;
-    padding: 0.22rem 0.6rem; border-radius: 999px; white-space: nowrap;
+    font-size: 0.7rem; font-weight: 800; letter-spacing: 0.1em; text-transform: uppercase;
+    padding: 0.22rem 0.55rem 0.18rem; border: 2px solid currentColor; border-radius: 2px; white-space: nowrap;
   }
   .pill.hi { color: var(--good); background: var(--good-bg); }
   .pill.mid { color: var(--part); background: var(--part-bg); }
   .pill.lo { color: var(--bad); background: var(--bad-bg); }
-  .meter { height: 5px; border-radius: 3px; background: var(--surface2); overflow: hidden; margin: 0.5rem 0 0.9rem; }
-  .meter > div { height: 100%; border-radius: 3px; }
-  .meter.hi > div { background: var(--good); }
-  .meter.mid > div { background: var(--part); }
-  .meter.lo > div { background: var(--bad); }
+  .meter {
+    height: 10px; border: 1px solid var(--line); border-radius: 2px;
+    background: var(--surface2); overflow: hidden; margin: 0.55rem 0 0.95rem;
+  }
+  .meter > div { height: 100%; }
+  .meter.hi > div { background: repeating-linear-gradient(-45deg, var(--good) 0, var(--good) 5px, transparent 5px, transparent 9px); }
+  .meter.mid > div { background: repeating-linear-gradient(-45deg, var(--part) 0, var(--part) 5px, transparent 5px, transparent 9px); }
+  .meter.lo > div { background: repeating-linear-gradient(-45deg, var(--bad) 0, var(--bad) 5px, transparent 5px, transparent 9px); }
   .fam p { margin: 0 0 0.55rem; color: var(--ink); }
-  .fam .study { color: var(--muted); font-size: 0.94rem; margin-bottom: 0.75rem; }
-  .fam .study strong { color: var(--ink); font-weight: 600; }
+  .fam .study { color: var(--muted); font-size: 0.94rem; margin-bottom: 0.8rem; }
+  .fam .study strong { color: var(--ink); font-weight: 700; }
   .fam .rule { margin-top: 0.2rem; }
 
-  .fairness, .fineprint {
-    max-width: 38rem; color: var(--muted); font-size: 0.95rem; margin: 0 0 1.1rem;
-  }
+  .fairness, .fineprint { max-width: 38rem; color: var(--muted); font-size: 0.95rem; margin: 0 0 1.1rem; }
   .fairness strong, .fineprint strong { color: var(--ink); }
-  .end-row { display: flex; gap: 0.9rem; margin-top: 1.8rem; flex-wrap: wrap; }
+  .end-row { display: flex; gap: 0.9rem; margin-top: 1.9rem; flex-wrap: wrap; }
 
   .hidden { display: none; }
 </style>
@@ -321,12 +371,13 @@
     <ul class="isnt">
       <li><span><strong>Not an IQ test.</strong> It looks at reasoning habits, not intelligence &mdash; and habits, unlike IQ, are very learnable.</span></li>
       <li><span><strong>Not about your politics.</strong> The scenarios draw from all directions. Careful reasoning isn&rsquo;t a team.</span></li>
-      <li><span><strong>Nothing stored.</strong> Everything runs in your browser. No sign-up, no tracking, and your answers vanish when you close the tab.</span></li>
+      <li><span><strong>Nothing stored.</strong> Everything runs in your browser. No sign-up, no tracking; your answers vanish when you close the tab, and your daily streak lives only on your device.</span></li>
     </ul>
     <div class="start-row">
       <button class="btn-primary" id="btn-start">Start the check-up</button>
-      <span class="meta" id="start-meta">12 scenarios &middot; ~10 minutes &middot; you learn as you go</span>
+      <button class="btn-ghost" id="btn-daily">Scenario of the day</button>
     </div>
+    <p class="meta start-note" id="start-meta">12 scenarios &middot; ~10 minutes &middot; you learn as you go</p>
   </main>
 
   <!-- ============ QUIZ ============ -->
@@ -368,16 +419,23 @@
     </div>
     <p class="overall-copy" id="r-copy"></p>
 
+    <div id="daily-result" class="hidden">
+      <div class="end-row">
+        <button class="btn-primary" id="btn-share-daily">Copy today&rsquo;s result</button>
+        <button class="btn-ghost" id="btn-full">Take the full check-up</button>
+      </div>
+    </div>
+
     <div class="fam-grid" id="fam-grid"></div>
 
-    <p class="fairness"><strong>A note on fairness.</strong> These scenarios deliberately include claims that
+    <p class="fairness" id="r-fairness"><strong>A note on fairness.</strong> These scenarios deliberately include claims that
       flatter different worldviews &mdash; natural-living ones and institution-distrusting ones alike. The reasoning
       patterns are the same underneath; only the packaging changes. The habits that serve you here serve you everywhere.</p>
-    <p class="fineprint"><strong>A snapshot, not a diagnosis.</strong> Twelve scenarios can point at your blind
+    <p class="fineprint" id="r-fineprint"><strong>A snapshot, not a diagnosis.</strong> Twelve scenarios can point at your blind
       spots, not measure them precisely. The concepts above are all learnable in an afternoon each &mdash; and once
       a pattern has a name, it&rsquo;s far easier to catch. Come back in a month and see.</p>
 
-    <div class="end-row">
+    <div class="end-row" id="r-actions">
       <button class="btn-primary" id="btn-retake">Take it again</button>
       <button class="btn-ghost" id="btn-copy">Copy my results</button>
     </div>
@@ -440,7 +498,7 @@ const FAMILIES = {
   }
 };
 
-const SCENARIOS = [{"id":"sunscreen-trend","family":"causation","valence":"leans-left","status":"draft","context":"At a family dinner","body":["A relative pulls up a chart on their phone: skin-cancer diagnoses have risen steadily since the 1980s — right as sunscreen went mainstream.","“Explain that. We all started slathering on sunscreen, and skin cancer went <em>up</em>. It's obviously not protecting anyone — for all we know it's causing it.”"],"question":"What's the strongest response to this chart?","statements":[{"role":"flawed","t":"The timing is hard to ignore. If sunscreen worked, rates should have fallen — it's fair to suspect it plays some role."},{"role":"clean","t":"Two things rising together can both be driven by something else — more sun holidays and tanning, doctors catching far more cases. This chart alone can't say what causes what."},{"role":"over","t":"Charts of two trends are always meaningless. You can never learn anything from them, so there's nothing to explain."}],"explain":{"tempting":"A tight match in timing <em>feels</em> like a smoking gun — our minds are built to read sequence as cause. And “the official advice is backwards” is a satisfying story.","clean":"Both lines can be pushed up by third factors: decades of cheap sun holidays and tanning beds (skin cancer takes 20+ years to show up), plus far better screening finding cases that were previously missed. And the highest-risk people use the most sunscreen, which alone links sunscreen to cancer in the data. When researchers compare similar people with and without sunscreen in controlled trials, sunscreen reduces melanoma.","rule":"When two things rise together, ask: what else rose too? And who ended up in each group?"}},{"id":"herbal-patch","family":"posthoc","valence":"leans-left","status":"draft","context":"A friend's recommendation","body":["Your back has hurt for three weeks. At its absolute worst — you can barely tie your shoes — you finally try the expensive herbal patch a friend swears by.","Four days later you're dramatically better. “See?” says the friend. “Everyone I send to that patch says the same thing.”"],"question":"What can you actually conclude?","statements":[{"role":"flawed","t":"It worked. The pain was terrible, you used the patch, the pain left. Your own body is better evidence than any study."},{"role":"clean","t":"Hard to say. You tried it at the very worst point, and flare-ups tend to improve from their peak on their own — so almost anything tried at rock bottom looks like a miracle."},{"role":"over","t":"It definitely did nothing — herbal patches are scams, and the recovery is pure coincidence."}],"explain":{"tempting":"Nothing feels more like proof than your own body. Pain, patch, relief — the sequence writes the story for you, and everyone your friend “sends to the patch” lives the same sequence.","clean":"You don't reach for a new remedy on an average day — you reach for it at the peak. And peaks, by definition, are usually followed by improvement (statisticians call it regression to the mean). That's why anything tried at the worst moment “works”: the patch, the copper bracelet, the lucky socks. Only a comparison — similar sufferers with and without the patch — can separate the remedy from the rebound. Note the “definitely a scam” answer makes the mirror-image mistake: certainty without the comparison.","rule":"You try cures when things are at their worst — and “worst” usually improves by itself."}},{"id":"grandpa-smoker","family":"anecdotes","valence":"neutral","status":"draft","context":"In your group chat","body":["The chat turns to a news story about smoking. Someone writes:","“My grandfather smoked a pack a day and lived to 94, sharp as a razor. My aunt never touched a cigarette and got lung cancer at 60. Makes you wonder if the whole smoking thing is overblown.”"],"question":"What do these two family stories tell you?","statements":[{"role":"flawed","t":"Two counterexamples that close to home are a fair reason to suspect the risk is exaggerated."},{"role":"clean","t":"Almost nothing. Smoking raises risk, it doesn't guarantee outcomes — among millions of smokers, 94-year-old smokers are expected. And the smokers who died at 55 aren't at dinner telling their story."},{"role":"over","t":"Personal stories are completely worthless and shouldn't even be part of the conversation."}],"explain":{"tempting":"Stories from your own family feel like data you personally verified — and one vivid exception seems to poke a hole in the rule.","clean":"“Raises your risk” is a claim about rates, not a promise about each person. With millions of smokers, long-lived smokers must exist — and they're the ones still around to be quoted. The ones the risk caught died younger, and the dead don't tell their side at dinner. That's survivorship bias: the exceptions are systematically the ones you get to hear from. The rates — comparing many smokers to many non-smokers — already include grandpa and everyone less lucky.","rule":"The counterexamples you hear from are the survivors. Ask what happened to everyone else."}},{"id":"bacon-risk","family":"numbers","valence":"neutral","status":"draft","context":"In the news","body":["A headline: <strong>“Daily processed meat raises bowel-cancer risk by 18%.”</strong>","In your group chat, one friend is swearing off bacon forever; another says nutrition science changes every week so the number means nothing."],"question":"What does that 18% actually mean?","statements":[{"role":"flawed","t":"Eating bacon daily gives you roughly an 18% chance of bowel cancer. That's nearly one in five — a huge deal."},{"role":"clean","t":"It's a relative increase. Lifetime risk goes from about 6 in 100 to about 7 in 100 — a real but small absolute change you can now actually weigh against how much you like bacon."},{"role":"over","t":"Nutrition science flip-flops constantly, so the number is meaningless and can be ignored."}],"explain":{"tempting":"“Raises risk by 18%” slides straight into “my risk is 18%.” Headlines love relative numbers precisely because they sound enormous while staying technically true.","clean":"An 18% increase is 18% <em>of the starting risk</em>. Lifetime bowel-cancer risk is around 6% — so daily processed meat moves it to about 7%. One extra case per hundred daily eaters: real, worth knowing, and completely different from “nearly one in five.” The same trick runs in both directions — “cuts risk in half!” can mean going from 2 in 10,000 to 1 in 10,000. Neither panic nor blanket cynicism is needed; the absolute numbers let you decide like an adult.","rule":"“X% more” — of what? Never react to a relative number until you've seen the absolute one."}},{"id":"expert-dozen","family":"echo","valence":"leans-right","status":"draft","context":"In a documentary","body":["A slick documentary features twelve scientists and MDs arguing that a widely used class of medicines is a scam kept alive by industry money.","A friend is shaken: “These are real doctors with real credentials. Twelve of them! You can't just wave that away.”"],"question":"How much should twelve on-camera experts move you?","statements":[{"role":"flawed","t":"A dozen credentialed experts willing to go on record is strong evidence the mainstream view is in serious trouble."},{"role":"clean","t":"Very little on its own. With millions of scientists and doctors in the world, you can cast a dozen credentialed dissenters for almost any claim. The film shows you its casting choices — not the field."},{"role":"over","t":"Documentaries are entertainment. The right move is to refuse to watch anything in this genre at all."}],"explain":{"tempting":"Credentials are our honest shortcut for “this person knows things” — and twelve of them feels like a consensus. A film never shows you the selection process that found them.","clean":"The question is never “can credentialed dissenters be found?” — they can, for any position, because millions of people hold credentials. The question is what the <em>whole field</em> concludes and what the dissenters have besides interviews: published data survives scrutiny, camera time doesn't. A useful check: does the film tell you how many experts hold the opposite view? A curated dozen is a casting decision wearing a lab coat.","rule":"You can find a PhD for any claim. Ask what the field concludes, not who the camera found."}},{"id":"ward-percent","family":"baserates","valence":"leans-right","status":"draft","context":"On your feed","body":["A viral post: <strong>“A local hospital admits that 60% of patients hospitalized with virus X this winter were vaccinated against it. Still think it works?”</strong>","The number, it turns out, is accurate."],"question":"Does this show the vaccine isn't working?","statements":[{"role":"flawed","t":"Yes — if most of the people in hospital beds got the shot, the protection is clearly weak at best."},{"role":"clean","t":"Can't tell from this number alone. If 90% of people — especially the elderly — are vaccinated, vaccinated patients can dominate the ward even while the vaccine cuts everyone's risk. You need the rate per group, not the share of the ward."},{"role":"over","t":"It shows the vaccine isn't perfect, which is true of every vaccine — but this number alone can't tell you how well it works."}],"explain":{"tempting":"“Most of the sick were vaccinated” sounds like the vaccine failed an obvious test. The number is true, vivid, and feels complete — what more could you need?","clean":"The missing piece is: vaccinated <em>out of how many?</em> Imagine 90 of 100 elderly people are vaccinated. Even if vaccination cuts hospitalization risk to a quarter, the ward will still hold more vaccinated than unvaccinated people — because there are nine times as many of them to draw from. The informative comparison is hospitalizations <em>per 10,000 vaccinated</em> vs. <em>per 10,000 unvaccinated</em>. A true percentage with a hidden denominator is the internet's favorite weapon.","rule":"A share of the hospitalized means nothing without the share of everyone. Ask: out of how many?"}},{"id":"teens-scrolling","family":"causation","valence":"neutral","status":"draft","context":"In the news","body":["A study finds that teenagers who use social media more than four hours a day are twice as likely to be depressed.","The headline: <strong>“Proof at last: phones are destroying our kids.”</strong> The study itself measured both things at one point in time."],"question":"What does the study actually show?","statements":[{"role":"flawed","t":"That heavy social media use causes depression — twice the rate is too big an effect to explain any other way."},{"role":"clean","t":"A real link worth taking seriously — but the arrow could run either way (struggling teens may scroll more), or something else could drive both. You'd need studies that follow teens over time or change their usage."},{"role":"over","t":"Studies like this are worthless, and the safe conclusion is that social media and depression have nothing to do with each other."}],"explain":{"tempting":"“Twice as likely” plus a story we already believe — of course it reads as proof. The size of a correlation feels like evidence of causation, but it isn't; it's evidence of a strong <em>link</em>.","clean":"A snapshot can't tell you which came first. Maybe scrolling erodes mood; maybe low mood drives scrolling (comfort, insomnia, withdrawal from friends); maybe loneliness drives both. The honest reading: a genuine link, direction unknown, worth the better studies that can untangle it — and “worthless, so no connection” overshoots just as far in the other direction.","rule":"Before believing A causes B, ask: could B cause A? Could C cause both?"}},{"id":"flu-shot-timing","family":"posthoc","valence":"leans-right","status":"draft","context":"At work","body":["A colleague, reaching for the tissues: “Never again. I got the flu shot in October, and two days later I was sick as a dog for a week.","That's not a coincidence — the shot gave it to me.”"],"question":"What's the strongest assessment?","statements":[{"role":"flawed","t":"Two days is too tight a window to be chance. The most likely explanation is the shot made him sick."},{"role":"clean","t":"Millions of people get the shot right as virus season starts — by chance alone, enormous numbers get sick soon after. One person's timing can't distinguish “caused by” from “coincided with”; only comparing illness rates between vaccinated and unvaccinated groups can."},{"role":"over","t":"Pure coincidence — vaccines never cause any real symptoms, so there's nothing to explain."}],"explain":{"tempting":"Tight timing feels like a fingerprint. And your colleague isn't lying — he really did get sick two days after the shot. The experience is true; the inference is the mistake.","clean":"Flu shots are given by the millions at the exact moment cold-and-flu season ramps up — so “sick within a week of the shot” happens to huge numbers of people every year no matter what the shot does. (A day of feeling off from the immune response is real; a week of full flu from an inactivated vaccine isn't how the biology works.) The only way to see the shot's true effect is to compare groups. One vivid personal sequence, honestly reported, is exactly what coincidence looks like at scale.","rule":"“After this, therefore because of this” — ask how many people got the same “after” by chance alone."}},{"id":"focus-supplement","family":"anecdotes","valence":"neutral","status":"draft","context":"On your feed","body":["An influencer sells a “focus” supplement. The pinned post has thousands of comments: “changed my life,” “brain fog gone in a week,” “ordered three more bottles.”","A friend forwards it: “There's no way thousands of people are all lying.”"],"question":"Are thousands of glowing testimonials strong evidence it works?","statements":[{"role":"flawed","t":"Yes. A few reviews can be faked, but thousands of independent, detailed testimonials can't all be wrong."},{"role":"clean","t":"No — and nobody needs to be lying. Buyers who felt nothing don't comment (and critical comments get deleted), and with enough customers plus expectation effects, a sugar pill collects thousands of sincere raves. You'd need to hear from everyone who bought it."},{"role":"over","t":"They're obviously all bots and paid shills, so the whole thing is fake."}],"explain":{"tempting":"“They can't all be lying” is true — and that's exactly what makes it persuasive. The testimonials are mostly sincere. What's broken isn't the people; it's the filter that decides which people you hear.","clean":"Suppose 100,000 people buy it. Some were about to have a good week anyway; some feel the boost that comes from expecting one. Even if the pills are inert, thousands now sincerely believe it worked — and they're the ones who comment, get pinned, and get shown to you. The disappointed majority quietly doesn't reorder. A comment section is not a sample; it's a highlight reel curated by enthusiasm and the seller's delete button. Note the “all bots” answer reaches the right verdict by a lazy route — it collapses the moment some testimonials turn out to be real.","rule":"Testimonials are a filtered sample: you see the hits, never the misses."}},{"id":"flat-window","family":"numbers","valence":"leans-right","status":"draft","context":"On your feed","body":["A post shows a chart of global temperatures covering the last eight years. The line is roughly flat. Caption: <strong>“The warming stopped. They just don't update you.”</strong>","You check: the data points in the chart are real."],"question":"The data is real — so what's the right takeaway?","statements":[{"role":"flawed","t":"Real data is real data. If eight years show no rise, the trend has at least paused, whatever the longer charts say."},{"role":"clean","t":"A short window that starts at an unusual spike can look flat inside a rising long-term trend — noisy data always contains flat-looking stretches. Zoom out, and ask who chose that start year and why."},{"role":"over","t":"Never trust a chart from social media. Only charts from official institutions can be taken at face value."}],"explain":{"tempting":"“The data is real” feels like the end of the argument. But whoever picks the window picks the story the real data tells — start at a record-hot spike and the next few years look flat by design.","clean":"Noisy upward trends are full of stretches that look flat or even falling — pick your start and end points carefully and you can “show” anything. The test isn't whether the points are real; it's whether the window was chosen for you. Zoom out to the full record and the stretch dissolves into the trend. The identical trick sells investment funds (“up 40% since [carefully chosen month]”) and both attacks and defends every policy under the sun. And note: the fix is a method — zoom out — not the shortcut of trusting or distrusting whole categories of sources.","rule":"Whoever picks the window picks the conclusion. Zoom out."}},{"id":"crime-feed","family":"echo","valence":"neutral","status":"draft","context":"On a neighborhood app","body":["Three break-in posts this month, each with hundreds of alarmed comments. More neighbors are posting doorbell footage of “suspicious” passers-by every day.","A neighbor tells you: “This area has gone downhill fast. Crime is exploding — everyone can see it.”"],"question":"What can you conclude about local crime?","statements":[{"role":"flawed","t":"When this many neighbors are seeing it with their own eyes, the rise is real. Locals feel these things long before statistics do."},{"role":"clean","t":"Not much yet. Feeds amplify alarm: one incident spawns many posts, alarm drives more posting and more cameras — all while actual incidents could be flat or falling. Posts measure attention, not crime. Check a few years of actual local numbers."},{"role":"over","t":"Impossible to say — you can never really know whether crime is up or down."}],"explain":{"tempting":"This one runs on good instincts: trusting your own eyes and your neighbors. But you're not seeing the neighborhood — you're seeing what an engagement-ranked feed selected from it.","clean":"Alarm is a feedback loop: one break-in produces a post, the post produces fear, fear produces more posts and more cameras and more “suspicious person” reports — the signal multiplies while the thing itself needn't change at all. Three real incidents can feel like a crime wave. The feed measures how alarmed people are, not how dangerous the area is; those can move independently. Local police statistics over several years are checkable in minutes — and “impossible to know” is its own mistake when the answer is a search away.","rule":"A feed is a fear amplifier, not a measuring instrument. Alarming posts can multiply while the thing itself doesn't."}},{"id":"nuclear-events","family":"baserates","valence":"leans-left","status":"draft","context":"On your feed","body":["After a new nuclear plant is proposed nearby, a widely shared post lists Chernobyl and Fukushima, with photos, and concludes:","“This is the deadliest form of energy ever created. No sane country builds more of it.”"],"question":"What's the clean way to judge that claim?","statements":[{"role":"flawed","t":"The disasters speak for themselves. Nuclear has proven what it does when it fails — that's what matters, not statistics."},{"role":"clean","t":"Compare deaths per unit of energy produced, across all sources — which counts the disasters and the quiet, constant harm of air pollution from fossil fuels. By that measure nuclear ranks among the safest. Whatever you decide, compare per-unit, not by famous events."},{"role":"over","t":"Nuclear is completely safe, and anyone still worried about it is simply being irrational."}],"explain":{"tempting":"Named disasters with photos are unforgettable — and memory feels like evidence. A danger you can picture vividly seems bigger than one that kills quietly, one case of lung disease at a time, with no famous incident to remember.","clean":"Vivid events measure how memorable a danger is, not how large. The fair comparison is deaths per unit of energy produced: rare spectacular accidents on one side, decades of routine air-pollution deaths from coal and gas on the other. On that measure, nuclear sits near the bottom alongside wind and solar. You can still oppose the plant — cost, waste, whatever weighs with you — but “I can name its disasters” is a fact about your memory, not about the risk. (And “completely safe, you're irrational” overshoots in the other direction: real trade-offs exist.)","rule":"Memorable is not the same as common. Divide by the denominator before comparing dangers."}},{"id":"music-lessons","family":"causation","valence":"neutral","status":"draft","context":"At school pick-up","body":["Another parent shares an article: kids who take music lessons score significantly higher in school.","“That settles it — we're signing up this week. It literally makes them smarter.”"],"question":"What does the link between music lessons and grades show?","statements":[{"role":"flawed","t":"Music training builds discipline and brain power — that's why lesson-takers do better. Signing up should give a real academic boost."},{"role":"clean","t":"Families who choose and afford lessons differ in many ways — income, time, tutoring, expectations — any of which could drive both the lessons and the grades. The link alone can't say the lessons do the work."},{"role":"over","t":"Education research like this is basically astrology — no study of kids can ever tell you anything."}],"explain":{"tempting":"It's a link that flatters something we'd love to believe: that there's a purchasable lever for our kids' success. And a plausible mechanism — discipline, practice, focus — makes the causal leap feel safe.","clean":"Kids aren't randomly assigned to music lessons. The families who choose them already differ before the first note — income, stable schedules, parental involvement, tutoring — and those same differences raise grades on their own. When researchers account for family background, or randomly assign actual music training, the “music makes you smarter” effect shrinks toward zero. Music is still great — for music reasons. The overshoot errs the other way: careful studies of kids can and do tell us things; this particular headline just isn't one of them.","rule":"Ask who ends up in each group — and whether that difference alone could explain the gap."}},{"id":"gluten-cut","family":"posthoc","valence":"leans-left","status":"draft","context":"At brunch","body":["A friend, glowing: “I cut gluten six weeks ago and I'm a different person — more energy, no more bloating, better skin.","You should really try it. Bread was basically poisoning me.”"],"question":"How solid is “I cut gluten and felt better”?","statements":[{"role":"flawed","t":"Six weeks of clearly feeling better after one change is about as direct as evidence gets — the gluten was the problem."},{"role":"clean","t":"Cutting gluten changes many things at once — less junk food, more home cooking, more attention to how you feel, plus expectation itself. Only a blinded test (feeling worse when gluten sneaks back in unknowingly) could pin it on gluten specifically."},{"role":"over","t":"It's all in her head — nothing about her diet change actually made her feel better."}],"explain":{"tempting":"The improvement is real, and it followed the change — the sequence tells the story for you. And she did something hard, so “it worked” also rewards the effort.","clean":"“Going gluten-free” is one label for a dozen simultaneous changes: dropping pastries, beer, and fast food, cooking more, and paying attention to your body. Add the placebo effect — genuinely strong for energy and gut symptoms — and starting at a low point (people overhaul their diet when they feel worst), and feeling better afterward is expected no matter what gluten does. In blinded studies, most people who report gluten sensitivity can't tell gluten capsules from placebo — and some can, which is why the careful test matters. “All in her head” gets it wrong too: the improvement is real; only the credit is in question.","rule":"One change on the label, a dozen changes in practice. Ask what else changed at the same time."}},{"id":"rare-screening","family":"baserates","valence":"neutral","status":"draft","context":"A worried phone call","body":["A healthy friend took a screening test for a rare condition — about 1 in 1,000 people have it. The test catches 99% of true cases, and wrongly flags about 2% of healthy people. Hers came back positive.","“The test is 99% accurate,” she says. “So it's basically certain I have it.”"],"question":"Given the positive result, how worried should she be?","statements":[{"role":"flawed","t":"The test is 99% accurate, so a positive result means it's about 99% likely she has the condition."},{"role":"clean","t":"Picture 1,000 people like her: about 1 truly has it, while about 20 healthy people get wrongly flagged. Her positive is one of ~21 — so the chance it's real is roughly 5%. The right response is a follow-up test, not panic."},{"role":"over","t":"Screening tests are so unreliable that a positive result carries no information and can simply be ignored."}],"explain":{"tempting":"“99% accurate” sounds like it describes <em>her</em> situation. But accuracy describes the test's behavior across many people — on its own it says nothing about what one positive means when the condition is rare.","clean":"Rarity dominates. In 1,000 people, the test finds the 1 real case — and also flags about 20 of the 999 healthy people by mistake. Twenty-one positives, one real: under 5%. This is exactly why medicine follows screening positives with confirmatory tests instead of treating on the spot. And “ignore it” is wrong in the other direction: her risk did jump from 0.1% to about 5% — fifty times higher — which is precisely worth the follow-up and nothing more yet.","rule":"When the condition is rare, most positives are false. Run the 1,000-people picture before panicking."}},{"id":"restaurant-ratings","family":"anecdotes","valence":"neutral","status":"draft","context":"Choosing where to book","body":["Two options for dinner: a new place with a perfect 5.0 from its first 12 reviews, and the old neighborhood favorite holding 4.3 across 2,800 reviews.","Your friend: “5.0 beats 4.3 — the new place is clearly better.”"],"question":"Which rating is stronger evidence of a good meal?","statements":[{"role":"flawed","t":"A perfect score is a perfect score — twelve people all agreeing beats a diluted average from thousands."},{"role":"clean","t":"Twelve reviews is a tiny, early, friendly sample — new places start with fans and lucky nights, and small samples swing to extremes easily. 4.3 across 2,800 reviews is a far more reliable picture of what your dinner will actually be like."},{"role":"over","t":"Ratings are all bought or faked anyway, so there's no point looking at either number."}],"explain":{"tempting":"5.0 &gt; 4.3 is the easiest math in the world. What the comparison hides is that the two numbers carry completely different amounts of evidence.","clean":"Small samples are extreme samples. The first dozen reviewers of a new spot are disproportionately friends, well-wishers, and people who caught the chef's best night — and even by pure chance, a dozen ratings can average almost anywhere. Across 2,800 reviews, luck and superfans wash out and the number converges on the real typical experience. This is the same reason the smallest counties post both the highest and lowest disease rates, and why “miracle” results tend to come from the smallest studies. (The new place might be great — the honest answer is that twelve reviews can't tell you yet.)","rule":"Before comparing two averages, compare their sample sizes. Extremes live in small samples."}},{"id":"dog-attacks","family":"numbers","valence":"neutral","status":"draft","context":"In the local paper","body":["Headline: <strong>“Dog attacks in the city DOUBLED last year.”</strong>","Further down, the figures: from 4 reported attacks the year before to 8, in a city of 600,000 people."],"question":"What does “doubled” amount to here?","statements":[{"role":"flawed","t":"Doubling is doubling — a 100% increase means the problem is escalating fast and something has clearly changed."},{"role":"clean","t":"With numbers this small, 4 becoming 8 is well within ordinary year-to-year noise — and the per-person risk moved from about 1-in-150,000 to 1-in-75,000. Watch several years of data before concluding anything changed."},{"role":"over","t":"Numbers this small are meaningless in every sense — the article contains no information at all."}],"explain":{"tempting":"Percentages feel like magnitudes: “100% increase” sounds like a city transformed. The smaller the starting number, the bigger and scarier the percentage swings look — which is exactly why headlines love small bases.","clean":"Counts of rare events bounce hard from year to year by chance alone — 4 to 8 is the kind of swing you'd expect even if nothing about dogs, owners, or the city changed. (From 4,000 to 8,000 would be a genuine signal; from 4 to 8 is closer to a coin's whim.) Two questions defuse the headline: what are the absolute numbers, and what does the multi-year trend show? The overshoot cuts the other way — small numbers aren't <em>no</em> information, they're weak information: a jump to 80 would matter immediately.","rule":"The smaller the base, the louder the percentage. Ask for absolute numbers and the multi-year trend."}},{"id":"housing-feed","family":"echo","valence":"neutral","status":"draft","context":"On your feed","body":["The council proposes apartment buildings near the station. Your feed is wall-to-wall opposition — angry posts, a petition, furious comment threads.","A neighbor: “Literally everyone is against this. The council is ignoring the entire town.”"],"question":"Is the whole town against it?","statements":[{"role":"flawed","t":"When every post, comment, and petition you see points one way, that's the town's voice — the opposition is clearly overwhelming."},{"role":"clean","t":"Feeds surface the angriest, most motivated voices; people upset by a change post far more than the indifferent or quietly supportive. You're seeing who's loudest, not how opinion is distributed — a representative survey often tells a different story."},{"role":"over","t":"Online opinion is always the opposite of real opinion, so the town probably loves the plan."}],"explain":{"tempting":"Unanimity in your feed feels like unanimity in the world — dozens of real people visibly agree, and nobody visible disagrees.","clean":"Three filters sit between the town and your screen: people with strong feelings post far more than the content majority; platforms amplify whatever gets angry engagement; and your network resembles you. Together they can turn a 25% opinion into 95% of what you see — sincerely, with nobody lying. The visible side isn't the popular side; it's the motivated side. Representative surveys exist precisely because feeds can't do this job. And no — a skewed feed doesn't mean the truth is the opposite; it means the feed simply can't tell you.","rule":"Your feed shows who's loudest, not how many. “Unanimous online” is a fact about the filter, not the town."}}];
+const SCENARIOS = [{"id":"sunscreen-trend","family":"causation","valence":"leans-left","status":"draft","context":"At a family dinner","body":["A relative pulls up a chart on their phone: skin-cancer diagnoses have risen steadily since the 1980s — right as sunscreen went mainstream.","“Explain that. We all started slathering on sunscreen, and skin cancer went <em>up</em>. It's obviously not protecting anyone — for all we know it's causing it.”"],"question":"What's the strongest response to this chart?","statements":[{"role":"flawed","t":"The timing is hard to ignore. If sunscreen worked, rates should have fallen — it's fair to suspect it plays some role."},{"role":"clean","t":"Two things rising together can both be driven by something else — more sun holidays and tanning, doctors catching far more cases. This chart alone can't say what causes what."},{"role":"over","t":"Charts of two trends are always meaningless. You can never learn anything from them, so there's nothing to explain."}],"explain":{"tempting":"A tight match in timing <em>feels</em> like a smoking gun — our minds are built to read sequence as cause. And “the official advice is backwards” is a satisfying story.","clean":"Both lines can be pushed up by third factors: decades of cheap sun holidays and tanning beds (skin cancer takes 20+ years to show up), plus far better screening finding cases that were previously missed. And the highest-risk people use the most sunscreen, which alone links sunscreen to cancer in the data. When researchers compare similar people with and without sunscreen in controlled trials, sunscreen reduces melanoma.","rule":"When two things rise together, ask: what else rose too? And who ended up in each group?"}},{"id":"herbal-patch","family":"posthoc","valence":"leans-left","status":"draft","context":"A friend's recommendation","body":["Your back has hurt for three weeks. At its absolute worst — you can barely tie your shoes — you finally try the expensive herbal patch a friend swears by.","Four days later you're dramatically better. “See?” says the friend. “Everyone I send to that patch says the same thing.”"],"question":"What can you actually conclude?","statements":[{"role":"flawed","t":"It worked. The pain was terrible, you used the patch, the pain left. Your own body is better evidence than any study."},{"role":"clean","t":"Hard to say. You tried it at the very worst point, and flare-ups tend to improve from their peak on their own — so almost anything tried at rock bottom looks like a miracle."},{"role":"over","t":"It definitely did nothing — herbal patches are scams, and the recovery is pure coincidence."}],"explain":{"tempting":"Nothing feels more like proof than your own body. Pain, patch, relief — the sequence writes the story for you, and everyone your friend “sends to the patch” lives the same sequence.","clean":"You don't reach for a new remedy on an average day — you reach for it at the peak. And peaks, by definition, are usually followed by improvement (statisticians call it regression to the mean). That's why anything tried at the worst moment “works”: the patch, the copper bracelet, the lucky socks. Only a comparison — similar sufferers with and without the patch — can separate the remedy from the rebound. Note the “definitely a scam” answer makes the mirror-image mistake: certainty without the comparison.","rule":"You try cures when things are at their worst — and “worst” usually improves by itself."}},{"id":"grandpa-smoker","family":"anecdotes","valence":"neutral","status":"draft","context":"In your group chat","body":["The chat turns to a news story about smoking. Someone writes:","“My grandfather smoked a pack a day and lived to 94, sharp as a razor. My aunt never touched a cigarette and got lung cancer at 60. Makes you wonder if the whole smoking thing is overblown.”"],"question":"What do these two family stories tell you?","statements":[{"role":"flawed","t":"Two counterexamples that close to home are a fair reason to suspect the risk is exaggerated."},{"role":"clean","t":"Almost nothing. Smoking raises risk, it doesn't guarantee outcomes — among millions of smokers, 94-year-old smokers are expected. And the smokers who died at 55 aren't at dinner telling their story."},{"role":"over","t":"Personal stories are completely worthless and shouldn't even be part of the conversation."}],"explain":{"tempting":"Stories from your own family feel like data you personally verified — and one vivid exception seems to poke a hole in the rule.","clean":"“Raises your risk” is a claim about rates, not a promise about each person. With millions of smokers, long-lived smokers must exist — and they're the ones still around to be quoted. The ones the risk caught died younger, and the dead don't tell their side at dinner. That's survivorship bias: the exceptions are systematically the ones you get to hear from. The rates — comparing many smokers to many non-smokers — already include grandpa and everyone less lucky.","rule":"The counterexamples you hear from are the survivors. Ask what happened to everyone else."}},{"id":"bacon-risk","family":"numbers","valence":"neutral","status":"draft","context":"In the news","body":["A headline: <strong>“Daily processed meat raises bowel-cancer risk by 18%.”</strong>","In your group chat, one friend is swearing off bacon forever; another says nutrition science changes every week so the number means nothing."],"question":"What does that 18% actually mean?","statements":[{"role":"flawed","t":"Eating bacon daily gives you roughly an 18% chance of bowel cancer. That's nearly one in five — a huge deal."},{"role":"clean","t":"It's a relative increase. Lifetime risk goes from about 6 in 100 to about 7 in 100 — a real but small absolute change you can now actually weigh against how much you like bacon."},{"role":"over","t":"Nutrition science flip-flops constantly, so the number is meaningless and can be ignored."}],"explain":{"tempting":"“Raises risk by 18%” slides straight into “my risk is 18%.” Headlines love relative numbers precisely because they sound enormous while staying technically true.","clean":"An 18% increase is 18% <em>of the starting risk</em>. Lifetime bowel-cancer risk is around 6% — so daily processed meat moves it to about 7%. One extra case per hundred daily eaters: real, worth knowing, and completely different from “nearly one in five.” The same trick runs in both directions — “cuts risk in half!” can mean going from 2 in 10,000 to 1 in 10,000. Neither panic nor blanket cynicism is needed; the absolute numbers let you decide like an adult.","rule":"“X% more” — of what? Never react to a relative number until you've seen the absolute one."}},{"id":"expert-dozen","family":"echo","valence":"leans-right","status":"draft","context":"In a documentary","body":["A slick documentary features twelve scientists and MDs arguing that a widely used class of medicines is a scam kept alive by industry money.","A friend is shaken: “These are real doctors with real credentials. Twelve of them! You can't just wave that away.”"],"question":"How much should twelve on-camera experts move you?","statements":[{"role":"flawed","t":"A dozen credentialed experts willing to go on record is strong evidence the mainstream view is in serious trouble."},{"role":"clean","t":"Very little on its own. With millions of scientists and doctors in the world, you can cast a dozen credentialed dissenters for almost any claim. The film shows you its casting choices — not the field."},{"role":"over","t":"Documentaries are entertainment. The right move is to refuse to watch anything in this genre at all."}],"explain":{"tempting":"Credentials are our honest shortcut for “this person knows things” — and twelve of them feels like a consensus. A film never shows you the selection process that found them.","clean":"The question is never “can credentialed dissenters be found?” — they can, for any position, because millions of people hold credentials. The question is what the <em>whole field</em> concludes and what the dissenters have besides interviews: published data survives scrutiny, camera time doesn't. A useful check: does the film tell you how many experts hold the opposite view? A curated dozen is a casting decision wearing a lab coat.","rule":"You can find a PhD for any claim. Ask what the field concludes, not who the camera found."}},{"id":"ward-percent","family":"baserates","valence":"leans-right","status":"draft","context":"On your feed","body":["A viral post: <strong>“A local hospital admits that 60% of patients hospitalized with virus X this winter were vaccinated against it. Still think it works?”</strong>","The number, it turns out, is accurate."],"question":"Does this show the vaccine isn't working?","statements":[{"role":"flawed","t":"Yes — if most of the people in hospital beds got the shot, the protection is clearly weak at best."},{"role":"clean","t":"Can't tell from this number alone. If 90% of people — especially the elderly — are vaccinated, vaccinated patients can dominate the ward even while the vaccine cuts everyone's risk. You need the rate per group, not the share of the ward."},{"role":"over","t":"It shows the vaccine isn't perfect, which is true of every vaccine — but this number alone can't tell you how well it works."}],"explain":{"tempting":"“Most of the sick were vaccinated” sounds like the vaccine failed an obvious test. The number is true, vivid, and feels complete — what more could you need?","clean":"The missing piece is: vaccinated <em>out of how many?</em> Imagine 90 of 100 elderly people are vaccinated. Even if vaccination cuts hospitalization risk to a quarter, the ward will still hold more vaccinated than unvaccinated people — because there are nine times as many of them to draw from. The informative comparison is hospitalizations <em>per 10,000 vaccinated</em> vs. <em>per 10,000 unvaccinated</em>. A true percentage with a hidden denominator is the internet's favorite weapon.","rule":"A share of the hospitalized means nothing without the share of everyone. Ask: out of how many?"}},{"id":"teens-scrolling","family":"causation","valence":"neutral","status":"draft","context":"In the news","body":["A study finds that teenagers who use social media more than four hours a day are twice as likely to be depressed.","The headline: <strong>“Proof at last: phones are destroying our kids.”</strong> The study itself measured both things at one point in time."],"question":"What does the study actually show?","statements":[{"role":"flawed","t":"That heavy social media use causes depression — twice the rate is too big an effect to explain any other way."},{"role":"clean","t":"A real link worth taking seriously — but the arrow could run either way (struggling teens may scroll more), or something else could drive both. You'd need studies that follow teens over time or change their usage."},{"role":"over","t":"Studies like this are worthless, and the safe conclusion is that social media and depression have nothing to do with each other."}],"explain":{"tempting":"“Twice as likely” plus a story we already believe — of course it reads as proof. The size of a correlation feels like evidence of causation, but it isn't; it's evidence of a strong <em>link</em>.","clean":"A snapshot can't tell you which came first. Maybe scrolling erodes mood; maybe low mood drives scrolling (comfort, insomnia, withdrawal from friends); maybe loneliness drives both. The honest reading: a genuine link, direction unknown, worth the better studies that can untangle it — and “worthless, so no connection” overshoots just as far in the other direction.","rule":"Before believing A causes B, ask: could B cause A? Could C cause both?"}},{"id":"flu-shot-timing","family":"posthoc","valence":"leans-right","status":"draft","context":"At work","body":["A colleague, reaching for the tissues: “Never again. I got the flu shot in October, and two days later I was sick as a dog for a week.","That's not a coincidence — the shot gave it to me.”"],"question":"What's the strongest assessment?","statements":[{"role":"flawed","t":"Two days is too tight a window to be chance. The most likely explanation is the shot made him sick."},{"role":"clean","t":"Millions of people get the shot right as virus season starts — by chance alone, enormous numbers get sick soon after. One person's timing can't distinguish “caused by” from “coincided with”; only comparing illness rates between vaccinated and unvaccinated groups can."},{"role":"over","t":"Pure coincidence — vaccines never cause any real symptoms, so there's nothing to explain."}],"explain":{"tempting":"Tight timing feels like a fingerprint. And your colleague isn't lying — he really did get sick two days after the shot. The experience is true; the inference is the mistake.","clean":"Flu shots are given by the millions at the exact moment cold-and-flu season ramps up — so “sick within a week of the shot” happens to huge numbers of people every year no matter what the shot does. (A day of feeling off from the immune response is real; a week of full flu from an inactivated vaccine isn't how the biology works.) The only way to see the shot's true effect is to compare groups. One vivid personal sequence, honestly reported, is exactly what coincidence looks like at scale.","rule":"“After this, therefore because of this” — ask how many people got the same “after” by chance alone."}},{"id":"focus-supplement","family":"anecdotes","valence":"neutral","status":"draft","context":"On your feed","body":["An influencer sells a “focus” supplement. The pinned post has thousands of comments: “changed my life,” “brain fog gone in a week,” “ordered three more bottles.”","A friend forwards it: “There's no way thousands of people are all lying.”"],"question":"Are thousands of glowing testimonials strong evidence it works?","statements":[{"role":"flawed","t":"Yes. A few reviews can be faked, but thousands of independent, detailed testimonials can't all be wrong."},{"role":"clean","t":"No — and nobody needs to be lying. Buyers who felt nothing don't comment (and critical comments get deleted), and with enough customers plus expectation effects, a sugar pill collects thousands of sincere raves. You'd need to hear from everyone who bought it."},{"role":"over","t":"They're obviously all bots and paid shills, so the whole thing is fake."}],"explain":{"tempting":"“They can't all be lying” is true — and that's exactly what makes it persuasive. The testimonials are mostly sincere. What's broken isn't the people; it's the filter that decides which people you hear.","clean":"Suppose 100,000 people buy it. Some were about to have a good week anyway; some feel the boost that comes from expecting one. Even if the pills are inert, thousands now sincerely believe it worked — and they're the ones who comment, get pinned, and get shown to you. The disappointed majority quietly doesn't reorder. A comment section is not a sample; it's a highlight reel curated by enthusiasm and the seller's delete button. Note the “all bots” answer reaches the right verdict by a lazy route — it collapses the moment some testimonials turn out to be real.","rule":"Testimonials are a filtered sample: you see the hits, never the misses."}},{"id":"flat-window","family":"numbers","valence":"leans-right","status":"draft","context":"On your feed","body":["A post shows a chart of global temperatures covering the last eight years. The line is roughly flat. Caption: <strong>“The warming stopped. They just don't update you.”</strong>","You check: the data points in the chart are real."],"question":"The data is real — so what's the right takeaway?","statements":[{"role":"flawed","t":"Real data is real data. If eight years show no rise, the trend has at least paused, whatever the longer charts say."},{"role":"clean","t":"A short window that starts at an unusual spike can look flat inside a rising long-term trend — noisy data always contains flat-looking stretches. Zoom out, and ask who chose that start year and why."},{"role":"over","t":"Never trust a chart from social media. Only charts from official institutions can be taken at face value."}],"explain":{"tempting":"“The data is real” feels like the end of the argument. But whoever picks the window picks the story the real data tells — start at a record-hot spike and the next few years look flat by design.","clean":"Noisy upward trends are full of stretches that look flat or even falling — pick your start and end points carefully and you can “show” anything. The test isn't whether the points are real; it's whether the window was chosen for you. Zoom out to the full record and the stretch dissolves into the trend. The identical trick sells investment funds (“up 40% since [carefully chosen month]”) and both attacks and defends every policy under the sun. And note: the fix is a method — zoom out — not the shortcut of trusting or distrusting whole categories of sources.","rule":"Whoever picks the window picks the conclusion. Zoom out."}},{"id":"crime-feed","family":"echo","valence":"neutral","status":"draft","context":"On a neighborhood app","body":["Three break-in posts this month, each with hundreds of alarmed comments. More neighbors are posting doorbell footage of “suspicious” passers-by every day.","A neighbor tells you: “This area has gone downhill fast. Crime is exploding — everyone can see it.”"],"question":"What can you conclude about local crime?","statements":[{"role":"flawed","t":"When this many neighbors are seeing it with their own eyes, the rise is real. Locals feel these things long before statistics do."},{"role":"clean","t":"Not much yet. Feeds amplify alarm: one incident spawns many posts, alarm drives more posting and more cameras — all while actual incidents could be flat or falling. Posts measure attention, not crime. Check a few years of actual local numbers."},{"role":"over","t":"Impossible to say — you can never really know whether crime is up or down."}],"explain":{"tempting":"This one runs on good instincts: trusting your own eyes and your neighbors. But you're not seeing the neighborhood — you're seeing what an engagement-ranked feed selected from it.","clean":"Alarm is a feedback loop: one break-in produces a post, the post produces fear, fear produces more posts and more cameras and more “suspicious person” reports — the signal multiplies while the thing itself needn't change at all. Three real incidents can feel like a crime wave. The feed measures how alarmed people are, not how dangerous the area is; those can move independently. Local police statistics over several years are checkable in minutes — and “impossible to know” is its own mistake when the answer is a search away.","rule":"A feed is a fear amplifier, not a measuring instrument. Alarming posts can multiply while the thing itself doesn't."}},{"id":"nuclear-events","family":"baserates","valence":"leans-left","status":"draft","context":"On your feed","body":["After a new nuclear plant is proposed nearby, a widely shared post lists Chernobyl and Fukushima, with photos, and concludes:","“This is the deadliest form of energy ever created. No sane country builds more of it.”"],"question":"What's the clean way to judge that claim?","statements":[{"role":"flawed","t":"The disasters speak for themselves. Nuclear has proven what it does when it fails — that's what matters, not statistics."},{"role":"clean","t":"Compare deaths per unit of energy produced, across all sources — which counts the disasters and the quiet, constant harm of air pollution from fossil fuels. By that measure nuclear ranks among the safest. Whatever you decide, compare per-unit, not by famous events."},{"role":"over","t":"Nuclear is completely safe, and anyone still worried about it is simply being irrational."}],"explain":{"tempting":"Named disasters with photos are unforgettable — and memory feels like evidence. A danger you can picture vividly seems bigger than one that kills quietly, one case of lung disease at a time, with no famous incident to remember.","clean":"Vivid events measure how memorable a danger is, not how large. The fair comparison is deaths per unit of energy produced: rare spectacular accidents on one side, decades of routine air-pollution deaths from coal and gas on the other. On that measure, nuclear sits near the bottom alongside wind and solar. You can still oppose the plant — cost, waste, whatever weighs with you — but “I can name its disasters” is a fact about your memory, not about the risk. (And “completely safe, you're irrational” overshoots in the other direction: real trade-offs exist.)","rule":"Memorable is not the same as common. Divide by the denominator before comparing dangers."}},{"id":"music-lessons","family":"causation","valence":"neutral","status":"draft","context":"At school pick-up","body":["Another parent shares an article: kids who take music lessons score significantly higher in school.","“That settles it — we're signing up this week. It literally makes them smarter.”"],"question":"What does the link between music lessons and grades show?","statements":[{"role":"flawed","t":"Music training builds discipline and brain power — that's why lesson-takers do better. Signing up should give a real academic boost."},{"role":"clean","t":"Families who choose and afford lessons differ in many ways — income, time, tutoring, expectations — any of which could drive both the lessons and the grades. The link alone can't say the lessons do the work."},{"role":"over","t":"Education research like this is basically astrology — no study of kids can ever tell you anything."}],"explain":{"tempting":"It's a link that flatters something we'd love to believe: that there's a purchasable lever for our kids' success. And a plausible mechanism — discipline, practice, focus — makes the causal leap feel safe.","clean":"Kids aren't randomly assigned to music lessons. The families who choose them already differ before the first note — income, stable schedules, parental involvement, tutoring — and those same differences raise grades on their own. When researchers account for family background, or randomly assign actual music training, the “music makes you smarter” effect shrinks toward zero. Music is still great — for music reasons. The overshoot errs the other way: careful studies of kids can and do tell us things; this particular headline just isn't one of them.","rule":"Ask who ends up in each group — and whether that difference alone could explain the gap."}},{"id":"gluten-cut","family":"posthoc","valence":"leans-left","status":"draft","context":"At brunch","body":["A friend, glowing: “I cut gluten six weeks ago and I'm a different person — more energy, no more bloating, better skin.","You should really try it. Bread was basically poisoning me.”"],"question":"How solid is “I cut gluten and felt better”?","statements":[{"role":"flawed","t":"Six weeks of clearly feeling better after one change is about as direct as evidence gets — the gluten was the problem."},{"role":"clean","t":"Cutting gluten changes many things at once — less junk food, more home cooking, more attention to how you feel, plus expectation itself. Only a blinded test (feeling worse when gluten sneaks back in unknowingly) could pin it on gluten specifically."},{"role":"over","t":"It's all in her head — nothing about her diet change actually made her feel better."}],"explain":{"tempting":"The improvement is real, and it followed the change — the sequence tells the story for you. And she did something hard, so “it worked” also rewards the effort.","clean":"“Going gluten-free” is one label for a dozen simultaneous changes: dropping pastries, beer, and fast food, cooking more, and paying attention to your body. Add the placebo effect — genuinely strong for energy and gut symptoms — and starting at a low point (people overhaul their diet when they feel worst), and feeling better afterward is expected no matter what gluten does. In blinded studies, most people who report gluten sensitivity can't tell gluten capsules from placebo — and some can, which is why the careful test matters. “All in her head” gets it wrong too: the improvement is real; only the credit is in question.","rule":"One change on the label, a dozen changes in practice. Ask what else changed at the same time."}},{"id":"rare-screening","family":"baserates","valence":"neutral","status":"draft","context":"A worried phone call","body":["A healthy friend took a screening test for a rare condition — about 1 in 1,000 people have it. The test catches 99% of true cases, and wrongly flags about 2% of healthy people. Hers came back positive.","“The test is 99% accurate,” she says. “So it's basically certain I have it.”"],"question":"Given the positive result, how worried should she be?","statements":[{"role":"flawed","t":"The test is 99% accurate, so a positive result means it's about 99% likely she has the condition."},{"role":"clean","t":"Picture 1,000 people like her: about 1 truly has it, while about 20 healthy people get wrongly flagged. Her positive is one of ~21 — so the chance it's real is roughly 5%. The right response is a follow-up test, not panic."},{"role":"over","t":"Screening tests are so unreliable that a positive result carries no information and can simply be ignored."}],"explain":{"tempting":"“99% accurate” sounds like it describes <em>her</em> situation. But accuracy describes the test's behavior across many people — on its own it says nothing about what one positive means when the condition is rare.","clean":"Rarity dominates. In 1,000 people, the test finds the 1 real case — and also flags about 20 of the 999 healthy people by mistake. Twenty-one positives, one real: under 5%. This is exactly why medicine follows screening positives with confirmatory tests instead of treating on the spot. And “ignore it” is wrong in the other direction: her risk did jump from 0.1% to about 5% — fifty times higher — which is precisely worth the follow-up and nothing more yet.","rule":"When the condition is rare, most positives are false. Run the 1,000-people picture before panicking."}},{"id":"restaurant-ratings","family":"anecdotes","valence":"neutral","status":"draft","context":"Choosing where to book","body":["Two options for dinner: a new place with a perfect 5.0 from its first 12 reviews, and the old neighborhood favorite holding 4.3 across 2,800 reviews.","Your friend: “5.0 beats 4.3 — the new place is clearly better.”"],"question":"Which rating is stronger evidence of a good meal?","statements":[{"role":"flawed","t":"A perfect score is a perfect score — twelve people all agreeing beats a diluted average from thousands."},{"role":"clean","t":"Twelve reviews is a tiny, early, friendly sample — new places start with fans and lucky nights, and small samples swing to extremes easily. 4.3 across 2,800 reviews is a far more reliable picture of what your dinner will actually be like."},{"role":"over","t":"Ratings are all bought or faked anyway, so there's no point looking at either number."}],"explain":{"tempting":"5.0 &gt; 4.3 is the easiest math in the world. What the comparison hides is that the two numbers carry completely different amounts of evidence.","clean":"Small samples are extreme samples. The first dozen reviewers of a new spot are disproportionately friends, well-wishers, and people who caught the chef's best night — and even by pure chance, a dozen ratings can average almost anywhere. Across 2,800 reviews, luck and superfans wash out and the number converges on the real typical experience. This is the same reason the smallest counties post both the highest and lowest disease rates, and why “miracle” results tend to come from the smallest studies. (The new place might be great — the honest answer is that twelve reviews can't tell you yet.)","rule":"Before comparing two averages, compare their sample sizes. Extremes live in small samples."}},{"id":"dog-attacks","family":"numbers","valence":"neutral","status":"draft","context":"In the local paper","body":["Headline: <strong>“Dog attacks in the city DOUBLED last year.”</strong>","Further down, the figures: from 4 reported attacks the year before to 8, in a city of 600,000 people."],"question":"What does “doubled” amount to here?","statements":[{"role":"flawed","t":"Doubling is doubling — a 100% increase means the problem is escalating fast and something has clearly changed."},{"role":"clean","t":"With numbers this small, 4 becoming 8 is well within ordinary year-to-year noise — and the per-person risk moved from about 1-in-150,000 to 1-in-75,000. Watch several years of data before concluding anything changed."},{"role":"over","t":"Numbers this small are meaningless in every sense — the article contains no information at all."}],"explain":{"tempting":"Percentages feel like magnitudes: “100% increase” sounds like a city transformed. The smaller the starting number, the bigger and scarier the percentage swings look — which is exactly why headlines love small bases.","clean":"Counts of rare events bounce hard from year to year by chance alone — 4 to 8 is the kind of swing you'd expect even if nothing about dogs, owners, or the city changed. (From 4,000 to 8,000 would be a genuine signal; from 4 to 8 is closer to a coin's whim.) Two questions defuse the headline: what are the absolute numbers, and what does the multi-year trend show? The overshoot cuts the other way — small numbers aren't <em>no</em> information, they're weak information: a jump to 80 would matter immediately.","rule":"The smaller the base, the louder the percentage. Ask for absolute numbers and the multi-year trend."}},{"id":"housing-feed","family":"echo","valence":"neutral","status":"draft","context":"On your feed","body":["The council proposes apartment buildings near the station. Your feed is wall-to-wall opposition — angry posts, a petition, furious comment threads.","A neighbor: “Literally everyone is against this. The council is ignoring the entire town.”"],"question":"Is the whole town against it?","statements":[{"role":"flawed","t":"When every post, comment, and petition you see points one way, that's the town's voice — the opposition is clearly overwhelming."},{"role":"clean","t":"Feeds surface the angriest, most motivated voices; people upset by a change post far more than the indifferent or quietly supportive. You're seeing who's loudest, not how opinion is distributed — a representative survey often tells a different story."},{"role":"over","t":"Online opinion is always the opposite of real opinion, so the town probably loves the plan."}],"explain":{"tempting":"Unanimity in your feed feels like unanimity in the world — dozens of real people visibly agree, and nobody visible disagrees.","clean":"Three filters sit between the town and your screen: people with strong feelings post far more than the content majority; platforms amplify whatever gets angry engagement; and your network resembles you. Together they can turn a 25% opinion into 95% of what you see — sincerely, with nobody lying. The visible side isn't the popular side; it's the motivated side. Representative surveys exist precisely because feeds can't do this job. And no — a skewed feed doesn't mean the truth is the opposite; it means the feed simply can't tell you.","rule":"Your feed shows who's loudest, not how many. “Unanimous online” is a fact about the filter, not the town."}},{"id":"sleep-meds","family":"causation","valence":"neutral","status":"draft","context":"In a health forum","body":["A widely shared post: <strong>“People who regularly take prescription sleeping pills die years earlier than people who don't. They don't want you to know.”</strong>","The underlying study is real: regular users did have notably higher mortality over the follow-up period."],"question":"Does the study show sleeping pills shorten lives?","statements":[{"role":"flawed","t":"Higher death rates among users is exactly what you'd expect if the pills were harmful — the study shows the risk directly."},{"role":"clean","t":"People prescribed sleeping pills differ from people who aren't — more chronic illness, pain, depression, and severe insomnia itself. The study shows users die earlier; it can't show the pills did it. You'd need comparisons between similar patients."},{"role":"over","t":"Mortality studies like this are unusable — nothing about medication safety can ever be learned outside a lab."}],"explain":{"tempting":"The comparison feels clean — users versus non-users — right up until you ask why someone becomes a user in the first place. Sick people get prescriptions; healthy people don't.","clean":"Doctors don't hand sleeping pills to random people: they go to patients with chronic pain, anxiety, depression, and serious illness — conditions that raise mortality on their own. Researchers call this confounding by indication, and it haunts every “people who take drug X do worse” claim. It runs the other way too: “people who take vitamins are healthier” — because health-conscious people take vitamins. The pills may still carry real risks; this study design just can't separate the pill from the reason it was prescribed.","rule":"For any “people who take X do worse”: ask why they were taking X in the first place."}},{"id":"new-coach","family":"posthoc","valence":"neutral","status":"draft","context":"In sports commentary","body":["Your team fires its coach after a brutal eight-game losing streak. The replacement wins four of the next five.","The pundits are unanimous: “The new coach has completely transformed this team.”"],"question":"Did the new coach turn the team around?","statements":[{"role":"flawed","t":"Four wins in five games immediately after the change — the improvement is measured, public, and clearly down to the new coach."},{"role":"clean","t":"Coaches get fired at rock bottom, after streaks so bad they're partly bad luck — and from rock bottom, results usually rebound toward the team's normal level no matter who's in charge. The rebound alone can't tell you the coach caused it."},{"role":"over","t":"Coaching makes no difference at all in sports — results are entirely random."}],"explain":{"tempting":"The before-and-after is vivid, public, and exactly what everyone predicted a “real leader” would deliver. Nobody writes columns about regression to the mean.","clean":"Firings are triggered by extremes, and extreme stretches are usually followed by more ordinary ones — the same statistical rebound behind miracle cures tried at peak pain. Studies across football leagues keep finding that slumping teams improve after a sacking at about the same rate as equally slumping teams that kept their coach. The new coach might genuinely be better — but the bounce off rock bottom comes free either way. The same pattern sells CEO turnarounds, trading systems, and “tough love fixed my kid” stories.","rule":"A change made at rock bottom, followed by a rebound, is what luck alone predicts. Compare to slumps where nothing changed."}},{"id":"ev-fires","family":"baserates","valence":"leans-right","status":"draft","context":"On your feed","body":["A compilation video: electric-car fires — parking garages, charging stations, a ferry. Caption: <strong>“They want you driving a battery bomb. Gas cars never did this.”</strong>","Every clip is genuine."],"question":"Are EVs more fire-prone than gas cars?","statements":[{"role":"flawed","t":"The clips speak for themselves — battery fires are a new and growing danger that gas cars simply don't have."},{"role":"clean","t":"Gas cars catch fire constantly — tens of thousands a year — it's just not news. The fair comparison is fires per 100,000 vehicles, and on that measure EVs so far have fewer, though battery fires are harder to put out. Count rates, not clips."},{"role":"over","t":"Vehicle fires are so rare that fire risk shouldn't factor into anyone's car decision at all."}],"explain":{"tempting":"New dangers get filmed; familiar dangers get ignored. A gas-car fire is a Tuesday; an EV fire is content. A compilation is a highlight reel of the unusual.","clean":"Novel risks are newsworthy precisely because they're rare — familiar risks do their damage quietly, off-camera. Insurance and fire-service data consistently show gas vehicles catching fire at higher rates per vehicle than EVs. That doesn't make batteries harmless: their fires are harder to extinguish and pose real questions for ferries and underground garages. Both things are true at once — which is exactly what per-vehicle numbers let you see and a compilation video never will.","rule":"A compilation counts clips, not risk. Divide by how many are on the road."}},{"id":"organic-cousin","family":"anecdotes","valence":"leans-left","status":"draft","context":"At a barbecue","body":["“My cousin's eczema cleared up completely three weeks after her family switched to all-organic food. Her neighbor's migraines too.","Two people I personally know — that's not nothing. The pesticides were clearly the problem.”"],"question":"How much do these two recoveries show?","statements":[{"role":"flawed","t":"Two firsthand recoveries after the same change, from people you actually know, is meaningful evidence that the pesticides were the issue."},{"role":"clean","t":"Eczema and migraines flare and fade on their own, and millions of families change diets every year — so “improved after switching” stories must exist in huge numbers by coincidence alone, and those are the ones that get retold. Two retold stories can't carry the claim."},{"role":"over","t":"People who credit their diet are fooling themselves — food choices never affect anyone's health."}],"explain":{"tempting":"Personally knowing the people feels like verification — these aren't internet strangers. But knowing them verifies the events, not the explanation.","clean":"Both conditions famously wax and wane on their own schedule. Take millions of dietary switches a year, multiply by conditions that improve spontaneously, and thousands of sincere “it cured us” stories are guaranteed — while the switches followed by nothing are never mentioned at barbecues. That's the anecdote filter: stories survive by being striking, not by being representative. Diet genuinely matters for some conditions — and the way to find out is comparing many similar people, not collecting the stories that happened to reach you.","rule":"Stories get retold because they're striking, not because they're typical. Ask how many non-stories exist."}},{"id":"battery-chart","family":"numbers","valence":"neutral","status":"draft","context":"In an ad","body":["A phone ad shows a towering bar for its battery life next to a stubby bar for the rival's. The numbers under the bars: <strong>31 hours vs. 29 hours.</strong>","The y-axis starts at 28."],"question":"What's the honest reading of this chart?","statements":[{"role":"flawed","t":"The chart shows a dramatic battery advantage — the bar is three times taller, and the real numbers are printed right there confirming it."},{"role":"clean","t":"It's a 7% difference drawn to look like 300%. Starting the axis at 28 instead of 0 turns two hours into a skyscraper. The numbers are honest; the picture is doing the lying — and the picture is what your memory keeps."},{"role":"over","t":"Charts are inherently manipulative — never draw any conclusion from a graph."}],"explain":{"tempting":"Your eyes process the bars long before you read the axis, and the impression sticks even after you spot the trick. Designers count on the picture outliving the fine print.","clean":"Bar heights encode magnitude — that's the entire contract of a bar chart — so a truncated axis breaks the contract while keeping the printed numbers technically true. Two hours on a 29-hour base is about 7%: real, possibly even decisive for you, but nothing like the gap your visual memory will store. The same trick inflates stock moves, poll gaps, and crime upticks daily. The fix takes one second: find where the axis starts before you let the shape impress you.","rule":"Read the axis before the bars. If it doesn't start at zero, redraw the picture in your head."}},{"id":"three-friends","family":"echo","valence":"neutral","status":"draft","context":"In your messages","body":["By lunchtime, three different friends have sent you the same alarming story about a common food additive.","“Three people independently — that's not a coincidence. Where there's smoke, there's fire.”"],"question":"Do three separate friends sending it make it more credible?","statements":[{"role":"flawed","t":"Three people who don't know each other all flagging the same thing is independent confirmation — the story is probably onto something."},{"role":"clean","t":"Your friends aren't independent sources — they're three endpoints of the same viral wave, usually traceable to a single post being re-shared. Three arrivals measure how fast it spreads, not whether it's true. Find the original source and check what it actually says."},{"role":"over","t":"If something spreads that fast, it's probably false — viral means fabricated."}],"explain":{"tempting":"In everyday life, several people telling you the same thing IS good evidence — that instinct served humans well for millennia. Feeds break it: they deliver one voice through many mouths.","clean":"Corroboration means independent lines of evidence. Three friends sharing one viral story is one line of evidence with three delivery routes — often a single misread study, amplified by an algorithm that rewards alarm. The forwarding count tells you the story is shareable (scary, simple, actionable), which is unrelated to whether it's accurate. One search for the original source usually settles it. The overshoot fails too: plenty of true things go viral — speed says nothing in either direction.","rule":"Repetition is not corroboration. Count the sources, not the messengers."}}];
 
 const OVERALL = [
   { min: 85, title: "Clear-eyed", copy: "You consistently drew the conclusions the evidence actually supports — including in scenarios built to flatter what you might already believe. The profile below shows the few places your reasoning wobbled. Worth knowing: people who reason this cleanly are most often caught by overconfidence, on claims from their own side. That's the frontier." },
@@ -458,6 +516,78 @@ let order = [];      // scenarios with shuffled statements
 let idx = 0;
 let answers = [];    // { family, clean, flawed, over } — each a rating 0–4
 let ratings = [];    // current scenario's ratings, parallel to its statements
+let mode = "checkup"; // "checkup" | "daily"
+
+/* ---------- Daily mode: one date-picked scenario, streak on this device ---------- */
+
+function dateStr(d) { return d.getFullYear() + "-" + String(d.getMonth() + 1).padStart(2, "0") + "-" + String(d.getDate()).padStart(2, "0"); }
+function todayStr() { return dateStr(new Date()); }
+
+function loadStreak() {
+  try { return JSON.parse(localStorage.getItem("rc_daily")) || { last: "", streak: 0, best: 0 }; }
+  catch (e) { return { last: "", streak: 0, best: 0 }; }
+}
+
+function bumpStreak() {
+  const st = loadStreak();
+  const today = todayStr();
+  if (st.last !== today) {
+    const y = new Date(); y.setDate(y.getDate() - 1);
+    st.streak = st.last === dateStr(y) ? st.streak + 1 : 1;
+    st.last = today;
+    st.best = Math.max(st.best, st.streak);
+    try { localStorage.setItem("rc_daily", JSON.stringify(st)); } catch (e) {}
+  }
+  return st;
+}
+
+function dailyScenario() {
+  const day = Math.floor(Date.now() / 86400000); // UTC day number: same scenario for everyone
+  return SCENARIOS[day % SCENARIOS.length];
+}
+
+function startDaily() {
+  mode = "daily";
+  const s = dailyScenario();
+  order = [{ ...s, stmts: shuffle(s.statements) }];
+  idx = 0;
+  answers = [];
+  show("quiz");
+  render();
+}
+
+function dailyResults() {
+  const a = answers[0];
+  const lean = a.clean - a.flawed;
+  const sq = lean > 0 ? "🟩" : lean === 0 ? "🟨" : "🟥";
+  const st = bumpStreak();
+  $("r-title").textContent = lean > 0 ? "Got it." : lean === 0 ? "Torn." : "It got you today.";
+  $("r-score").textContent = sq + " streak " + st.streak;
+  $("r-copy").innerHTML = (lean > 0
+    ? "You favored the reading the evidence supports. Come back tomorrow — a different pattern will be waiting."
+    : lean === 0
+      ? "You gave the sound and the flawed reading equal weight. Today's explanation is the whole lesson — tomorrow's scenario is a fresh start."
+      : "Today's scenario read differently than the evidence supports. That's what the daily habit is for: with names and repetition, the patterns start jumping out. Tomorrow's is a fresh start.")
+    + (st.best > st.streak ? " <strong>Best streak: " + st.best + ".</strong>" : "");
+  $("fam-grid").classList.add("hidden");
+  $("r-fairness").classList.add("hidden");
+  $("r-fineprint").classList.add("hidden");
+  $("r-actions").classList.add("hidden");
+  $("daily-result").classList.remove("hidden");
+  show("results");
+}
+
+function shareDaily() {
+  const a = answers[0];
+  const lean = a.clean - a.flawed;
+  const sq = lean > 0 ? "🟩" : lean === 0 ? "🟨" : "🟥";
+  const st = loadStreak();
+  const text = "Reason Check — scenario of the day (" + todayStr() + "): " + sq + " streak " + st.streak + "\nWhat would you have concluded?";
+  navigator.clipboard.writeText(text).then(() => {
+    $("btn-share-daily").textContent = "Copied!";
+    setTimeout(() => ($("btn-share-daily").textContent = "Copy today’s result"), 1600);
+  }).catch(() => {});
+}
 
 function shuffle(arr) {
   const a = arr.slice();
@@ -475,6 +605,7 @@ function show(name) {
 }
 
 function start() {
+  mode = "checkup";
   // Draw 2 scenarios per family at random, so retakes get fresh material.
   const byFam = {};
   shuffle(SCENARIOS).forEach((s) => { (byFam[s.family] = byFam[s.family] || []).push(s); });
@@ -489,7 +620,7 @@ function start() {
 function render() {
   const s = order[idx];
   ratings = s.stmts.map(() => null);
-  $("progress-label").textContent = "Scenario " + (idx + 1) + " of " + order.length;
+  $("progress-label").textContent = mode === "daily" ? "Scenario of the day" : "Scenario " + (idx + 1) + " of " + order.length;
   $("family-hint").textContent = "";
   $("progress-fill").style.width = ((idx) / order.length * 100) + "%";
   $("v-context").textContent = s.context;
@@ -515,6 +646,7 @@ function render() {
     for (let v = 0; v <= 4; v++) {
       const b = document.createElement("button");
       b.type = "button";
+      b.textContent = String(v + 1);
       b.setAttribute("aria-pressed", "false");
       b.setAttribute("aria-label", "Agreement " + (v + 1) + " of 5");
       b.addEventListener("click", () => {
@@ -595,6 +727,13 @@ function next() {
 }
 
 function results() {
+  if (mode === "daily") return dailyResults();
+  $("fam-grid").classList.remove("hidden");
+  $("r-fairness").classList.remove("hidden");
+  $("r-fineprint").classList.remove("hidden");
+  $("r-actions").classList.remove("hidden");
+  $("daily-result").classList.add("hidden");
+
   const pct = famScores();
   const score = overallScore();
 
@@ -642,7 +781,8 @@ function copyResults() {
   const pct = famScores();
   const lines = ["Reason Check — my reasoning profile: " + overallScore() + "/100"];
   Object.keys(FAMILIES).forEach((k) => {
-    lines.push("• " + FAMILIES[k].name + ": " + pct[k] + "%");
+    const sq = pct[k] >= 75 ? "🟩" : pct[k] >= 50 ? "🟨" : "🟥";
+    lines.push(sq + " " + FAMILIES[k].name + ": " + pct[k] + "%");
   });
   lines.push("What would you have concluded?");
   navigator.clipboard.writeText(lines.join("\n")).then(() => {
@@ -656,11 +796,23 @@ function copyResults() {
 
 $("start-meta").innerHTML = "12 scenarios, drawn fresh from a bank of " + SCENARIOS.length + " &middot; ~10 minutes &middot; you learn as you go";
 
+(function initDailyButton() {
+  const st = loadStreak();
+  if (st.streak > 0) {
+    $("btn-daily").textContent = st.last === todayStr()
+      ? "Daily done — streak " + st.streak
+      : "Scenario of the day — streak " + st.streak;
+  }
+})();
+
 $("btn-start").addEventListener("click", start);
+$("btn-daily").addEventListener("click", startDaily);
 $("btn-lock").addEventListener("click", lockIn);
 $("btn-next").addEventListener("click", next);
 $("btn-retake").addEventListener("click", start);
 $("btn-copy").addEventListener("click", copyResults);
+$("btn-share-daily").addEventListener("click", shareDaily);
+$("btn-full").addEventListener("click", start);
 </script>
 
 </body>

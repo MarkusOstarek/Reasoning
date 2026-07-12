@@ -394,5 +394,137 @@
       "clean": "Three filters sit between the town and your screen: people with strong feelings post far more than the content majority; platforms amplify whatever gets angry engagement; and your network resembles you. Together they can turn a 25% opinion into 95% of what you see — sincerely, with nobody lying. The visible side isn't the popular side; it's the motivated side. Representative surveys exist precisely because feeds can't do this job. And no — a skewed feed doesn't mean the truth is the opposite; it means the feed simply can't tell you.",
       "rule": "Your feed shows who's loudest, not how many. “Unanimous online” is a fact about the filter, not the town."
     }
+  },
+  {
+    "id": "sleep-meds",
+    "family": "causation",
+    "valence": "neutral",
+    "status": "draft",
+    "context": "In a health forum",
+    "body": [
+      "A widely shared post: <strong>“People who regularly take prescription sleeping pills die years earlier than people who don't. They don't want you to know.”</strong>",
+      "The underlying study is real: regular users did have notably higher mortality over the follow-up period."
+    ],
+    "question": "Does the study show sleeping pills shorten lives?",
+    "statements": [
+      { "role": "flawed", "t": "Higher death rates among users is exactly what you'd expect if the pills were harmful — the study shows the risk directly." },
+      { "role": "clean", "t": "People prescribed sleeping pills differ from people who aren't — more chronic illness, pain, depression, and severe insomnia itself. The study shows users die earlier; it can't show the pills did it. You'd need comparisons between similar patients." },
+      { "role": "over", "t": "Mortality studies like this are unusable — nothing about medication safety can ever be learned outside a lab." }
+    ],
+    "explain": {
+      "tempting": "The comparison feels clean — users versus non-users — right up until you ask why someone becomes a user in the first place. Sick people get prescriptions; healthy people don't.",
+      "clean": "Doctors don't hand sleeping pills to random people: they go to patients with chronic pain, anxiety, depression, and serious illness — conditions that raise mortality on their own. Researchers call this confounding by indication, and it haunts every “people who take drug X do worse” claim. It runs the other way too: “people who take vitamins are healthier” — because health-conscious people take vitamins. The pills may still carry real risks; this study design just can't separate the pill from the reason it was prescribed.",
+      "rule": "For any “people who take X do worse”: ask why they were taking X in the first place."
+    }
+  },
+  {
+    "id": "new-coach",
+    "family": "posthoc",
+    "valence": "neutral",
+    "status": "draft",
+    "context": "In sports commentary",
+    "body": [
+      "Your team fires its coach after a brutal eight-game losing streak. The replacement wins four of the next five.",
+      "The pundits are unanimous: “The new coach has completely transformed this team.”"
+    ],
+    "question": "Did the new coach turn the team around?",
+    "statements": [
+      { "role": "flawed", "t": "Four wins in five games immediately after the change — the improvement is measured, public, and clearly down to the new coach." },
+      { "role": "clean", "t": "Coaches get fired at rock bottom, after streaks so bad they're partly bad luck — and from rock bottom, results usually rebound toward the team's normal level no matter who's in charge. The rebound alone can't tell you the coach caused it." },
+      { "role": "over", "t": "Coaching makes no difference at all in sports — results are entirely random." }
+    ],
+    "explain": {
+      "tempting": "The before-and-after is vivid, public, and exactly what everyone predicted a “real leader” would deliver. Nobody writes columns about regression to the mean.",
+      "clean": "Firings are triggered by extremes, and extreme stretches are usually followed by more ordinary ones — the same statistical rebound behind miracle cures tried at peak pain. Studies across football leagues keep finding that slumping teams improve after a sacking at about the same rate as equally slumping teams that kept their coach. The new coach might genuinely be better — but the bounce off rock bottom comes free either way. The same pattern sells CEO turnarounds, trading systems, and “tough love fixed my kid” stories.",
+      "rule": "A change made at rock bottom, followed by a rebound, is what luck alone predicts. Compare to slumps where nothing changed."
+    }
+  },
+  {
+    "id": "ev-fires",
+    "family": "baserates",
+    "valence": "leans-right",
+    "status": "draft",
+    "context": "On your feed",
+    "body": [
+      "A compilation video: electric-car fires — parking garages, charging stations, a ferry. Caption: <strong>“They want you driving a battery bomb. Gas cars never did this.”</strong>",
+      "Every clip is genuine."
+    ],
+    "question": "Are EVs more fire-prone than gas cars?",
+    "statements": [
+      { "role": "flawed", "t": "The clips speak for themselves — battery fires are a new and growing danger that gas cars simply don't have." },
+      { "role": "clean", "t": "Gas cars catch fire constantly — tens of thousands a year — it's just not news. The fair comparison is fires per 100,000 vehicles, and on that measure EVs so far have fewer, though battery fires are harder to put out. Count rates, not clips." },
+      { "role": "over", "t": "Vehicle fires are so rare that fire risk shouldn't factor into anyone's car decision at all." }
+    ],
+    "explain": {
+      "tempting": "New dangers get filmed; familiar dangers get ignored. A gas-car fire is a Tuesday; an EV fire is content. A compilation is a highlight reel of the unusual.",
+      "clean": "Novel risks are newsworthy precisely because they're rare — familiar risks do their damage quietly, off-camera. Insurance and fire-service data consistently show gas vehicles catching fire at higher rates per vehicle than EVs. That doesn't make batteries harmless: their fires are harder to extinguish and pose real questions for ferries and underground garages. Both things are true at once — which is exactly what per-vehicle numbers let you see and a compilation video never will.",
+      "rule": "A compilation counts clips, not risk. Divide by how many are on the road."
+    }
+  },
+  {
+    "id": "organic-cousin",
+    "family": "anecdotes",
+    "valence": "leans-left",
+    "status": "draft",
+    "context": "At a barbecue",
+    "body": [
+      "“My cousin's eczema cleared up completely three weeks after her family switched to all-organic food. Her neighbor's migraines too.",
+      "Two people I personally know — that's not nothing. The pesticides were clearly the problem.”"
+    ],
+    "question": "How much do these two recoveries show?",
+    "statements": [
+      { "role": "flawed", "t": "Two firsthand recoveries after the same change, from people you actually know, is meaningful evidence that the pesticides were the issue." },
+      { "role": "clean", "t": "Eczema and migraines flare and fade on their own, and millions of families change diets every year — so “improved after switching” stories must exist in huge numbers by coincidence alone, and those are the ones that get retold. Two retold stories can't carry the claim." },
+      { "role": "over", "t": "People who credit their diet are fooling themselves — food choices never affect anyone's health." }
+    ],
+    "explain": {
+      "tempting": "Personally knowing the people feels like verification — these aren't internet strangers. But knowing them verifies the events, not the explanation.",
+      "clean": "Both conditions famously wax and wane on their own schedule. Take millions of dietary switches a year, multiply by conditions that improve spontaneously, and thousands of sincere “it cured us” stories are guaranteed — while the switches followed by nothing are never mentioned at barbecues. That's the anecdote filter: stories survive by being striking, not by being representative. Diet genuinely matters for some conditions — and the way to find out is comparing many similar people, not collecting the stories that happened to reach you.",
+      "rule": "Stories get retold because they're striking, not because they're typical. Ask how many non-stories exist."
+    }
+  },
+  {
+    "id": "battery-chart",
+    "family": "numbers",
+    "valence": "neutral",
+    "status": "draft",
+    "context": "In an ad",
+    "body": [
+      "A phone ad shows a towering bar for its battery life next to a stubby bar for the rival's. The numbers under the bars: <strong>31 hours vs. 29 hours.</strong>",
+      "The y-axis starts at 28."
+    ],
+    "question": "What's the honest reading of this chart?",
+    "statements": [
+      { "role": "flawed", "t": "The chart shows a dramatic battery advantage — the bar is three times taller, and the real numbers are printed right there confirming it." },
+      { "role": "clean", "t": "It's a 7% difference drawn to look like 300%. Starting the axis at 28 instead of 0 turns two hours into a skyscraper. The numbers are honest; the picture is doing the lying — and the picture is what your memory keeps." },
+      { "role": "over", "t": "Charts are inherently manipulative — never draw any conclusion from a graph." }
+    ],
+    "explain": {
+      "tempting": "Your eyes process the bars long before you read the axis, and the impression sticks even after you spot the trick. Designers count on the picture outliving the fine print.",
+      "clean": "Bar heights encode magnitude — that's the entire contract of a bar chart — so a truncated axis breaks the contract while keeping the printed numbers technically true. Two hours on a 29-hour base is about 7%: real, possibly even decisive for you, but nothing like the gap your visual memory will store. The same trick inflates stock moves, poll gaps, and crime upticks daily. The fix takes one second: find where the axis starts before you let the shape impress you.",
+      "rule": "Read the axis before the bars. If it doesn't start at zero, redraw the picture in your head."
+    }
+  },
+  {
+    "id": "three-friends",
+    "family": "echo",
+    "valence": "neutral",
+    "status": "draft",
+    "context": "In your messages",
+    "body": [
+      "By lunchtime, three different friends have sent you the same alarming story about a common food additive.",
+      "“Three people independently — that's not a coincidence. Where there's smoke, there's fire.”"
+    ],
+    "question": "Do three separate friends sending it make it more credible?",
+    "statements": [
+      { "role": "flawed", "t": "Three people who don't know each other all flagging the same thing is independent confirmation — the story is probably onto something." },
+      { "role": "clean", "t": "Your friends aren't independent sources — they're three endpoints of the same viral wave, usually traceable to a single post being re-shared. Three arrivals measure how fast it spreads, not whether it's true. Find the original source and check what it actually says." },
+      { "role": "over", "t": "If something spreads that fast, it's probably false — viral means fabricated." }
+    ],
+    "explain": {
+      "tempting": "In everyday life, several people telling you the same thing IS good evidence — that instinct served humans well for millennia. Feeds break it: they deliver one voice through many mouths.",
+      "clean": "Corroboration means independent lines of evidence. Three friends sharing one viral story is one line of evidence with three delivery routes — often a single misread study, amplified by an algorithm that rewards alarm. The forwarding count tells you the story is shareable (scary, simple, actionable), which is unrelated to whether it's accurate. One search for the original source usually settles it. The overshoot fails too: plenty of true things go viral — speed says nothing in either direction.",
+      "rule": "Repetition is not corroboration. Count the sources, not the messengers."
+    }
   }
 ]
