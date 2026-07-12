@@ -325,7 +325,7 @@
     </ul>
     <div class="start-row">
       <button class="btn-primary" id="btn-start">Start the check-up</button>
-      <span class="meta">12 scenarios &middot; ~10 minutes &middot; you learn as you go</span>
+      <span class="meta" id="start-meta">12 scenarios &middot; ~10 minutes &middot; you learn as you go</span>
     </div>
   </main>
 
@@ -653,6 +653,8 @@ function copyResults() {
     setTimeout(() => ($("btn-copy").textContent = "Copy my results"), 1600);
   });
 }
+
+$("start-meta").innerHTML = "12 scenarios, drawn fresh from a bank of " + SCENARIOS.length + " &middot; ~10 minutes &middot; you learn as you go";
 
 $("btn-start").addEventListener("click", start);
 $("btn-lock").addEventListener("click", lockIn);
