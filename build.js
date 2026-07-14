@@ -92,6 +92,10 @@ const meta =
   '<meta property="og:description" content="Twelve everyday scenarios. Rate what the evidence supports, find your reasoning blind spots. Plus a scenario of the day.">\n' +
   '<meta property="og:url" content="' + SITE_URL + '">\n' +
   '<meta property="og:type" content="website">\n' +
+  '<meta property="og:image" content="' + SITE_URL + 'og.png">\n' +
+  '<meta property="og:image:width" content="1200">\n' +
+  '<meta property="og:image:height" content="630">\n' +
+  '<meta name="twitter:card" content="summary_large_image">\n' +
   '<meta name="theme-color" content="#1b2440">\n' +
   '<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🧭</text></svg>">\n';
 
