@@ -292,6 +292,16 @@
     background: transparent;
   }
   .rule::before { content: "☞ "; color: var(--accent); }
+  .sources { font-size: 0.85rem; color: var(--muted); line-height: 1.8; }
+  .sources a { color: var(--accent); text-decoration: none; border-bottom: 1px solid var(--line); }
+  .sources a:hover { border-bottom-color: var(--accent); }
+
+  /* Narrow screens: labels above, buttons stretch the full row. */
+  @media (max-width: 520px) {
+    .scale-row { display: grid; grid-template-columns: auto auto; justify-content: space-between; row-gap: 0.45rem; }
+    .scale { grid-column: 1 / -1; display: flex; width: 100%; }
+    .scale button { flex: 1 1 0; width: auto; }
+  }
   .explain .next-row { display: flex; justify-content: space-between; align-items: center; gap: 1rem; flex-wrap: wrap; margin-top: 1.4rem; }
   .report {
     color: var(--muted); font-size: 0.85rem; text-decoration: none;
@@ -408,6 +418,8 @@
       <p id="ex-clean"></p>
       <h4>Rule of thumb</h4>
       <p class="rule" id="ex-rule"></p>
+      <h4>Sources</h4>
+      <p class="sources" id="ex-sources"></p>
       <div class="next-row">
         <a class="report" id="ex-report" href="#" target="_blank" rel="noopener">Dispute this scenario</a>
         <button class="btn-primary" id="btn-next">Next scenario</button>
@@ -715,6 +727,9 @@ function lockIn() {
   $("ex-trap").innerHTML = s.explain.tempting;
   $("ex-clean").innerHTML = s.explain.clean;
   $("ex-rule").textContent = s.explain.rule;
+  $("ex-sources").innerHTML = (s.sources || []).map((src) =>
+    '<a href="' + src.url + '" target="_blank" rel="noopener">' + src.label + "</a>"
+  ).join("<br>");
   $("ex-report").href = "https://github.com/MarkusOstarek/Reasoning/issues/new?title="
     + encodeURIComponent("Scenario dispute: " + s.id)
     + "&body=" + encodeURIComponent("Scenario: " + s.id + "\n\nWhat's wrong or ambiguous about it:\n");

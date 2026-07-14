@@ -44,6 +44,10 @@ scenarios.forEach((s, i) => {
   if (roles.join(",") !== ROLES.slice().sort().join(",")) fail(`${where}: statements must be one each of ${ROLES.join("/")}`);
   s.statements.forEach((st) => { if (!st.t) fail(`${where}: statement missing text`); });
   if (!s.explain || !s.explain.tempting || !s.explain.clean || !s.explain.rule) fail(`${where}: explain needs tempting/clean/rule`);
+  if (!Array.isArray(s.sources) || s.sources.length < 1) fail(`${where}: needs at least 1 source`);
+  s.sources.forEach((src) => {
+    if (!src.label || !src.url || !/^https?:\/\//.test(src.url)) fail(`${where}: each source needs a label and an http(s) url`);
+  });
 });
 
 /* ---------- Coverage check ---------- */

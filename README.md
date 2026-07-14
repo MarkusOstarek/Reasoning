@@ -47,7 +47,10 @@ Each session draws 2 random scenarios per family (12 of 18 currently), so retake
     "tempting": "why the flawed reading pulls people in — respectful, never mocking",
     "clean": "the clean reasoning, concretely, with the mechanism named",
     "rule": "a one-line memorable rule of thumb"
-  }
+  },
+  "sources": [                                       // at least 1 required; build fails without
+    { "label": "Author year — what it establishes (venue)", "url": "https://..." }
+  ]
 }
 ```
 
@@ -59,15 +62,19 @@ Scoring: per scenario, discernment = (clean rating − flawed rating + 4) / 8, g
 - The flawed reading must be genuinely tempting — the reading a smart person makes in the wild, stated in its strongest form, never a strawman.
 - The clean reading must be defensible to a domain expert. If reasonable experts would dispute it, the scenario is poison for credibility: cut it.
 - The explanation names the mechanism, gives the reader the tool, and never sneers. The reader who fell for it should feel smarter, not scolded.
+- Every empirical claim in an explanation must be sourced: peer-reviewed studies, official statistics, or recognized methodological explainers. At least one source per scenario is enforced by the build and displayed in the UI.
 - Tag valence honestly and keep the audit green.
 
 ## Roadmap
 
 - [x] Core check-up: 12 scenarios drawn from a bank, rating-scale mechanic, profile + miss-pattern results
 - [x] Scenario pipeline: schema, validation, balance audit
+- [x] "Scenario of the day" with device-local streaks
+- [x] Fact-check pass; sources on every scenario, shown in the UI and enforced by the build
+- [x] Deployed: https://markusostarek.github.io/Reasoning/
 - [ ] Playtest current bank; revise ambiguous items (nuclear-events is the most exposed)
-- [ ] Grow bank toward 40+ (enables variety and, later, daily mode)
-- [ ] Deploy to a real domain
+- [ ] Grow bank toward 40+ (deepens daily-mode rotation)
+- [ ] Custom domain
 - [ ] Share card (spoiler-free per-family profile image/text)
 - [ ] "Scenario of the day" mode with streaks — the habit-forming loop
 - [ ] Anonymized aggregate score collection → real percentiles ("sharper than X% of takers")
