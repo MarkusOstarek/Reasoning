@@ -584,7 +584,7 @@
       },
       {
         "role": "clean",
-        "t": "Twelve reviews is an early, friendly sample, and small samples swing to extremes. Across 2,800 reviews, luck washes out and the average reflects a typical evening."
+        "t": "Twelve reviews is a tiny sample, and small samples swing to extremes by chance alone. Across 2,800 reviews, luck washes out and the average reflects a typical evening."
       },
       {
         "role": "over",
@@ -777,7 +777,7 @@
       },
       {
         "role": "clean",
-        "t": "Gas cars burn by the tens of thousands each year without making the news, and per 100,000 vehicles EVs so far catch fire less often."
+        "t": "Gas cars burn by the tens of thousands each year without making the news, and per 100,000 vehicles EVs do not come out worse."
       },
       {
         "role": "over",
@@ -786,7 +786,7 @@
     ],
     "explain": {
       "tempting": "New dangers get filmed; familiar dangers get ignored. A gas-car fire is a Tuesday; an EV fire is content. A compilation is a highlight reel of the unusual.",
-      "clean": "Novel risks are newsworthy precisely because they're rare — familiar risks do their damage quietly, off-camera. Insurance and fire-service data consistently show gas vehicles catching fire at higher rates per vehicle than EVs. That doesn't make batteries harmless: their fires are harder to extinguish and pose real questions for ferries and underground garages. Both things are true at once — which is exactly what per-vehicle numbers let you see and a compilation video never will.",
+      "clean": "Novel risks are newsworthy precisely because they're rare — familiar risks do their damage quietly, off-camera. Insurance and fire-service data so far show gas vehicles catching fire at least as often per vehicle as EVs — though even that comparison needs care, because EVs are on average much newer cars, and old vehicles burn more. That doesn't make batteries harmless: their fires are harder to extinguish and pose real questions for ferries and underground garages. Both things are true at once — which is exactly what per-vehicle numbers let you see and a compilation video never will.",
       "rule": "A compilation counts clips, not risk. Divide by how many are on the road."
     },
     "sources": [

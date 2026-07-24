@@ -77,7 +77,11 @@ Scoring: per scenario, discernment = (clean rating − flawed rating + 4) / 8, g
 
 - The vignette must be realistic: something a person actually sees in a feed, chat, or conversation. Real-world numbers should be roughly accurate.
 - The flawed reading must be genuinely tempting — the reading a smart person makes in the wild, stated in its strongest form, never a strawman.
-- The clean reading must be defensible to a domain expert. If reasonable experts would dispute it, the scenario is poison for credibility: cut it.
+- The clean reading must be defensible to a domain expert. The bar: would ~95% of scientists sign off on it? If reasonable experts would dispute it, the scenario is poison for credibility: cut it.
+- A clean reading may assert only what the vignette grants, what arithmetic on it yields, or what a listed source supports. Anything else gets hedged, or gets pinned in the vignette ("the number, it turns out, is accurate") so it becomes a given rather than a claim.
+- Where the empirical result is contested but the method isn't, name the comparison rather than announcing the result. "The measure that settles this is deaths per unit of energy" is unattackable; the ranking it produces invites a fight. Spend that fight only when the conclusion is robust to it.
+- The overshoot must overreach from the same evidence the player has. An overshoot resting on a fact they cannot check ("this is one study", "the industry funds this research") is not an overshoot — if the fact were true it would be the right answer.
+- Prefer conditional claims — about what this evidence can and cannot support — over claims about the world. They need far less foundation and are where the site's authority actually lives.
 - The explanation names the mechanism, gives the reader the tool, and never sneers. The reader who fell for it should feel smarter, not scolded.
 - Every empirical claim in an explanation must be sourced: peer-reviewed studies, official statistics, or recognized methodological explainers. At least one source per scenario is enforced by the build and displayed in the UI.
 - Tag valence honestly and keep the audit green.
@@ -89,7 +93,9 @@ Scoring: per scenario, discernment = (clean rating − flawed rating + 4) / 8, g
 - [x] "Scenario of the day" with device-local streaks
 - [x] Fact-check pass; sources on every scenario, shown in the UI and enforced by the build
 - [x] Deployed: https://markusostarek.github.io/Reasoning/
-- [ ] Playtest current bank; revise ambiguous items (nuclear-events is the most exposed)
+- [x] Tell audit: no surface feature (length, sentence count, vocabulary) predicts a statement's role
+- [x] Evidence pass: sound readings claim only what the vignette grants or a source supports
+- [ ] Playtest current bank; revise ambiguous items
 - [ ] Grow bank toward 40+ (deepens daily-mode rotation)
 - [ ] Custom domain
 - [ ] Share card (spoiler-free per-family profile image/text)
