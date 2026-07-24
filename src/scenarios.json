@@ -21,7 +21,7 @@
       },
       {
         "role": "over",
-        "t": "Skin-cancer figures are collected too inconsistently to support a comparison like this one. The honest position is that sunscreen's real effect on melanoma remains genuinely unsettled."
+        "t": "You cannot learn anything at all from a chart of two trends. There is nothing here worth explaining, and the whole argument can be set aside."
       }
     ],
     "explain": {
@@ -62,7 +62,7 @@
       },
       {
         "role": "over",
-        "t": "Herbal patches carry no active ingredient of any kind, so the recovery was pure coincidence and the four-day timing tells you nothing worth looking into."
+        "t": "Nothing about four days of recovery can be credited to a patch. This was pure coincidence, and there is nothing further worth investigating here."
       }
     ],
     "explain": {
@@ -122,7 +122,7 @@
     "context": "In the news",
     "body": [
       "A headline: <strong>“Daily processed meat raises bowel-cancer risk by 18%.”</strong>",
-      "In your group chat, one friend is swearing off bacon forever; another says nutrition science changes every week so the number means nothing."
+      "The figure comes from the WHO's cancer agency, which reviewed hundreds of studies to reach it. In your group chat, one friend is swearing off bacon forever."
     ],
     "question": "What does that 18% actually mean?",
     "statements": [
@@ -136,7 +136,7 @@
       },
       {
         "role": "over",
-        "t": "Nutrition findings reverse themselves from one decade to the next. An 18% figure from a single study — one study — is no basis for changing what you eat."
+        "t": "Headlines like this are built to alarm rather than inform. The sensible response is to disregard the figure entirely and carry on eating exactly as before."
       }
     ],
     "explain": {
@@ -325,7 +325,7 @@
       },
       {
         "role": "over",
-        "t": "Comment sections under sponsored posts are bought and curated. What you are reading measures the seller's marketing budget — not the product itself."
+        "t": "A comment section like this is worth little as evidence — the sensible default is to assume the product does not work until a proper trial says otherwise."
       }
     ],
     "explain": {
@@ -588,7 +588,7 @@
       },
       {
         "role": "over",
-        "t": "Restaurant ratings are routinely gamed by owners and rivals alike. Neither number here deserves much weight when you are choosing where to eat tonight."
+        "t": "Neither number is informative here. The sensible way to choose is to ignore the ratings and pick whichever place you like the look of."
       }
     ],
     "explain": {
