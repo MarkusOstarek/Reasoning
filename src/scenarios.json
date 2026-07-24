@@ -13,15 +13,15 @@
     "statements": [
       {
         "role": "flawed",
-        "t": "The timing is hard to ignore. If sunscreen worked, rates should have fallen — it's fair to suspect it plays some role."
+        "t": "The timing is hard to ignore — if sunscreen worked, rates should have fallen. It's fair to suspect the stuff plays some role in all this."
       },
       {
         "role": "clean",
-        "t": "Two things rising together can both be driven by something else — more sun holidays and tanning, doctors catching far more cases. This chart alone can't say what causes what."
+        "t": "Both lines can be pushed up by something else entirely: sun holidays, tanning beds, far better screening. Two trends together never settle causation."
       },
       {
         "role": "over",
-        "t": "Charts of two trends are always meaningless. You can never learn anything from them, so there's nothing to explain."
+        "t": "Skin-cancer figures are collected too inconsistently to support a comparison like this one. The honest position is that sunscreen's real effect on melanoma remains genuinely unsettled."
       }
     ],
     "explain": {
@@ -54,20 +54,20 @@
     "statements": [
       {
         "role": "flawed",
-        "t": "It worked. The pain was terrible, you used the patch, the pain left. Your own body is better evidence than any study."
+        "t": "The pain was at its worst, you used the patch, and within days the pain went. Your own body is better evidence than all the studies in the world."
       },
       {
         "role": "clean",
-        "t": "Hard to say. You tried it at the very worst point, and flare-ups tend to improve from their peak on their own — so almost anything tried at rock bottom looks like a miracle."
+        "t": "You reached for it at rock bottom, and flare-ups usually improve from their peak unaided, so almost anything tried then looks like a cure."
       },
       {
         "role": "over",
-        "t": "It definitely did nothing — herbal patches are scams, and the recovery is pure coincidence."
+        "t": "Herbal patches carry no active ingredient of any kind, so the recovery was pure coincidence and the four-day timing tells you nothing worth looking into."
       }
     ],
     "explain": {
       "tempting": "Nothing feels more like proof than your own body. Pain, patch, relief — the sequence writes the story for you, and everyone your friend “sends to the patch” lives the same sequence.",
-      "clean": "You don't reach for a new remedy on an average day — you reach for it at the peak. And peaks, by definition, are usually followed by improvement (statisticians call it regression to the mean). That's why anything tried at the worst moment “works”: the patch, the copper bracelet, the lucky socks. Only a comparison — similar sufferers with and without the patch — can separate the remedy from the rebound. Note the “definitely a scam” answer makes the mirror-image mistake: certainty without the comparison.",
+      "clean": "You don't reach for a new remedy on an average day — you reach for it at the peak. And peaks, by definition, are usually followed by improvement (statisticians call it regression to the mean). That's why anything tried at the worst moment “works”: the patch, the copper bracelet, the lucky socks. Only a comparison — similar sufferers with and without the patch — can separate the remedy from the rebound. Note the “no active ingredient, so pure coincidence” answer makes the mirror-image mistake: certainty without the comparison.",
       "rule": "You try cures when things are at their worst — and “worst” usually improves by itself."
     },
     "sources": [
@@ -91,15 +91,15 @@
     "statements": [
       {
         "role": "flawed",
-        "t": "Two counterexamples that close to home are a fair reason to suspect the risk is exaggerated."
+        "t": "Two counterexamples this close to home are fair reason to suspect the risk is exaggerated — everyone knows a case like grandpa's."
       },
       {
         "role": "clean",
-        "t": "Almost nothing. Smoking raises risk, it doesn't guarantee outcomes — among millions of smokers, 94-year-old smokers are expected. And the smokers who died at 55 aren't at dinner telling their story."
+        "t": "Smoking raises risk without guaranteeing outcomes, so among millions of smokers a sharp 94-year-old is expected. The ones it caught aren't at dinner talking."
       },
       {
         "role": "over",
-        "t": "Personal stories are completely worthless and shouldn't even be part of the conversation."
+        "t": "Family stories are the weakest form of evidence there is. Personal experience of this kind belongs outside a serious discussion about health risks."
       }
     ],
     "explain": {
@@ -128,15 +128,15 @@
     "statements": [
       {
         "role": "flawed",
-        "t": "Eating bacon daily gives you roughly an 18% chance of bowel cancer. That's nearly one in five — a huge deal."
+        "t": "Eating bacon daily gives you roughly an 18% chance of bowel cancer — nearly one in five, which is an enormous risk to accept."
       },
       {
         "role": "clean",
-        "t": "It's a relative increase. Lifetime risk goes from about 6 in 100 to about 7 in 100 — a real but small absolute change you can now actually weigh against how much you like bacon."
+        "t": "That's a relative increase: lifetime risk moves from about 6 in 100 to about 7 in 100. Small, real, and now yours to weigh."
       },
       {
         "role": "over",
-        "t": "Nutrition science flip-flops constantly, so the number is meaningless and can be ignored."
+        "t": "Nutrition findings reverse themselves from one decade to the next. An 18% figure from a single study — one study — is no basis for changing what you eat."
       }
     ],
     "explain": {
@@ -169,15 +169,15 @@
     "statements": [
       {
         "role": "flawed",
-        "t": "A dozen credentialed experts willing to go on record is strong evidence the mainstream view is in serious trouble."
+        "t": "Every one of them holds a real qualification, and a dozen willing to say this on camera means the mainstream position is in trouble."
       },
       {
         "role": "clean",
-        "t": "Very little on its own. With millions of scientists and doctors in the world, you can cast a dozen credentialed dissenters for almost any claim. The film shows you its casting choices — not the field."
+        "t": "Millions hold those credentials, so a dozen dissenters can be cast for almost any claim. The film shows its casting, not the field."
       },
       {
         "role": "over",
-        "t": "Documentaries are entertainment. The right move is to refuse to watch anything in this genre at all."
+        "t": "Documentaries are built to persuade rather than to inform. This genre is best skipped entirely, and the people who appear in it treated as paid performers."
       }
     ],
     "explain": {
@@ -206,20 +206,20 @@
     "statements": [
       {
         "role": "flawed",
-        "t": "Yes — if most of the people in hospital beds got the shot, the protection is clearly weak at best."
+        "t": "If 60% of the people filling hospital beds got the shot, then whatever protection it offers is clearly weak — the number speaks plainly."
       },
       {
         "role": "clean",
-        "t": "Can't tell from this number alone. If 90% of people — especially the elderly — are vaccinated, vaccinated patients can dominate the ward even while the vaccine cuts everyone's risk. You need the rate per group, not the share of the ward."
+        "t": "Where 90% of the elderly have been vaccinated, vaccinated patients can fill a ward even while their individual risk stays far lower."
       },
       {
         "role": "over",
-        "t": "It shows the vaccine isn't perfect, which is true of every vaccine — but this number alone can't tell you how well it works."
+        "t": "Once you allow for how many people are vaccinated, this figure actually demonstrates the vaccine is working, and working extremely well."
       }
     ],
     "explain": {
       "tempting": "“Most of the sick were vaccinated” sounds like the vaccine failed an obvious test. The number is true, vivid, and feels complete — what more could you need?",
-      "clean": "The missing piece is: vaccinated <em>out of how many?</em> Imagine 90 of 100 elderly people are vaccinated. Even if vaccination cuts hospitalization risk to a quarter, the ward will still hold more vaccinated than unvaccinated people — because there are nine times as many of them to draw from. The informative comparison is hospitalizations <em>per 10,000 vaccinated</em> vs. <em>per 10,000 unvaccinated</em>. A true percentage with a hidden denominator is the internet's favorite weapon.",
+      "clean": "The missing piece is: vaccinated <em>out of how many?</em> Imagine 90 of 100 elderly people are vaccinated. Even if vaccination cuts hospitalization risk to a quarter, the ward will still hold more vaccinated than unvaccinated people — because there are nine times as many of them to draw from. The informative comparison is hospitalizations <em>per 10,000 vaccinated</em> vs. <em>per 10,000 unvaccinated</em>. A true percentage with a hidden denominator is the internet's favorite weapon. The mirror error overreaches just as badly: once you account for the denominator, this figure stops arguing against the vaccine — it does not start proving the vaccine works.",
       "rule": "A share of the hospitalized means nothing without the share of everyone. Ask: out of how many?"
     },
     "sources": [
@@ -243,15 +243,15 @@
     "statements": [
       {
         "role": "flawed",
-        "t": "That heavy social media use causes depression — twice the rate is too big an effect to explain any other way."
+        "t": "Twice the depression rate is far too large a gap to explain away. Everyone can see the phones are doing something real here."
       },
       {
         "role": "clean",
-        "t": "A real link worth taking seriously — but the arrow could run either way (struggling teens may scroll more), or something else could drive both. You'd need studies that follow teens over time or change their usage."
+        "t": "A real link, but the arrow could run either way, and loneliness could drive both. Snapshots taken at one moment cannot settle direction."
       },
       {
         "role": "over",
-        "t": "Studies like this are worthless, and the safe conclusion is that social media and depression have nothing to do with each other."
+        "t": "Cross-sectional research is far too weak to build anything on. Until better designs arrive, the responsible reading is that screens and teenage depression are unrelated."
       }
     ],
     "explain": {
@@ -280,15 +280,15 @@
     "statements": [
       {
         "role": "flawed",
-        "t": "Two days is too tight a window to be chance. The most likely explanation is the shot made him sick."
+        "t": "Two days is far too tight a window for coincidence, and the simplest explanation is usually the right one: the shot made him ill for a week."
       },
       {
         "role": "clean",
-        "t": "Millions of people get the shot right as virus season starts — by chance alone, enormous numbers get sick soon after. One person's timing can't distinguish “caused by” from “coincided with”; only comparing illness rates between vaccinated and unvaccinated groups can."
+        "t": "Millions get the shot exactly as virus season begins, so huge numbers fall ill soon afterwards purely by chance, whatever the injection does."
       },
       {
         "role": "over",
-        "t": "Pure coincidence — vaccines never cause any real symptoms, so there's nothing to explain."
+        "t": "An inactivated vaccine cannot make anyone ill, so his week in bed had nothing whatever to do with the injection he received."
       }
     ],
     "explain": {
@@ -317,20 +317,20 @@
     "statements": [
       {
         "role": "flawed",
-        "t": "Yes. A few reviews can be faked, but thousands of independent, detailed testimonials can't all be wrong."
+        "t": "A few reviews can be planted, but thousands of detailed, independent testimonials can't all be wrong about the same product at once."
       },
       {
         "role": "clean",
-        "t": "No — and nobody needs to be lying. Buyers who felt nothing don't comment (and critical comments get deleted), and with enough customers plus expectation effects, a sugar pill collects thousands of sincere raves. You'd need to hear from everyone who bought it."
+        "t": "Buyers who felt nothing rarely comment, critical ones get deleted, and expectation does real work. A sugar pill collects thousands of sincere raves."
       },
       {
         "role": "over",
-        "t": "They're obviously all bots and paid shills, so the whole thing is fake."
+        "t": "Comment sections under sponsored posts are bought and curated. What you are reading measures the seller's marketing budget — not the product itself."
       }
     ],
     "explain": {
       "tempting": "“They can't all be lying” is true — and that's exactly what makes it persuasive. The testimonials are mostly sincere. What's broken isn't the people; it's the filter that decides which people you hear.",
-      "clean": "Suppose 100,000 people buy it. Some were about to have a good week anyway; some feel the boost that comes from expecting one. Even if the pills are inert, thousands now sincerely believe it worked — and they're the ones who comment, get pinned, and get shown to you. The disappointed majority quietly doesn't reorder. A comment section is not a sample; it's a highlight reel curated by enthusiasm and the seller's delete button. Note the “all bots” answer reaches the right verdict by a lazy route — it collapses the moment some testimonials turn out to be real.",
+      "clean": "Suppose 100,000 people buy it. Some were about to have a good week anyway; some feel the boost that comes from expecting one. Even if the pills are inert, thousands now sincerely believe it worked — and they're the ones who comment, get pinned, and get shown to you. The disappointed majority quietly doesn't reorder. A comment section is not a sample; it's a highlight reel curated by enthusiasm and the seller's delete button. Note the “bought and curated” answer reaches the right verdict by a lazy route — it collapses the moment the testimonials turn out to be sincere.",
       "rule": "Testimonials are a filtered sample: you see the hits, never the misses."
     },
     "sources": [
@@ -358,11 +358,11 @@
       },
       {
         "role": "clean",
-        "t": "A short window that starts at an unusual spike can look flat inside a rising long-term trend — noisy data always contains flat-looking stretches. Zoom out, and ask who chose that start year and why."
+        "t": "A short window beginning at a record spike can look flat inside a rising trend, so ask who chose that particular start year."
       },
       {
         "role": "over",
-        "t": "Never trust a chart from social media. Only charts from official institutions can be taken at face value."
+        "t": "Charts circulated on social media are selected for effect, so the sensible policy is to rely only on official statistical agencies."
       }
     ],
     "explain": {
@@ -395,15 +395,15 @@
     "statements": [
       {
         "role": "flawed",
-        "t": "When this many neighbors are seeing it with their own eyes, the rise is real. Locals feel these things long before statistics do."
+        "t": "When this many neighbors are seeing it firsthand, the rise is real — everyone here can feel the shift before a statistic catches up."
       },
       {
         "role": "clean",
-        "t": "Not much yet. Feeds amplify alarm: one incident spawns many posts, alarm drives more posting and more cameras — all while actual incidents could be flat or falling. Posts measure attention, not crime. Check a few years of actual local numbers."
+        "t": "One incident spawns many posts, alarm drives more cameras and more posting, and incidents themselves can stay flat. Posts measure attention, not crime."
       },
       {
         "role": "over",
-        "t": "Impossible to say — you can never really know whether crime is up or down."
+        "t": "Recorded crime figures depend entirely on what people bother to report — nobody can say whether this neighborhood is safer or more dangerous than before."
       }
     ],
     "explain": {
@@ -432,15 +432,15 @@
     "statements": [
       {
         "role": "flawed",
-        "t": "The disasters speak for themselves. Nuclear has proven what it does when it fails — that's what matters, not statistics."
+        "t": "Chernobyl and Fukushima showed what this technology does when it fails. That record matters more than any per-unit statistic ever could."
       },
       {
         "role": "clean",
-        "t": "Compare deaths per unit of energy produced, across all sources — which counts the disasters and the quiet, constant harm of air pollution from fossil fuels. By that measure nuclear ranks among the safest. Whatever you decide, compare per-unit, not by famous events."
+        "t": "Deaths per unit of energy count both the famous accidents and the quiet toll of fossil-fuel air pollution, and on that measure nuclear ranks among the safest."
       },
       {
         "role": "over",
-        "t": "Nuclear is completely safe, and anyone still worried about it is simply being irrational."
+        "t": "Nuclear power's safety record is settled, so continuing to worry about the plant is a straightforwardly irrational response to the evidence."
       }
     ],
     "explain": {
@@ -469,15 +469,15 @@
     "statements": [
       {
         "role": "flawed",
-        "t": "Music training builds discipline and brain power — that's why lesson-takers do better. Signing up should give a real academic boost."
+        "t": "Music training builds discipline and focus, which is exactly why lesson-takers do better. Signing up should deliver a genuine academic boost."
       },
       {
         "role": "clean",
-        "t": "Families who choose and afford lessons differ in many ways — income, time, tutoring, expectations — any of which could drive both the lessons and the grades. The link alone can't say the lessons do the work."
+        "t": "Families who choose and afford lessons differ already — income, time, tutoring, expectations — and those differences lift grades all by themselves."
       },
       {
         "role": "over",
-        "t": "Education research like this is basically astrology — no study of kids can ever tell you anything."
+        "t": "Education research cannot randomize children into families. Findings in this field sit closer to horoscopes than to evidence a parent should act on."
       }
     ],
     "explain": {
@@ -506,20 +506,20 @@
     "statements": [
       {
         "role": "flawed",
-        "t": "Six weeks of clearly feeling better after one change is about as direct as evidence gets — the gluten was the problem."
+        "t": "Six weeks of feeling dramatically better after one deliberate change is about as direct as evidence gets — and she is the one living in her body."
       },
       {
         "role": "clean",
-        "t": "Cutting gluten changes many things at once — less junk food, more home cooking, more attention to how you feel, plus expectation itself. Only a blinded test (feeling worse when gluten sneaks back in unknowingly) could pin it on gluten specifically."
+        "t": "Cutting gluten changes a dozen things at once — less junk food, more cooking, more attention — so only a blinded test isolates gluten."
       },
       {
         "role": "over",
-        "t": "It's all in her head — nothing about her diet change actually made her feel better."
+        "t": "Symptom reports collected without a control group are unreliable, so her improvement is best understood as expectation and attention rather than anything her diet actually did."
       }
     ],
     "explain": {
       "tempting": "The improvement is real, and it followed the change — the sequence tells the story for you. And she did something hard, so “it worked” also rewards the effort.",
-      "clean": "“Going gluten-free” is one label for a dozen simultaneous changes: dropping pastries, beer, and fast food, cooking more, and paying attention to your body. Add the placebo effect — genuinely strong for energy and gut symptoms — and starting at a low point (people overhaul their diet when they feel worst), and feeling better afterward is expected no matter what gluten does. In blinded studies, most people who report gluten sensitivity can't tell gluten capsules from placebo — and some can, which is why the careful test matters. “All in her head” gets it wrong too: the improvement is real; only the credit is in question.",
+      "clean": "“Going gluten-free” is one label for a dozen simultaneous changes: dropping pastries, beer, and fast food, cooking more, and paying attention to your body. Add the placebo effect — genuinely strong for energy and gut symptoms — and starting at a low point (people overhaul their diet when they feel worst), and feeling better afterward is expected no matter what gluten does. In blinded studies, most people who report gluten sensitivity can't tell gluten capsules from placebo — and some can, which is why the careful test matters. Filing it all under expectation gets it wrong too: the improvement is real; only the credit is in question.",
       "rule": "One change on the label, a dozen changes in practice. Ask what else changed at the same time."
     },
     "sources": [
@@ -543,15 +543,15 @@
     "statements": [
       {
         "role": "flawed",
-        "t": "The test is 99% accurate, so a positive result means it's about 99% likely she has the condition."
+        "t": "The test is 99% accurate, so a positive result means it is roughly 99% likely that she actually has the condition."
       },
       {
         "role": "clean",
-        "t": "Picture 1,000 people like her: about 1 truly has it, while about 20 healthy people get wrongly flagged. Her positive is one of ~21 — so the chance it's real is roughly 5%. The right response is a follow-up test, not panic."
+        "t": "Among 1,000 people like her, about one truly has it and twenty healthy people get flagged. Her positive is one of twenty-one."
       },
       {
         "role": "over",
-        "t": "Screening tests are so unreliable that a positive result carries no information and can simply be ignored."
+        "t": "A test that wrongly flags 2% of healthy people produces far more false alarms than real cases, so her positive carries no useful information."
       }
     ],
     "explain": {
@@ -580,15 +580,15 @@
     "statements": [
       {
         "role": "flawed",
-        "t": "A perfect score is a perfect score — twelve people all agreeing beats a diluted average from thousands."
+        "t": "A perfect score is a perfect score. Twelve people agreeing completely beats an average diluted by thousands of mixed opinions over the years."
       },
       {
         "role": "clean",
-        "t": "Twelve reviews is a tiny, early, friendly sample — new places start with fans and lucky nights, and small samples swing to extremes easily. 4.3 across 2,800 reviews is a far more reliable picture of what your dinner will actually be like."
+        "t": "Twelve reviews is an early, friendly sample, and small samples swing to extremes. Across 2,800 reviews, luck washes out and the average reflects a typical evening."
       },
       {
         "role": "over",
-        "t": "Ratings are all bought or faked anyway, so there's no point looking at either number."
+        "t": "Restaurant ratings are routinely gamed by owners and rivals alike. Neither number here deserves much weight when you are choosing where to eat tonight."
       }
     ],
     "explain": {
@@ -617,15 +617,15 @@
     "statements": [
       {
         "role": "flawed",
-        "t": "Doubling is doubling — a 100% increase means the problem is escalating fast and something has clearly changed."
+        "t": "Doubling is doubling. A 100% rise in a single year means something has clearly changed, and everyone in the city should know about it."
       },
       {
         "role": "clean",
-        "t": "With numbers this small, 4 becoming 8 is well within ordinary year-to-year noise — and the per-person risk moved from about 1-in-150,000 to 1-in-75,000. Watch several years of data before concluding anything changed."
+        "t": "Four becoming eight sits well inside ordinary year-to-year noise, moving the per-person risk from about 1-in-150,000 to about 1-in-75,000."
       },
       {
         "role": "over",
-        "t": "Numbers this small are meaningless in every sense — the article contains no information at all."
+        "t": "Four cases becoming eight in a city of 600,000 tells you nothing whatever, so this article is filler dressed up as news."
       }
     ],
     "explain": {
@@ -654,15 +654,15 @@
     "statements": [
       {
         "role": "flawed",
-        "t": "When every post, comment, and petition you see points one way, that's the town's voice — the opposition is clearly overwhelming."
+        "t": "Every post, comment, and petition you have seen points one way. That is the town speaking, and the opposition is overwhelming."
       },
       {
         "role": "clean",
-        "t": "Feeds surface the angriest, most motivated voices; people upset by a change post far more than the indifferent or quietly supportive. You're seeing who's loudest, not how opinion is distributed — a representative survey often tells a different story."
+        "t": "Feeds surface the angriest and most motivated, while the content majority says nothing. You are seeing who is loudest, not how many."
       },
       {
         "role": "over",
-        "t": "Online opinion is always the opposite of real opinion, so the town probably loves the plan."
+        "t": "Online sentiment tends to invert what people privately think. The quiet majority probably supports this plan far more than the petition would suggest."
       }
     ],
     "explain": {
@@ -691,15 +691,15 @@
     "statements": [
       {
         "role": "flawed",
-        "t": "Higher death rates among users is exactly what you'd expect if the pills were harmful — the study shows the risk directly."
+        "t": "Higher death rates among users is exactly what a harmful drug produces. The study measures the risk about as directly as possible."
       },
       {
         "role": "clean",
-        "t": "People prescribed sleeping pills differ from people who aren't — more chronic illness, pain, depression, and severe insomnia itself. The study shows users die earlier; it can't show the pills did it. You'd need comparisons between similar patients."
+        "t": "People prescribed sleeping pills already differ in chronic illness, pain, depression and severe insomnia, so the study shows users dying earlier, not pills killing them."
       },
       {
         "role": "over",
-        "t": "Mortality studies like this are unusable — nothing about medication safety can ever be learned outside a lab."
+        "t": "Observational mortality data cannot be cleaned up after the fact, so medication safety is knowable only inside a properly randomized trial."
       }
     ],
     "explain": {
@@ -732,15 +732,15 @@
     "statements": [
       {
         "role": "flawed",
-        "t": "Four wins in five games immediately after the change — the improvement is measured, public, and clearly down to the new coach."
+        "t": "Four wins in five games immediately after the change. The improvement is public, measured, and everyone watching can see who did it."
       },
       {
         "role": "clean",
-        "t": "Coaches get fired at rock bottom, after streaks so bad they're partly bad luck — and from rock bottom, results usually rebound toward the team's normal level no matter who's in charge. The rebound alone can't tell you the coach caused it."
+        "t": "Coaches get fired at rock bottom, after streaks that were partly bad luck, and results usually rebound toward normal whoever is in charge."
       },
       {
         "role": "over",
-        "t": "Coaching makes no difference at all in sports — results are entirely random."
+        "t": "Coaching contributes nothing measurable at this level of the sport. The rebound was pure luck, and the sacking changed the eventual outcome not at all."
       }
     ],
     "explain": {
@@ -773,15 +773,15 @@
     "statements": [
       {
         "role": "flawed",
-        "t": "The clips speak for themselves — battery fires are a new and growing danger that gas cars simply don't have."
+        "t": "The clips speak for themselves. Battery fires are a new and growing danger, and gas cars simply never did anything remotely like this to a parking garage."
       },
       {
         "role": "clean",
-        "t": "Gas cars catch fire constantly — tens of thousands a year — it's just not news. The fair comparison is fires per 100,000 vehicles, and on that measure EVs so far have fewer, though battery fires are harder to put out. Count rates, not clips."
+        "t": "Gas cars burn by the tens of thousands each year without making the news, and per 100,000 vehicles EVs so far catch fire less often."
       },
       {
         "role": "over",
-        "t": "Vehicle fires are so rare that fire risk shouldn't factor into anyone's car decision at all."
+        "t": "Vehicle fires are rare enough on both sides of this comparison — fire risk simply should not enter anyone's car-buying decision at all, in either direction here."
       }
     ],
     "explain": {
@@ -810,15 +810,15 @@
     "statements": [
       {
         "role": "flawed",
-        "t": "Two firsthand recoveries after the same change, from people you actually know, is meaningful evidence that the pesticides were the issue."
+        "t": "Two firsthand recoveries after the same change, from people you actually know, is meaningful evidence that the pesticides were the problem."
       },
       {
         "role": "clean",
-        "t": "Eczema and migraines flare and fade on their own, and millions of families change diets every year — so “improved after switching” stories must exist in huge numbers by coincidence alone, and those are the ones that get retold. Two retold stories can't carry the claim."
+        "t": "Eczema and migraines fade on their own, and millions switch diets yearly, so coincidental recovery stories must exist in enormous numbers."
       },
       {
         "role": "over",
-        "t": "People who credit their diet are fooling themselves — food choices never affect anyone's health."
+        "t": "Diet has no bearing on eczema or migraines. Both recoveries were coincidence, and the switch to organic food accomplished nothing for either family."
       }
     ],
     "explain": {
@@ -847,15 +847,15 @@
     "statements": [
       {
         "role": "flawed",
-        "t": "The chart shows a dramatic battery advantage — the bar is three times taller, and the real numbers are printed right there confirming it."
+        "t": "The chart shows a dramatic advantage — the bar is three times taller — and the real numbers are printed right there confirming it."
       },
       {
         "role": "clean",
-        "t": "It's a 7% difference drawn to look like 300%. Starting the axis at 28 instead of 0 turns two hours into a skyscraper. The numbers are honest; the picture is doing the lying — and the picture is what your memory keeps."
+        "t": "It is a 7% difference drawn to look like 300%, because an axis starting at 28 turns two hours into a skyscraper."
       },
       {
         "role": "over",
-        "t": "Charts are inherently manipulative — never draw any conclusion from a graph."
+        "t": "A 7% gap can always be drawn to look like 300%, so the only safe practice is to ignore the picture entirely."
       }
     ],
     "explain": {
@@ -884,15 +884,15 @@
     "statements": [
       {
         "role": "flawed",
-        "t": "Three people who don't know each other all flagging the same thing is independent confirmation — the story is probably onto something."
+        "t": "Three people who do not know each other flagging the same story is independent confirmation. Something real is probably behind it."
       },
       {
         "role": "clean",
-        "t": "Your friends aren't independent sources — they're three endpoints of the same viral wave, usually traceable to a single post being re-shared. Three arrivals measure how fast it spreads, not whether it's true. Find the original source and check what it actually says."
+        "t": "Your friends are three endpoints of one viral wave, usually traceable back to a single post, so three arrivals measure spread rather than accuracy."
       },
       {
         "role": "over",
-        "t": "If something spreads that fast, it's probably false — viral means fabricated."
+        "t": "Stories that spread this fast are selected for alarm rather than accuracy. Rapid sharing is itself a reason to doubt the claim."
       }
     ],
     "explain": {
@@ -921,15 +921,15 @@
     "statements": [
       {
         "role": "flawed",
-        "t": "Decades of studies found moderate drinkers outliving non-drinkers — that's a large, consistent evidence base for a real protective effect."
+        "t": "Decades of studies found moderate drinkers outliving abstainers, again and again. That is a large, consistent evidence base pointing to a genuinely protective effect."
       },
       {
         "role": "clean",
-        "t": "The “non-drinker” groups in those studies quietly included people who had quit because they were already sick — making abstainers look unhealthy by composition. When studies correct that bias, the longevity benefit shrinks toward zero."
+        "t": "Those abstainer groups quietly included people who had already quit because they were ill. Correct that and the longevity benefit shrinks toward zero."
       },
       {
         "role": "over",
-        "t": "Observational studies about diet and drink are hopeless and can never tell us anything."
+        "t": "Nutrition and drinking studies rely on what people report about themselves, so their conclusions should not steer what anyone chooses to drink."
       }
     ],
     "explain": {
@@ -958,15 +958,15 @@
     "statements": [
       {
         "role": "flawed",
-        "t": "Six hours from meal to symptoms is a straight line — the last thing he ate is the obvious and most likely culprit."
+        "t": "Six hours from meal to symptoms is a straight line. The last thing he ate is the obvious and most likely culprit."
       },
       {
         "role": "clean",
-        "t": "Most common food bugs take 12 hours to several days to cause symptoms — norovirus 12–48 hours, salmonella up to 6 days. The culprit is usually an earlier meal entirely; blaming the most recent one is the classic misfire."
+        "t": "Most food bugs need 12 hours to several days — norovirus 12 to 48 hours, salmonella up to six. The culprit is usually earlier."
       },
       {
         "role": "over",
-        "t": "Food poisoning sources are unknowable, so there's no point ever wondering where it came from."
+        "t": "Without laboratory testing the source stays unknowable. Working out which meal did it is not a question worth spending time on."
       }
     ],
     "explain": {
@@ -995,15 +995,15 @@
     "statements": [
       {
         "role": "flawed",
-        "t": "If nearly every heroin user walked through the same first door, that door is clearly part of the path — the gateway effect is right there in the number."
+        "t": "If nearly every heroin user walked through the same first door, that door is part of the path. The gateway effect is right there in the number."
       },
       {
         "role": "clean",
-        "t": "That's the reversed question. Nearly all heroin users also started with alcohol; what matters is what share of cannabis users ever progress to heroin — and the vast majority never do. A statistic about heroin users' pasts can't tell you cannabis users' futures."
+        "t": "That reverses the question, because nearly all of them started with alcohol too, and the share of cannabis users who ever progress stays tiny."
       },
       {
         "role": "over",
-        "t": "Since that statistic is misleading, cannabis carries no risks worth discussing at all."
+        "t": "Since the 90% figure is misleading, the whole gateway concern is manufactured, and cannabis carries no health risks worth weighing in this debate at all."
       }
     ],
     "explain": {
@@ -1032,15 +1032,15 @@
     "statements": [
       {
         "role": "flawed",
-        "t": "Photos from a real peer-reviewed experiment showing tumors — that's about as direct as evidence against GM corn gets."
+        "t": "Photographs from a real, peer-reviewed experiment showing tumors in fed rats is about as direct as evidence against GM corn gets."
       },
       {
         "role": "clean",
-        "t": "The study used ten rats per group, of a strain that develops tumors at very high rates in old age no matter the diet — at that size, scary-looking groups are guaranteed by chance. The paper was retracted, and agencies reviewing the full evidence base found no such effect."
+        "t": "Ten rats per group, of a strain that grows tumors in old age regardless of diet, and the paper was later retracted by the journal."
       },
       {
         "role": "over",
-        "t": "All food-safety research is captured by industry, so no study on any side of this can be believed."
+        "t": "Food-safety research is funded by the industry it examines, so studies on either side of this question are worth very little."
       }
     ],
     "explain": {
@@ -1069,15 +1069,15 @@
     "statements": [
       {
         "role": "flawed",
-        "t": "48 beats 46 — A is ahead. The margin of error just means the exact numbers could wobble slightly."
+        "t": "Forty-eight beats forty-six, so A is ahead. The margin of error simply means the exact figures might wobble by a little."
       },
       {
         "role": "clean",
-        "t": "A two-point gap inside a ±3.5 margin is statistical fog — the “lead” is fully compatible with a tie or a reversal, and the uncertainty on the gap between two candidates is roughly double the headline margin. The honest reading is “too close to call.”"
+        "t": "A two-point gap inside a ±3.5 margin is fog, and uncertainty on the gap runs roughly double the headline figure. Too close to call."
       },
       {
         "role": "over",
-        "t": "Polls are always wrong anyway — remember the famous upsets — so all polling can be ignored."
+        "t": "Polls missed the famous upsets of 2016 badly, and everyone remembers it. Treating any of them as real information about a race this close is simply a mistake."
       }
     ],
     "explain": {
@@ -1106,15 +1106,15 @@
     "statements": [
       {
         "role": "flawed",
-        "t": "That much attention means that much scrutiny — false claims this visible get caught and removed, so surviving at scale is a real signal of credibility."
+        "t": "Something this visible has been in front of millions of critical eyes. Claims that survive that much scrutiny have effectively been fact-checked by the crowd."
       },
       {
         "role": "clean",
-        "t": "Views measure how well content triggers sharing — surprise, outrage, fear — and false stories are systematically better at that: a landmark study of millions of story cascades found false news spreads further and faster than true news. Debunks reach a fraction of the original audience."
+        "t": "Reach tracks what makes people share — surprise, outrage, fear — and false stories do that better. Nothing about the count speaks to whether it is true."
       },
       {
         "role": "over",
-        "t": "It's the opposite: anything that goes viral is probably false."
+        "t": "Virality selects for emotional pull rather than accuracy, so a number this large is better read as evidence against the claim than for it."
       }
     ],
     "explain": {
