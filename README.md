@@ -18,12 +18,29 @@ Static, no framework, no runtime dependencies.
 ```
 src/scenarios.json   The scenario bank (content lives here)
 src/template.html    App shell: styles, markup, logic, with __SCENARIOS__ placeholder
-build.js             Validates the bank, runs the balance audit, injects, emits outputs
+build.ps1            Validates the bank, runs the balance audit, injects, emits outputs
+build.js             Same build, Node version — kept in sync, byte-identical output
 index.html           Built output — a single self-contained file, deployable anywhere
 preview.html         Built output without the <html> wrapper (for artifact previews)
+tools/shot.ps1       Screenshots the built page at any phone viewport (see below)
 ```
 
-Build: `node build.js` (validation + balance audit run on every build and fail hard).
+Check a layout change on a phone width without a phone:
+
+```
+tools\shot.ps1 -Url index.html -Width 320 -Out shot.png -Script "document.getElementById('btn-start').click()"
+```
+
+It drives headless Chrome over the DevTools Protocol, so the viewport is a real
+device viewport — `--window-size` alone can't go below ~485px on Windows. Warns if
+the page overflows horizontally at that width.
+
+Build: `powershell -ExecutionPolicy Bypass -File build.ps1` — runs on the Windows
+PowerShell that ships with the OS, nothing to install. `node build.js` is equivalent
+if you have Node. Validation + balance audit run on every build and fail hard.
+
+Both builders must stay in sync: a change to one is a change to the other. They are
+verified by byte-comparing `index.html` and `preview.html` from each.
 
 Each session draws 2 random scenarios per family (12 of 18 currently), so retakes get fresh material.
 
