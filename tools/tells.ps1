@@ -29,7 +29,7 @@ $ROLES = @("flawed", "clean", "over")
 $ABSOLUTIST = "\b(never|always|only|nothing|no one|nobody|anything|at all|worthless|meaningless|useless|pointless|zero|none|every|everyone|everything|all)\b"
 
 $enc = New-Object System.Text.UTF8Encoding($false)
-$jsonPath = Join-Path (Split-Path $PSScriptRoot -Parent) "src\scenarios.json"
+$jsonPath = [IO.Path]::Combine((Split-Path $PSScriptRoot -Parent), "src", "scenarios.json")
 $scenarios = ConvertFrom-Json ([IO.File]::ReadAllText($jsonPath, $enc))
 
 function Get-WordCount([string]$t) { ($t -split '\s+' | Where-Object { $_ }).Count }

@@ -1,0 +1,130 @@
+name: Scenario proposal
+description: Propose a new scenario for the bank. No JSON or code needed.
+title: "Scenario: "
+labels: ["scenario proposal"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for proposing one. A maintainer converts accepted proposals into the
+        bank, so write prose — no JSON required.
+
+        Before filling this in, the two rules that reject most proposals:
+
+        - The **sound reading** must clear "would ~95% of scientists sign off?"
+        - The **overshoot** must overreach from the same evidence the reader has.
+          An overshoot resting on a fact they cannot check ("this is only one
+          study") is not an overshoot — if the fact were true it would be right.
+
+  - type: input
+    id: context
+    attributes:
+      label: Where this happens
+      description: The setting, in a few words.
+      placeholder: At a family dinner / On your feed / In the local paper
+    validations:
+      required: true
+
+  - type: textarea
+    id: vignette
+    attributes:
+      label: The vignette
+      description: >
+        What the reader sees — a post, a chart, a conversation. Two short
+        paragraphs. Real-world numbers should be roughly accurate. If the
+        reasoning question depends on the evidence being sound, say so here
+        ("the number, it turns out, is accurate") so it is a given rather than
+        something the reader must guess at.
+    validations:
+      required: true
+
+  - type: input
+    id: question
+    attributes:
+      label: The question put to the reader
+      placeholder: What does that 18% actually mean?
+    validations:
+      required: true
+
+  - type: textarea
+    id: flawed
+    attributes:
+      label: The flawed reading
+      description: >
+        The tempting-but-unsound conclusion, in its strongest form — the reading
+        a smart person actually makes. Never a strawman.
+    validations:
+      required: true
+
+  - type: textarea
+    id: clean
+    attributes:
+      label: The sound reading
+      description: >
+        What the evidence actually supports. Assert only what the vignette
+        grants, what arithmetic on it yields, or what your source supports.
+    validations:
+      required: true
+
+  - type: textarea
+    id: over
+    attributes:
+      label: The overshoot
+      description: >
+        The overcorrection — blanket doubt or dismissal that goes as far wrong in
+        the other direction. It must overreach from the evidence given, not
+        import facts the reader cannot check.
+    validations:
+      required: true
+
+  - type: dropdown
+    id: family
+    attributes:
+      label: Error family
+      options:
+        - causation (correlation, confounding, reverse causation)
+        - posthoc (after this therefore because of this, regression to the mean)
+        - baserates (hidden denominators, rare events, reversed conditionals)
+        - anecdotes (selected samples, survivorship, testimonials)
+        - numbers (relative vs absolute, small bases, chart tricks, margins)
+        - echo (feeds, virality, repetition mistaken for corroboration)
+    validations:
+      required: true
+
+  - type: dropdown
+    id: valence
+    attributes:
+      label: Whose priors does the FLAWED reading flatter?
+      description: >
+        Tagged honestly, and audited: the build fails if the bank skews more than
+        ±1 between left and right. Most scenarios are neutral.
+      options:
+        - neutral
+        - leans-left
+        - leans-right
+    validations:
+      required: true
+
+  - type: textarea
+    id: explain
+    attributes:
+      label: Why the flawed reading is tempting, and what actually holds up
+      description: >
+        The explanation shown after the reader commits. Name the mechanism, give
+        them the tool, never sneer — the reader who fell for it should feel
+        smarter, not scolded.
+    validations:
+      required: true
+
+  - type: textarea
+    id: sources
+    attributes:
+      label: Sources
+      description: >
+        At least one, with a link. Peer-reviewed studies, official statistics or
+        recognised methodological explainers. The build fails without one.
+      placeholder: |
+        Author year — what it establishes (venue)
+        https://...
+    validations:
+      required: true

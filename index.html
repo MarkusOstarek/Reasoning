@@ -34,11 +34,14 @@
     --accent: #2f45c4;
     --accent-ink: #fbfaf6;
     --accent-soft: #e4e8fb;
-    --good: #1e7a5a;
+    /* Darkened from #1e7a5a/#c03a22/#9c6d0e: chips and pills set these at
+       0.7rem bold, which WCAG counts as normal text, so they need 4.5:1 on
+       their own backgrounds. Now 5.2 / 4.97 / 4.63. */
+    --good: #1b6e51;
     --good-bg: #ddf0e5;
-    --bad: #c03a22;
+    --bad: #b3341d;
     --bad-bg: #f8e3dd;
-    --part: #9c6d0e;
+    --part: #8a600c;
     --part-bg: #f4e9ce;
     --shadow: 5px 5px 0 rgba(27, 36, 64, 0.14);
   }
@@ -96,11 +99,14 @@
     --accent: #2f45c4;
     --accent-ink: #fbfaf6;
     --accent-soft: #e4e8fb;
-    --good: #1e7a5a;
+    /* Darkened from #1e7a5a/#c03a22/#9c6d0e: chips and pills set these at
+       0.7rem bold, which WCAG counts as normal text, so they need 4.5:1 on
+       their own backgrounds. Now 5.2 / 4.97 / 4.63. */
+    --good: #1b6e51;
     --good-bg: #ddf0e5;
-    --bad: #c03a22;
+    --bad: #b3341d;
     --bad-bg: #f8e3dd;
-    --part: #9c6d0e;
+    --part: #8a600c;
     --part-bg: #f4e9ce;
     --shadow: 5px 5px 0 rgba(27, 36, 64, 0.14);
   }
@@ -259,7 +265,7 @@
   .scale button:first-child { border-left-width: 1.5px; border-radius: 2px 0 0 2px; }
   .scale button:last-child { border-radius: 0 2px 2px 0; }
   .scale button:hover:not(:disabled) { background: var(--accent-soft); color: var(--ink); }
-  .scale button[aria-pressed="true"] { background: var(--accent); border-color: var(--accent); color: var(--accent-ink); font-weight: 700; }
+  .scale button[aria-checked="true"] { background: var(--accent); border-color: var(--accent); color: var(--accent-ink); font-weight: 700; }
   .scale button:disabled { cursor: default; }
 
   .stmt .chip {
@@ -391,6 +397,14 @@
 
   .fairness, .fineprint { max-width: 38rem; color: var(--muted); font-size: 0.95rem; margin: 0 0 1.1rem; }
   .fairness strong, .fineprint strong { color: var(--ink); }
+  .profile-basis { max-width: 38rem; color: var(--muted); font-size: 0.95rem; margin: 0 0 1.2rem; }
+  .profile-basis strong { color: var(--ink); }
+  /* How many scenarios a bar rests on — shown so the reader can discount it. */
+  .fam .basis {
+    font-family: ui-monospace, "Cascadia Mono", Consolas, Menlo, monospace;
+    font-size: 0.68rem; letter-spacing: 0.06em; text-transform: uppercase;
+    color: var(--muted); margin: 0.45rem 0 0.7rem;
+  }
   .end-row { display: flex; gap: 0.9rem; margin-top: 1.9rem; flex-wrap: wrap; }
 
   .hidden { display: none; }
@@ -430,7 +444,8 @@
       <span class="mono" id="progress-label">Scenario 1 of 12</span>
       <span class="mono" id="family-hint"></span>
     </div>
-    <div class="bar"><div id="progress-fill"></div></div>
+    <div class="bar" id="progress-bar" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0"
+      aria-labelledby="progress-label"><div id="progress-fill"></div></div>
 
     <div class="vignette">
       <span class="context mono" id="v-context"></span>
@@ -474,6 +489,8 @@
         <button class="btn-ghost" id="btn-full">Take the full check-up</button>
       </div>
     </div>
+
+    <p class="profile-basis" id="r-basis"></p>
 
     <div class="fam-grid" id="fam-grid"></div>
 
@@ -630,6 +647,7 @@ function dailyResults() {
       : "Today's scenario read differently than the evidence supports. That's what the daily habit is for: with names and repetition, the patterns start jumping out. Tomorrow's is a fresh start.")
     + (st.best > st.streak ? " <strong>Best streak: " + st.best + ".</strong>" : "");
   $("fam-grid").classList.add("hidden");
+  $("r-basis").classList.add("hidden");
   $("r-fairness").classList.add("hidden");
   $("r-fineprint").classList.add("hidden");
   $("r-actions").classList.add("hidden");
@@ -697,23 +715,49 @@ function render() {
   s.stmts.forEach((stmt, si) => {
     const card = document.createElement("div");
     card.className = "stmt";
-    card.innerHTML = "<p>" + stmt.t + "</p>";
+    const textId = "stmt-text-" + si;
+    card.innerHTML = '<p id="' + textId + '">' + stmt.t + "</p>";
     const row = document.createElement("div");
     row.className = "scale-row";
     row.insertAdjacentHTML("beforeend", '<span class="end">Disagree</span>');
+
+    /* A radiogroup, not five toggle buttons: one choice out of five, named by
+       the statement it rates. Without this a screen reader announces fifteen
+       identical buttons with no idea which statement they belong to. */
     const scale = document.createElement("div");
     scale.className = "scale";
+    scale.setAttribute("role", "radiogroup");
+    scale.setAttribute("aria-labelledby", textId);
+    const LABELS = ["Strongly disagree", "Disagree", "Neither", "Agree", "Strongly agree"];
+
+    function select(v, focus) {
+      ratings[si] = v;
+      Array.from(scale.children).forEach((x, xi) => {
+        x.setAttribute("aria-checked", xi === v ? "true" : "false");
+        // Roving tabindex: the group is one tab stop, arrows move within it.
+        x.tabIndex = xi === v ? 0 : -1;
+      });
+      if (focus) scale.children[v].focus();
+      $("btn-lock").disabled = ratings.some((r) => r === null);
+    }
+
     for (let v = 0; v <= 4; v++) {
       const b = document.createElement("button");
       b.type = "button";
       b.textContent = String(v + 1);
-      b.setAttribute("aria-pressed", "false");
-      b.setAttribute("aria-label", "Agreement " + (v + 1) + " of 5");
-      b.addEventListener("click", () => {
+      b.setAttribute("role", "radio");
+      b.setAttribute("aria-checked", "false");
+      b.setAttribute("aria-label", LABELS[v] + " (" + (v + 1) + " of 5)");
+      b.tabIndex = v === 0 ? 0 : -1;
+      b.addEventListener("click", () => { if (!b.disabled) select(v, false); });
+      b.addEventListener("keydown", (e) => {
         if (b.disabled) return;
-        ratings[si] = v;
-        Array.from(scale.children).forEach((x, xi) => x.setAttribute("aria-pressed", xi === v ? "true" : "false"));
-        $("btn-lock").disabled = ratings.some((r) => r === null);
+        let to = null;
+        if (e.key === "ArrowRight" || e.key === "ArrowDown") to = (v + 1) % 5;
+        else if (e.key === "ArrowLeft" || e.key === "ArrowUp") to = (v + 4) % 5;
+        else if (e.key === "Home") to = 0;
+        else if (e.key === "End") to = 4;
+        if (to !== null) { e.preventDefault(); select(to, true); }
       });
       scale.appendChild(b);
     }
@@ -767,7 +811,9 @@ function lockIn() {
     + "&body=" + encodeURIComponent("Scenario: " + s.id + "\n\nWhat's wrong or ambiguous about it:\n");
   $("btn-next").textContent = idx === order.length - 1 ? "See my profile" : "Next scenario";
   $("explain").classList.remove("hidden");
-  $("progress-fill").style.width = ((idx + 1) / order.length * 100) + "%";
+  const pctDone = Math.round((idx + 1) / order.length * 100);
+  $("progress-fill").style.width = pctDone + "%";
+  $("progress-bar").setAttribute("aria-valuenow", pctDone);
   $("explain").scrollIntoView({ behavior: "smooth", block: "nearest" });
 }
 
@@ -783,6 +829,15 @@ function famScores() {
   return pct;
 }
 
+/* How many scenarios each family score rests on. Shown to the reader: with two
+   scenarios per family, a bar points at a habit but cannot measure one. */
+function famCounts() {
+  const counts = {};
+  Object.keys(FAMILIES).forEach((k) => { counts[k] = 0; });
+  answers.forEach((a) => { counts[a.family]++; });
+  return counts;
+}
+
 function overallScore() {
   return Math.round(answers.reduce((s, a) => s + discernment(a), 0) / answers.length * 100);
 }
@@ -795,6 +850,7 @@ function next() {
 function results() {
   if (mode === "daily") return dailyResults();
   $("fam-grid").classList.remove("hidden");
+  $("r-basis").classList.remove("hidden");
   $("r-fairness").classList.remove("hidden");
   $("r-fineprint").classList.remove("hidden");
   $("r-actions").classList.remove("hidden");
@@ -819,6 +875,15 @@ function results() {
   else style = "Your misses don't come from a general habit of over-believing or blanket doubt — they're specific to the areas below, which makes them easy to target.";
   $("r-copy").innerHTML = band.copy + "<br><br><strong>Your miss pattern:</strong> " + style;
 
+  const counts = famCounts();
+  const per = Object.keys(FAMILIES).map((k) => counts[k]);
+  const perMin = Math.min.apply(null, per), perMax = Math.max.apply(null, per);
+  const perText = perMin === perMax ? perMin : perMin + "–" + perMax;
+  $("r-basis").innerHTML =
+    "<strong>How much weight to put on this.</strong> Each area below rests on " + perText +
+    " scenario" + (perMax === 1 ? "" : "s") + " &mdash; enough to raise a hypothesis about a habit, not enough to measure one. " +
+    "The gaps between areas are well inside what luck alone would produce. Treat the weakest as the one worth testing on yourself, not as a finding.";
+
   const grid = $("fam-grid");
   grid.innerHTML = "";
   // Weakest families first — that's what the reader needs to see.
@@ -827,13 +892,16 @@ function results() {
     const f = FAMILIES[k];
     const p = pct[k];
     const level = p >= 75 ? "hi" : p >= 50 ? "mid" : "lo";
-    const pillText = level === "hi" ? "Sharp here" : level === "mid" ? "Mostly solid" : "Blind spot";
+    // Provisional wording: these labels rest on too few items to assert more.
+    const pillText = level === "hi" ? "Looked sharp" : level === "mid" ? "Mostly solid" : "Worth a look";
     const blurb = level === "hi" ? f.hi : level === "mid" ? f.mid : f.lo;
+    const n = counts[k];
     const div = document.createElement("div");
     div.className = "fam";
     div.innerHTML =
-      '<div class="fam-head"><h3>' + f.name + '</h3><span class="pill ' + level + '">' + pillText + " · " + p + "%</span></div>" +
+      '<div class="fam-head"><h3>' + f.name + '</h3><span class="pill ' + level + '">' + pillText + "</span></div>" +
       '<div class="meter ' + level + '"><div style="width:' + p + '%"></div></div>' +
+      '<p class="basis">from ' + n + " scenario" + (n === 1 ? "" : "s") + "</p>" +
       "<p>" + blurb + "</p>" +
       '<p class="study"><strong>Study:</strong> ' + f.concepts + "</p>" +
       '<p class="rule">' + f.rule + "</p>";
@@ -848,7 +916,7 @@ function copyResults() {
   const lines = ["Reason Check — my reasoning profile: " + overallScore() + "/100"];
   Object.keys(FAMILIES).forEach((k) => {
     const sq = pct[k] >= 75 ? "🟩" : pct[k] >= 50 ? "🟨" : "🟥";
-    lines.push(sq + " " + FAMILIES[k].name + ": " + pct[k] + "%");
+    lines.push(sq + " " + FAMILIES[k].name);
   });
   lines.push("What would you have concluded?");
   navigator.clipboard.writeText(lines.join("\n")).then(() => {

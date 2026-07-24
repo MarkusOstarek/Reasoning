@@ -86,6 +86,44 @@ Scoring: per scenario, discernment = (clean rating − flawed rating + 4) / 8, g
 - Every empirical claim in an explanation must be sourced: peer-reviewed studies, official statistics, or recognized methodological explainers. At least one source per scenario is enforced by the build and displayed in the UI.
 - Tag valence honestly and keep the audit green.
 
+## Licence
+
+- **Code** — MIT ([LICENSE](LICENSE))
+- **Scenario bank and prose** — CC BY 4.0 ([LICENSE-CONTENT](LICENSE-CONTENT))
+
+Deliberately permissive so the item bank can be adopted, translated, adapted and
+validated without asking. Researchers: adapt it freely; open an issue if you need
+a variant or a citable version.
+
+## Contributing
+
+See [CONTRIBUTING.md](CONTRIBUTING.md). Disputing a verdict or proposing a
+scenario needs no code — both have issue templates. CI enforces the invariants on
+every pull request: both builders produce byte-identical output, the bank
+validates, the balance audit holds, no surface feature predicts a statement's
+role, and the committed `index.html` is up to date.
+
+## Measurement — an open decision
+
+The site currently collects **nothing**, so completion rate is unknown and every
+traction claim is a guess. This blocks the completion metric, the research
+outreach, and grant applications alike (see [docs/traction-plan.md](docs/traction-plan.md)).
+
+The intended shape, when it happens: a cookieless, anonymous counter
+(GoatCounter or Plausible, EU-hosted) recording only page views and four events —
+started, completed, copied results, daily played. Requires an account, so it is
+Markus's call, not a code change anyone can just make.
+
+Two rules if it is added:
+
+- **The landing-page promise must stay literally true.** "Your answers never
+  leave your browser" survives aggregate counts; it does not survive anything
+  keyed to a person.
+- **Item-level response data must not be collected here.** Validation needs it,
+  but it should be gathered by a research partner under their ethics approval
+  and real consent — cleaner, more publishable, and it leaves the privacy
+  promise intact.
+
 ## Roadmap
 
 - [x] Core check-up: 12 scenarios drawn from a bank, rating-scale mechanic, profile + miss-pattern results
@@ -95,8 +133,16 @@ Scoring: per scenario, discernment = (clean rating − flawed rating + 4) / 8, g
 - [x] Deployed: https://markusostarek.github.io/Reasoning/
 - [x] Tell audit: no surface feature (length, sentence count, vocabulary) predicts a statement's role
 - [x] Evidence pass: sound readings claim only what the vignette grants or a source supports
+- [x] Licensed (MIT code, CC BY 4.0 content) so the bank can actually be adopted
+- [x] CI, contribution docs, dispute triage policy — handoff-ready
+- [x] Accessibility: radiogroup rating scale with keyboard support, AA contrast
+- [x] Family profile presented with the uncertainty two items per family warrants
+- [ ] Decide on anonymous usage counts (blocks every traction number)
 - [ ] Playtest current bank; revise ambiguous items
-- [ ] Grow bank toward 40+ (deepens daily-mode rotation)
+- [ ] Grow bank toward 40+ — deepens daily rotation, and lets family scores rest
+      on 4–5 items instead of 2, which is what the profile really needs
+- [ ] Score the overshoot: it is rated but does not enter `discernment()`, so the
+      credulity/cynicism design is not yet implemented in the score
 - [ ] Custom domain
 - [ ] Share card (spoiler-free per-family profile image/text)
 - [ ] "Scenario of the day" mode with streaks — the habit-forming loop

@@ -1,0 +1,43 @@
+Reason Check — scenario bank and explanatory text
+Copyright (c) 2026 Markus Ostarek
+
+The scenario bank (src/scenarios.json) and the explanatory prose in this
+repository are licensed under the Creative Commons Attribution 4.0
+International License (CC BY 4.0).
+
+You are free to:
+
+  Share  — copy and redistribute the material in any medium or format
+  Adapt  — remix, transform, and build upon the material for any purpose,
+           including commercially
+
+Under the following terms:
+
+  Attribution — You must give appropriate credit, provide a link to the
+  license, and indicate if changes were made. You may do so in any reasonable
+  manner, but not in any way that suggests the licensor endorses you or your
+  use.
+
+Suggested attribution:
+
+  Scenario bank from Reason Check by Markus Ostarek, CC BY 4.0.
+  https://github.com/MarkusOstarek/Reasoning
+
+Full licence text: https://creativecommons.org/licenses/by/4.0/legalcode
+
+---
+
+Note for researchers and institutions
+
+This licence is deliberately permissive so the item bank can be adopted,
+translated, adapted and validated without negotiation. If you are running a
+study and need a variant of the bank, a different response format, or a
+citable version, please open an issue — adapting it is welcome and no
+permission is required.
+
+Note on scope
+
+This licence covers the scenario content and prose. The application code is
+licensed separately under the MIT License; see LICENSE. Sources cited within
+scenarios are the property of their respective publishers and are linked, not
+reproduced.

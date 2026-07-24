@@ -1,0 +1,57 @@
+name: CI
+
+# Guards the invariants a new maintainer cannot be expected to remember:
+# the two builders must agree, the bank must validate, the political balance
+# must hold, and no surface feature may give away a statement's role.
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+jobs:
+  build-and-audit:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Build with Node (validation + balance audit)
+        run: node build.js
+
+      - name: Keep the Node build output aside
+        run: |
+          mkdir -p .ci
+          cp index.html .ci/index.node.html
+          cp preview.html .ci/preview.node.html
+
+      - name: Build with PowerShell
+        shell: pwsh
+        run: ./build.ps1
+
+      # The two builders are maintained in parallel so the project works with or
+      # without Node. Nothing else stops them drifting apart.
+      - name: Both builders must produce byte-identical output
+        run: |
+          diff -q .ci/index.node.html index.html
+          diff -q .ci/preview.node.html preview.html
+          echo "build.js and build.ps1 agree"
+
+      - name: Tell audit (no surface feature may predict a statement's role)
+        shell: pwsh
+        run: ./tools/tells.ps1 -Strict
+
+      # Built files are committed, so a stale index.html would ship old content.
+      - name: Committed build output must be up to date
+        run: |
+          rm -rf .ci
+          if ! git diff --quiet -- index.html; then
+            echo "::error::index.html is out of date. Run the build and commit the result."
+            git diff --stat -- index.html
+            exit 1
+          fi
+          echo "index.html matches src/"

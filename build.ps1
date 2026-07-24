@@ -32,7 +32,9 @@ $UTF8 = New-Object System.Text.UTF8Encoding($false)
 function Read-Text($p) { [System.IO.File]::ReadAllText($p, $UTF8) }
 function Write-Text($p, $text) { [System.IO.File]::WriteAllText($p, $text, $UTF8) }
 
-$scenariosRaw = Read-Text (Join-Path $ROOT "src\scenarios.json")
+# [IO.Path]::Combine, not "src\file": CI runs this under pwsh on Linux, where a
+# backslash is an ordinary filename character rather than a separator.
+$scenariosRaw = Read-Text ([IO.Path]::Combine($ROOT, "src", "scenarios.json"))
 # ConvertFrom-Json emits the top-level array as a single object, so an @()
 # wrapper around the pipeline would nest it one level deep instead of flattening.
 try { $scenarios = ConvertFrom-Json $scenariosRaw }
@@ -107,7 +109,7 @@ $bank = Compress-Json $scenariosRaw
 # The bank is injected into an inline <script>; this sequence would close it early.
 if ($bank -match "(?i)</script") { Fail "a scenario contains the literal text '</script', which would break the inline script tag" }
 
-$template = Read-Text (Join-Path $ROOT "src\template.html")
+$template = Read-Text ([IO.Path]::Combine($ROOT, "src", "template.html"))
 $slot = $template.IndexOf("__SCENARIOS__")
 if ($slot -lt 0) { Fail "template.html is missing the __SCENARIOS__ placeholder" }
 # Index splice, not -replace: the bank is data and must never be read as a regex
@@ -154,8 +156,8 @@ $page =
   $meta + $fonts +
   "</head>`n<body>`n" + $pageBody + "`n</body>`n</html>`n"
 
-Write-Text (Join-Path $ROOT "index.html") $page
-Write-Text (Join-Path $ROOT "preview.html") $body
+Write-Text ([IO.Path]::Combine($ROOT, "index.html")) $page
+Write-Text ([IO.Path]::Combine($ROOT, "preview.html")) $body
 
 Write-Host "OK: $($scenarios.Count) scenarios ($(($FAMILIES | ForEach-Object { $_ + ':' + $perFamily[$_] }) -join ', '))"
 Write-Host "Balance: leans-left=$($byValence['leans-left']), leans-right=$($byValence['leans-right']), neutral=$($byValence['neutral'])"

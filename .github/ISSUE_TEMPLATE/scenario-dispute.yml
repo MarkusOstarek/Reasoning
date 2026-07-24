@@ -1,0 +1,50 @@
+name: Dispute a verdict
+description: Tell us a scenario's "correct" answer is wrong, ambiguous or arguable.
+title: "Scenario dispute: "
+labels: ["dispute"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        This is the most useful issue you can file. An instrument about careful
+        reasoning cannot ask to be taken on faith — if a verdict does not hold
+        up, we want to know before someone else finds it.
+
+        Every dispute gets one of four public outcomes: **Fixed**, **Pinned**
+        (the missing premise gets stated in the vignette), **Explained** (it
+        stands, and the reasoning is written down), or **Cut**.
+
+  - type: input
+    id: scenario
+    attributes:
+      label: Scenario id
+      description: Shown in the pre-filled title from the "Dispute it" link.
+      placeholder: bacon-risk
+    validations:
+      required: true
+
+  - type: dropdown
+    id: kind
+    attributes:
+      label: What is wrong with it?
+      options:
+        - The sound reading overclaims — it asserts more than the evidence given supports
+        - The sound reading is factually wrong or contested among experts
+        - The overshoot is actually reasonable
+        - The flawed reading is a strawman nobody would make
+        - Two of the three readings are defensible — the item is ambiguous
+        - The scenario reads as politically slanted
+        - Something else
+    validations:
+      required: true
+
+  - type: textarea
+    id: case
+    attributes:
+      label: Make the case
+      description: >
+        Be specific. "The clean answer overclaims because it treats the
+        association as established when the vignette never says the study was
+        sound" beats "this one felt off". Sources welcome, not required.
+    validations:
+      required: true
