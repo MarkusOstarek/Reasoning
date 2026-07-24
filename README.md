@@ -109,10 +109,21 @@ The site currently collects **nothing**, so completion rate is unknown and every
 traction claim is a guess. This blocks the completion metric, the research
 outreach, and grant applications alike (see [docs/traction-plan.md](docs/traction-plan.md)).
 
-The intended shape, when it happens: a cookieless, anonymous counter
-(GoatCounter or Plausible, EU-hosted) recording only page views and four events —
-started, completed, copied results, daily played. Requires an account, so it is
-Markus's call, not a code change anyone can just make.
+**The code is in place and switched off.** `src/template.html` has an
+`ANALYTICS_ENDPOINT` constant, empty by default, and nothing is sent while it is
+empty. To turn it on:
+
+1. Create a free GoatCounter site (cookieless, open source, EU-hosted).
+2. Set `ANALYTICS_ENDPOINT = "https://YOURCODE.goatcounter.com"` (no trailing slash).
+3. Rebuild and commit.
+
+It counts a visit plus four events — `started`, `completed`, `copied-results`,
+`daily-played`. It is a pixel, not a third-party script: no external JavaScript
+runs on the page, nothing is readable back, and no cookie is set.
+
+**The privacy promise on the landing page is generated from that constant**
+(`privacyLine()`), so switching the counter on rewrites the promise in the same
+commit and the two cannot drift apart.
 
 Two rules if it is added:
 
@@ -137,12 +148,15 @@ Two rules if it is added:
 - [x] CI, contribution docs, dispute triage policy — handoff-ready
 - [x] Accessibility: radiogroup rating scale with keyboard support, AA contrast
 - [x] Family profile presented with the uncertainty two items per family warrants
-- [ ] Decide on anonymous usage counts (blocks every traction number)
-- [ ] Playtest current bank; revise ambiguous items
-- [ ] Grow bank toward 40+ — deepens daily rotation, and lets family scores rest
-      on 4–5 items instead of 2, which is what the profile really needs
-- [ ] Score the overshoot: it is rated but does not enter `discernment()`, so the
-      credulity/cynicism design is not yet implemented in the score
+- [x] Two-axis scoring: discernment and overcorrection reported separately, never blended
+- [x] Usage counter written and switched off; one constant turns it on
+- [ ] Create the GoatCounter site and set `ANALYTICS_ENDPOINT` (blocks every traction number)
+- [ ] Send the research outreach — longest latency item, don't gate it on polish
+- [ ] Seed playtest, [protocol here](docs/playtest-protocol.md) — the gate before promotion
+- [ ] Grow bank toward 40+ for daily rotation and to retire weak items. Note this
+      does *not* fix the 2-items-per-family profile: that is limited by session
+      length, not bank size. If a real profile is wanted, collapse six families
+      into three broader dimensions (4 items each from the same 12-item test).
 - [ ] Custom domain
 - [ ] Share card (spoiler-free per-family profile image/text)
 - [ ] "Scenario of the day" mode with streaks — the habit-forming loop

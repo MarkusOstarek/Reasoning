@@ -375,6 +375,20 @@
 
   .fairness, .fineprint { max-width: 38rem; color: var(--muted); font-size: 0.95rem; margin: 0 0 1.1rem; }
   .fairness strong, .fineprint strong { color: var(--ink); }
+  /* Two axes, deliberately not blended into one number: a credulous reader and
+     an over-doubting one would otherwise score the same for opposite reasons. */
+  .axes { display: grid; gap: 0.7rem; max-width: 38rem; margin: 0 0 1.6rem; }
+  .axis {
+    border-left: 3px solid var(--line);
+    padding: 0.15rem 0 0.15rem 0.9rem;
+  }
+  .axis-head {
+    font-family: ui-monospace, "Cascadia Mono", Consolas, Menlo, monospace;
+    font-size: 0.72rem; letter-spacing: 0.08em; text-transform: uppercase;
+    color: var(--muted); margin-bottom: 0.12rem;
+  }
+  .axis-val { font-weight: 700; color: var(--ink); }
+  .axis p { margin: 0.1rem 0 0; color: var(--muted); font-size: 0.92rem; line-height: 1.5; }
   .profile-basis { max-width: 38rem; color: var(--muted); font-size: 0.95rem; margin: 0 0 1.2rem; }
   .profile-basis strong { color: var(--ink); }
   /* How many scenarios a bar rests on — shown so the reader can discount it. */
@@ -407,7 +421,7 @@
     <ul class="isnt">
       <li><span><strong>Not an IQ test.</strong> It looks at reasoning habits, not intelligence &mdash; and habits, unlike IQ, are very learnable.</span></li>
       <li><span><strong>Not about your politics.</strong> The scenarios draw from all directions. Careful reasoning isn&rsquo;t a team.</span></li>
-      <li><span><strong>Nothing stored.</strong> Everything runs in your browser. No sign-up, no tracking; your answers vanish when you close the tab, and your daily streak lives only on your device.</span></li>
+      <li><span id="privacy-line"></span></li>
     </ul>
     <div class="start-row">
       <button class="btn-primary" id="btn-start">Start the check-up</button>
@@ -460,6 +474,8 @@
       <span class="big-score" id="r-score"></span>
     </div>
     <p class="overall-copy" id="r-copy"></p>
+
+    <div class="axes" id="r-axes"></div>
 
     <div id="daily-result" class="hidden">
       <div class="end-row">
@@ -549,6 +565,37 @@ const FAMILIES = {
   }
 };
 
+/* ---------- Anonymous usage counts ----------
+   Off until an endpoint is set. Paste a GoatCounter site URL (no trailing
+   slash) to switch it on, e.g. "https://reasoncheck.goatcounter.com".
+
+   Deliberately a pixel rather than a third-party script: no external JS runs on
+   this page, nothing is readable back, and there is no cookie to set. What
+   leaves the browser is a path and a title — never an answer, a score, or
+   anything keyed to a person.
+
+   The privacy promise on the landing page is generated from this constant
+   (see privacyLine), so it cannot drift out of step with what actually happens.
+   Changing this value changes the promise in the same commit. */
+const ANALYTICS_ENDPOINT = "";
+
+function track(event) {
+  if (!ANALYTICS_ENDPOINT) return;
+  try {
+    new Image().src = ANALYTICS_ENDPOINT + "/count?p=" +
+      encodeURIComponent("/" + event) + "&t=" + encodeURIComponent(event);
+  } catch (e) { /* counting must never break the page */ }
+}
+
+function privacyLine() {
+  return ANALYTICS_ENDPOINT
+    ? "<strong>Nothing about you is stored.</strong> No accounts, no cookies, no personal data. " +
+      "We count anonymous visits and completions so we know whether this works &mdash; nothing else. " +
+      "Your answers never leave your browser, and your daily streak lives only on your device."
+    : "<strong>Nothing stored.</strong> Everything runs in your browser. No sign-up, no tracking; " +
+      "your answers vanish when you close the tab, and your daily streak lives only on your device.";
+}
+
 const SCENARIOS = __SCENARIOS__;
 
 const OVERALL = [
@@ -603,6 +650,7 @@ function dailyScenario() {
 
 function startDaily() {
   mode = "daily";
+  track("daily-played");
   const s = dailyScenario();
   order = [{ ...s, stmts: shuffle(s.statements) }];
   idx = 0;
@@ -626,6 +674,7 @@ function dailyResults() {
     + (st.best > st.streak ? " <strong>Best streak: " + st.best + ".</strong>" : "");
   $("fam-grid").classList.add("hidden");
   $("r-basis").classList.add("hidden");
+  $("r-axes").classList.add("hidden");
   $("r-fairness").classList.add("hidden");
   $("r-fineprint").classList.add("hidden");
   $("r-actions").classList.add("hidden");
@@ -662,6 +711,7 @@ function show(name) {
 
 function start() {
   mode = "checkup";
+  track("started");
   // Draw 2 scenarios per family at random, so retakes get fresh material.
   const byFam = {};
   shuffle(SCENARIOS).forEach((s) => { (byFam[s.family] = byFam[s.family] || []).push(s); });
@@ -807,6 +857,12 @@ function famScores() {
   return pct;
 }
 
+/* Second axis: average agreement with the overcorrections, 0–1. Kept beside the
+   discernment score rather than inside it — see results(). */
+function cynicismScore() {
+  return answers.reduce((s, a) => s + a.over, 0) / answers.length / 4;
+}
+
 /* How many scenarios each family score rests on. Shown to the reader: with two
    scenarios per family, a bar points at a habit but cannot measure one. */
 function famCounts() {
@@ -829,6 +885,7 @@ function results() {
   if (mode === "daily") return dailyResults();
   $("fam-grid").classList.remove("hidden");
   $("r-basis").classList.remove("hidden");
+  $("r-axes").classList.remove("hidden");
   $("r-fairness").classList.remove("hidden");
   $("r-fineprint").classList.remove("hidden");
   $("r-actions").classList.remove("hidden");
@@ -844,7 +901,12 @@ function results() {
   // Miss pattern: over-believing flawed readings vs. blanket-doubting sound ones.
   const mean = (f) => answers.reduce((s, a) => s + a[f], 0) / answers.length;
   const credulity = mean("flawed") / 4;
-  const cynicism = (mean("over") + (4 - mean("clean"))) / 8;
+  /* Agreement with the overcorrections, and nothing else. The old formula added
+     (4 − mean(clean)), which double-counts: rejecting the sound reading is
+     already penalised inside discernment. This axis is reported beside the
+     score, never folded into it — blending them would give a credulous reader
+     and an over-doubting one the same number for opposite reasons. */
+  const cynicism = cynicismScore();
   let style;
   if (score >= 90) style = "Too few misses to show a pattern — your calibration is doing fine.";
   else if (credulity > 0.55 && cynicism > 0.55) style = "You swing between over-believing and over-doubting depending on the topic — which usually means the deciding factor is how a claim feels, not what supports it. The habits below give you something steadier.";
@@ -852,6 +914,20 @@ function results() {
   else if (cynicism > 0.55) style = "Your misses lean toward doubting too broadly — rejecting sound readings along with flawed ones. Blanket doubt feels rigorous, but it filters out true things too. The skill to practice is doubting selectively.";
   else style = "Your misses don't come from a general habit of over-believing or blanket doubt — they're specific to the areas below, which makes them easy to target.";
   $("r-copy").innerHTML = band.copy + "<br><br><strong>Your miss pattern:</strong> " + style;
+
+  const cynBand = cynicism > 0.55 ? "High" : cynicism >= 0.35 ? "Moderate" : "Low";
+  const cynCopy = cynicism > 0.55
+    ? "You often followed readings that doubted too far — dismissing the evidence rather than weighing it. Blanket doubt feels rigorous and costs you true things."
+    : cynicism >= 0.35
+      ? "You gave the overcorrections some weight. Worth watching: the reading that dismisses everything is wrong as often as the one that believes everything."
+      : "You mostly declined the readings that overcorrected — doubting the flawed claim without throwing out the sound one alongside it.";
+  $("r-axes").innerHTML =
+    '<div class="axis"><div class="axis-head">Discernment &middot; <span class="axis-val">' + score + " / 100</span></div>" +
+    "<p>How far you separated the reading the evidence supports from the one it doesn&rsquo;t. This is the score above.</p></div>" +
+    '<div class="axis"><div class="axis-head">Overcorrection &middot; <span class="axis-val">' + cynBand + "</span></div>" +
+    "<p>" + cynCopy + " Reported separately on purpose &mdash; it measures a different habit, so averaging it into the score would hide both.</p></div>";
+
+  track("completed");
 
   const counts = famCounts();
   const per = Object.keys(FAMILIES).map((k) => counts[k]);
@@ -891,7 +967,12 @@ function results() {
 
 function copyResults() {
   const pct = famScores();
-  const lines = ["Reason Check — my reasoning profile: " + overallScore() + "/100"];
+  track("copied-results");
+  const cyn = cynicismScore();
+  const lines = [
+    "Reason Check — my reasoning profile: " + overallScore() + "/100",
+    "Overcorrection: " + (cyn > 0.55 ? "High" : cyn >= 0.35 ? "Moderate" : "Low")
+  ];
   Object.keys(FAMILIES).forEach((k) => {
     const sq = pct[k] >= 75 ? "🟩" : pct[k] >= 50 ? "🟨" : "🟥";
     lines.push(sq + " " + FAMILIES[k].name);
@@ -925,4 +1006,9 @@ $("btn-retake").addEventListener("click", start);
 $("btn-copy").addEventListener("click", copyResults);
 $("btn-share-daily").addEventListener("click", shareDaily);
 $("btn-full").addEventListener("click", start);
+
+// The promise shown to the reader is generated from ANALYTICS_ENDPOINT, so the
+// two can never disagree.
+$("privacy-line").innerHTML = privacyLine();
+track("visit");
 </script>
